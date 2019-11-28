@@ -1,0 +1,63 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# zipangu
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of `{zipangu}` is to replace the functionality provided by the `{Nippon}` archived from CRAN. Add some functions to make it easier to treat data that address, year, and Kanji.
+
+## Installation
+
+You can install the released version of `{zipangu}` from GitHub with:
+
+``` r
+install.packages("remotes")
+remotes::install_github("uribo/zipangu")
+```
+
+## API
+
+```{r}
+library(zipangu)
+```
+
+
+### Address
+
+```{r}
+separate_address("東京都千代田区大手町一丁目")
+```
+
+### Year (Japanese imperial year)
+
+```{r}
+convert_jyear("R1")
+```
+
+### Kansuji
+
+```{r}
+kansuji2arabic(c("一", "百"))
+
+kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
+```
+
+### Dataset
+
+```{r}
+jpnprefs
+```

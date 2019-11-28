@@ -7,7 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "suika1127@gmail.com",
            comment = c(ORCID = "0000-0002-0493-6186"))
-Description: What the package does (one paragraph).
+Description: Some data treated by the Japanese R user
+    require unique operations and processing. These are caused 
+    by address, kanji, and traditional year representations.
+    'zipangu' transforms specific to Japan into something more general one.
+URL: https://github.com/uribo/zipangu
+BugReports: https://github.com/uribo/zipangu/issues
 Depends: 
     R (>= 3.1)
 License: MIT + file LICENSE
