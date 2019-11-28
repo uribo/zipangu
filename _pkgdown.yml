@@ -1,0 +1,34 @@
+url: https://uribo.github.io/zipangu
+
+authors:
+  Shinya Uryu:
+    href: https://suryu.me
+
+templates:
+  params:
+    bootswatch: paper
+
+navbar:
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html
+
+reference:
+  - title: "Address"
+    contents:
+    - separate_address
+  - title: "Japanese imperial year"
+    contents:
+    - convert_jyear
+  - title: "Kansuji"
+    contents:
+    - kansuji2arabic
+    - kansuji2arabic_all
+  - title: "Datasets"
+    contents:
+    - jpnprefs
