@@ -56,14 +56,6 @@ test_that("address separate works", {
     )
   )
   expect_equal(
-    separate_address("東京都千代田区麹町六丁目"),
-    list(
-      prefecture = "東京都",
-      city = "千代田区",
-      street = "麹町六丁目"
-    )
-  )
-  expect_equal(
     separate_address("岡山県岡山市南区西七区"),
     list(
       prefecture = "岡山県",
