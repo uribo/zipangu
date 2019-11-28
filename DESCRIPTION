@@ -17,8 +17,6 @@ Imports:
     stringr (>= 1.4.0)
 Suggests: 
     testthat (>= 2.1.0)
-RdMacros: 
-    lifecycle
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
