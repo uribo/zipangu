@@ -1,5 +1,6 @@
 #' Convert kansuji character to arabic
 #' @description
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
 #' `kansuji2arabic_all()` converts only Kansuji in the string.
 #' @param str Input vector.

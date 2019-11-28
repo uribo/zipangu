@@ -3,4 +3,5 @@
 export("%>%")
 export(kansuji2arabic)
 export(kansuji2arabic_all)
+importFrom(lifecycle,deprecate_soft)
 importFrom(magrittr,"%>%")

@@ -9,14 +9,17 @@ Authors@R:
            comment = c(ORCID = "0000-0002-0493-6186"))
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 Imports: 
     magrittr (>= 1.5),
     dplyr (>= 0.8.3),
     purrr (>= 0.3.3),
+    lifecycle (>= 0.1.0),
     stringr (>= 1.4.0)
 Suggests: 
     testthat (>= 2.1.0)
+RdMacros: 
+    lifecycle
+Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.1

@@ -23,6 +23,7 @@ and numeric values are treated as strings.}
 a character or numeric.
 }
 \description{
+\Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
 \code{kansuji2arabic_all()} converts only Kansuji in the string.
 }
