@@ -3,3 +3,8 @@
 ^LICENSE\.md$
 ^data-raw$
 ^README\.Rmd$
+^\.travis\.yml$
+^\.github/workflows/R-CMD-check\.yaml$
+^codecov\.yml$
+^\.covrignore$
+^cran-comments\.md$
