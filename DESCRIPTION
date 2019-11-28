@@ -1,0 +1,18 @@
+Package: zipangu
+Title: Japanese utility functions and data
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Shinya",
+           family = "Uryu",
+           role = c("aut", "cre"),
+           email = "suika1127@gmail.com",
+           comment = c(ORCID = "0000-0002-0493-6186"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.1
+Imports: 
+    magrittr
+Suggests: 
+    testthat (>= 2.1.0)
