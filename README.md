@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# zipangu
+# zipangu <img src="man/figures/logo.png" align="right" width="120px" />
 
 <!-- badges: start -->
 
@@ -27,7 +27,13 @@ treat data that address, year, and Kanji.
 
 ## Installation
 
-You can install the released version of `{zipangu}` from GitHub with:
+You can install the released version of `{zipangu}` from CRAN with:
+
+``` r
+install.packages("zipangu")
+```
+
+and also, the developmment version from GitHub
 
 ``` r
 install.packages("remotes")
@@ -71,7 +77,7 @@ kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 #> [1] "北海道札幌市中央区北1条西2丁目"
 ```
 
-### Dataset
+### Data set
 
 ``` r
 jpnprefs

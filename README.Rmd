@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# zipangu
+# zipangu <img src="man/figures/logo.png" align="right" width="120px" />
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental) 
@@ -29,7 +29,13 @@ The goal of `{zipangu}` is to replace the functionality provided by the `{Nippon
 
 ## Installation
 
-You can install the released version of `{zipangu}` from GitHub with:
+You can install the released version of `{zipangu}` from CRAN with:
+
+``` r
+install.packages("zipangu")
+```
+
+and also, the developmment version from GitHub
 
 ``` r
 install.packages("remotes")
@@ -63,7 +69,7 @@ kansuji2arabic(c("一", "百"))
 kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 ```
 
-### Dataset
+### Data set
 
 ```{r}
 jpnprefs
