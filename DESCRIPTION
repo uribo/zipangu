@@ -23,6 +23,7 @@ Imports:
     purrr (>= 0.3.3),
     lifecycle (>= 0.1.0),
     rlang (>= 0.4.0),
+    stringi (>= 1.4.3),
     stringr (>= 1.4.0)
 Suggests: 
     testthat (>= 2.1.0),
