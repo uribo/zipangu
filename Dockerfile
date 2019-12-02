@@ -13,7 +13,8 @@ RUN set -x && \
   echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
 
 RUN set -x && \
-  install2.r --error \
+  install2.r --error --skipinstalled --repos 'http://mran.revolutionanalytics.com/snapshot/2019-12-02' \
     magick \
+    roxygen2 \
     pkgdown && \
   rm -rf /tmp/downloaded_packages/ /tmp/*.rds
