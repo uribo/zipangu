@@ -7,27 +7,27 @@ Authors@R:
            role = c("aut", "cre"),
            email = "suika1127@gmail.com",
            comment = c(ORCID = "0000-0002-0493-6186"))
-Description: Some data treated by the Japanese R user
-    require unique operations and processing. These are caused 
-    by address, Kanji, and traditional year representations.
-    'zipangu' transforms specific to Japan into something more general one.
-URL: https://uribo.github.io/zipangu, 
+Description: Some data treated by the Japanese R user require
+    unique operations and processing. These are caused by address, Kanji,
+    and traditional year representations.  'zipangu' transforms specific
+    to Japan into something more general one.
+License: MIT + file LICENSE
+URL: https://uribo.github.io/zipangu,
     https://github.com/uribo/zipangu
 BugReports: https://github.com/uribo/zipangu/issues
 Depends: 
     R (>= 3.2)
-License: MIT + file LICENSE
 Imports: 
-    magrittr (>= 1.5),
     dplyr (>= 0.8.3),
-    purrr (>= 0.3.3),
     lifecycle (>= 0.1.0),
+    magrittr (>= 1.5),
+    purrr (>= 0.3.3),
     rlang (>= 0.4.0),
     stringi (>= 1.4.3),
     stringr (>= 1.4.0)
 Suggests: 
-    testthat (>= 2.1.0),
-    covr (>= 3.4.0)
+    covr (>= 3.4.0),
+    testthat (>= 2.1.0)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
