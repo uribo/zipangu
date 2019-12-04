@@ -72,3 +72,16 @@ test_that("address separate works", {
     )
   )
 })
+
+test_that("Is address elements", {
+  expect_true(
+    is_prefecture("\u5ca1\u5c71\u770c")
+  )
+  expect_false(
+    is_prefecture("\u5ca1\u6d77\u770c")
+  )
+  expect_false(
+    # Does not contain anything other character than the prefecture name
+    is_prefecture("\u8328\u57ce\u770c\u3064\u304f\u3070\u5e02")
+  )
+})

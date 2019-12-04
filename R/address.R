@@ -18,8 +18,16 @@ separate_address <- function(str) {
                        simplify = TRUE) %>%
     stringr::str_subset(".{1}", negate = FALSE)
   if (length(split_pref) == 1L) {
-    split_pref[2] <- split_pref
-    split_pref[1] <- NA_character_
+    if (is_prefecture(str)) {
+      split_pref <- c(split_pref, NA_character_)
+    } else {
+      if (stringr::str_detect(split_pref,
+                              city_name_regex)) {
+        split_pref <- c(NA_character_, split_pref)
+      } else {
+        split_pref <- c(NA_character_, NA_character_)
+      }
+    }
   }
   if (length(split_pref[2] %>%
              stringr::str_split(city_name_regex,
@@ -64,4 +72,9 @@ separate_address <- function(str) {
     purrr::map(
       ~ dplyr::if_else(.x == "", NA_character_, .x)
     )
+}
+
+is_prefecture <- function(str) {
+  stringr::str_detect(str,
+                      stringr::regex("^(\u5317\u6d77\u9053|\u6771\u4eac\u90fd|(\u5927\u962a|\u4eac\u90fd)\u5e9c|(\u795e\u5948\u5ddd|\u548c\u6b4c\u5c71|\u9e7f\u5150\u5cf6)\u770c|(\u9752\u68ee|\u5ca9\u624b|\u5bae\u57ce|\u79cb\u7530|\u5c71\u5f62|\u798f\u5cf6|\u8328\u57ce|\u6803\u6728|\u7fa4\u99ac|\u57fc\u7389|\u5343\u8449|\u65b0\u6f5f|\u5bcc\u5c71|\u77f3\u5ddd|\u798f\u4e95|\u5c71\u68a8|\u9577\u91ce|\u5c90\u961c|\u9759\u5ca1|\u611b\u77e5|\u4e09\u91cd|\u6ecb\u8cc0|\u5175\u5eab|\u5948\u826f|\u9ce5\u53d6|\u5cf6\u6839|\u5ca1\u5c71|\u5e83\u5cf6|\u5c71\u53e3|\u5fb3\u5cf6|\u9999\u5ddd|\u611b\u5a9b|\u9ad8\u77e5|\u798f\u5ca1|\u4f50\u8cc0|\u9577\u5d0e|\u718a\u672c|\u5927\u5206|\u5bae\u5d0e|\u6c96\u7e04)\u770c)$"))
 }
