@@ -63,6 +63,14 @@ test_that("address separate works", {
       street = "西七区"
     )
   )
+  expect_equivalent(
+    unlist(separate_address("神奈川県")),
+    c("神奈川県", NA_character_, NA_character_)
+  )
+  expect_equivalent(
+    unlist(separate_address("西京都は存在しない")),
+    c(NA_character_, NA_character_, NA_character_)
+  )
   expect_equal(
     separate_address("岡山市"),
     list(
