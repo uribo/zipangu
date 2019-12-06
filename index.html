@@ -119,33 +119,47 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/convert_jyear.html">convert_jyear</a></span>(<span class="st">"R1"</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] 2019</span></a></code></pre></div>
 </div>
-<div id="kansuji" class="section level3">
+<div id="convert" class="section level3">
 <h3 class="hasAnchor">
-<a href="#kansuji" class="anchor"></a>Kansuji</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/kansuji.html">kansuji2arabic</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"一"</span>, <span class="st">"百"</span>))</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "1"   "100"</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="reference/kansuji.html">kansuji2arabic_all</a></span>(<span class="st">"北海道札幌市中央区北一条西二丁目"</span>)</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; [1] "北海道札幌市中央区北1条西2丁目"</span></a></code></pre></div>
+<a href="#convert" class="anchor"></a>Convert</h3>
+<div id="hiragana-to-katakana-and-more" class="section level4">
+<h4 class="hasAnchor">
+<a href="#hiragana-to-katakana-and-more" class="anchor"></a>Hiragana to Katakana and more…</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/str_jconv.html">str_jconv</a></span>(<span class="st">"アイウエオ"</span>, </a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">          str_conv_hirakana, <span class="dt">to =</span> <span class="st">"hiragana"</span>)</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; [1] "あいうえお"</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw"><a href="reference/str_jconv.html">str_conv_zenhan</a></span>(<span class="st">"ｶﾞｯ"</span>, <span class="st">"zenkaku"</span>)</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; [1] "ガッ"</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="kw"><a href="reference/str_jconv.html">str_conv_romanhira</a></span>(<span class="st">"aiueo"</span>, <span class="st">"hiragana"</span>)</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; [1] "あいうえお"</span></a></code></pre></div>
+</div>
+<div id="kansuji" class="section level4">
+<h4 class="hasAnchor">
+<a href="#kansuji" class="anchor"></a>Kansuji</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="reference/kansuji.html">kansuji2arabic</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"一"</span>, <span class="st">"百"</span>))</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] "1"   "100"</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="reference/kansuji.html">kansuji2arabic_all</a></span>(<span class="st">"北海道札幌市中央区北一条西二丁目"</span>)</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; [1] "北海道札幌市中央区北1条西2丁目"</span></a></code></pre></div>
+</div>
 </div>
 <div id="data-set" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data-set" class="anchor"></a>Data set</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">jpnprefs</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; # A tibble: 47 x 5</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt;    jis_code prefecture_kanji prefecture    region   major_island</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;  1 01       北海道           Hokkaido      Hokkaido Hokkaido    </span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;  2 02       青森県           Aomori-ken    Tohoku   Honshu      </span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt;  3 03       岩手県           Iwate-ken     Tohoku   Honshu      </span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;  4 04       宮城県           Miyagi-ken    Tohoku   Honshu      </span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;  5 05       秋田県           Akita-ken     Tohoku   Honshu      </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;  6 06       山形県           Yamagata-ken  Tohoku   Honshu      </span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt;  7 07       福島県           Fukushima-ken Tohoku   Honshu      </span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt;  8 08       茨城県           Ibaraki-ken   Kanto    Honshu      </span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt;  9 09       栃木県           Tochigi-ken   Kanto    Honshu      </span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; 10 10       群馬県           Gunma-ken     Kanto    Honshu      </span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; # … with 37 more rows</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">jpnprefs</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; # A tibble: 47 x 5</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt;    jis_code prefecture_kanji prefecture    region   major_island</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       </span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;  1 01       北海道           Hokkaido      Hokkaido Hokkaido    </span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;  2 02       青森県           Aomori-ken    Tohoku   Honshu      </span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt;  3 03       岩手県           Iwate-ken     Tohoku   Honshu      </span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt;  4 04       宮城県           Miyagi-ken    Tohoku   Honshu      </span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt;  5 05       秋田県           Akita-ken     Tohoku   Honshu      </span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;  6 06       山形県           Yamagata-ken  Tohoku   Honshu      </span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;  7 07       福島県           Fukushima-ken Tohoku   Honshu      </span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;  8 08       茨城県           Ibaraki-ken   Kanto    Honshu      </span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;  9 09       栃木県           Tochigi-ken   Kanto    Honshu      </span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt; 10 10       群馬県           Gunma-ken     Kanto    Honshu      </span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt; # … with 37 more rows</span></a></code></pre></div>
 </div>
 </div>
 </div>
