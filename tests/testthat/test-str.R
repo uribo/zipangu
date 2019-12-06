@@ -16,6 +16,10 @@ test_that("conver jstr works", {
     "\u30ac\u30c3"
   )
   expect_equal(
+    str_jconv("\u3042\u3044\u3046\u3048\u304a", str_conv_romanhira, "roman"),
+    "aiueo"
+  )
+  expect_equal(
     str_jconv("\u2460", str_conv_normalize, "nfkc"),
     "1"
   )
@@ -34,6 +38,14 @@ test_that("conver jstr works", {
   expect_equal(
     str_conv_zenhan("\uff76\uff9e\uff6f", "zenkaku"),
     "\u30ac\u30c3"
+  )
+  expect_equal(
+    str_conv_romanhira("\u3042\u3044\u3046\u3048\u304a", "roman"),
+    "aiueo"
+  )
+  expect_equal(
+    str_conv_romanhira("hiragana", "hiragana"),
+    "\u3072\u3089\u304c\u306a"
   )
   expect_equal(
     str_conv_normalize("\u2460", "nfkc"),

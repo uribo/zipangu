@@ -4,6 +4,7 @@
 \alias{str_jconv}
 \alias{str_conv_hirakana}
 \alias{str_conv_zenhan}
+\alias{str_conv_romanhira}
 \alias{str_conv_normalize}
 \title{Converts the kind of string used as Japanese}
 \usage{
@@ -12,6 +13,8 @@ str_jconv(str, fun, to)
 str_conv_hirakana(str, to = c("hiragana", "katakana"))
 
 str_conv_zenhan(str, to = c("zenkaku", "hankaku"))
+
+str_conv_romanhira(str, to = c("roman", "hiragana"))
 
 str_conv_normalize(str, to = c("nfkc"))
 }
@@ -26,17 +29,30 @@ str_conv_normalize(str, to = c("nfkc"))
 \Sexpr[results=rd, stage=render]{lifecycle::badge("stable")}
 }
 \details{
-Conversion form Katakana to Hiragana, vice versa
+Converts the types of string treat by Japanese people to
+each other. The following types are supported.
+\itemize{
+\item Hiraganra to Katakana
+\item Zenkaku to Hankaku
+\item Latin (Roman) to Hiragana
+}
 }
 \examples{
 str_jconv("\u30a2\u30a4\u30a6\u30a8\u30aa", str_conv_hirakana, to = "hiragana")
 str_jconv("\u3042\u3044\u3046\u3048\u304a", str_conv_hirakana, to = "katakana")
 str_jconv("\uff41\uff10", str_conv_zenhan, "hankaku")
 str_jconv("\uff76\uff9e\uff6f", str_conv_zenhan, "zenkaku")
+str_jconv("\u30a2\u30a4\u30a6\u30a8\u30aa", str_conv_romanhira, "roman")
 str_jconv("\u2460", str_conv_normalize, "nfkc")
 str_conv_hirakana("\u30a2\u30a4\u30a6\u30a8\u30aa", to = "hiragana")
 str_conv_hirakana("\u3042\u3044\u3046\u3048\u304a", to = "katakana")
 str_conv_zenhan("\uff41\uff10", "hankaku")
 str_conv_zenhan("\uff76\uff9e\uff6f", "zenkaku")
+str_conv_romanhira("aiueo", "hiragana")
+str_conv_romanhira("\u3042\u3044\u3046\u3048\u304a", "roman")
 str_conv_normalize("\u2460", "nfkc")
+}
+\seealso{
+These functions are powered by the stringi
+package's \link[stringi:stri_trans_general]{stri_trans_general()}.
 }
