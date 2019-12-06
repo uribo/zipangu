@@ -25,10 +25,11 @@ reference:
   - title: "Japanese imperial year"
     contents:
     - convert_jyear
-  - title: "Kansuji"
+  - title: "Converts the kind of string used as Japanese people"
     contents:
     - kansuji2arabic
     - kansuji2arabic_all
+    - str_jconv
   - title: "Datasets"
     contents:
     - jpnprefs
