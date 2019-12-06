@@ -67,12 +67,25 @@ convert_jyear("R1")
 #> [1] 2019
 ```
 
-### Kansuji
+### Convert
+
+#### Hiragana to Katakana and more…
+
+``` r
+str_jconv("アイウエオ", 
+          str_conv_hirakana, to = "hiragana")
+#> [1] "あいうえお"
+str_conv_zenhan("ｶﾞｯ", "zenkaku")
+#> [1] "ガッ"
+str_conv_romanhira("aiueo", "hiragana")
+#> [1] "あいうえお"
+```
+
+#### Kansuji
 
 ``` r
 kansuji2arabic(c("一", "百"))
 #> [1] "1"   "100"
-
 kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 #> [1] "北海道札幌市中央区北1条西2丁目"
 ```

@@ -61,11 +61,22 @@ separate_address("東京都千代田区大手町一丁目")
 convert_jyear("R1")
 ```
 
-### Kansuji
+### Convert
+
+#### Hiragana to Katakana and more...
+
+```{r}
+str_jconv("アイウエオ", 
+          str_conv_hirakana, to = "hiragana")
+str_conv_zenhan("ｶﾞｯ", "zenkaku")
+str_conv_romanhira("aiueo", "hiragana")
+```
+
+
+#### Kansuji
 
 ```{r}
 kansuji2arabic(c("一", "百"))
-
 kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 ```
 
