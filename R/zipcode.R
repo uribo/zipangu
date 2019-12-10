@@ -90,7 +90,8 @@ read_zipcode <- function(path, type = c("oogaki", "kogaki", "roman", "jigyosyo")
 #' is_zipcode("700-0027")
 #' @export
 is_zipcode <- function(x) {
-  checked <- stringr::str_detect(x, "^([0-9]{3}-[0-9]{4}|[0-9]{3}[0-9]{4})$")
+  checked <- stringr::str_detect(x,
+                                 "^[0-9]{3}-?[0-9]{4}$")
   if (rlang::is_false(checked))
     rlang::inform("7\u6841\u306e\u6570\u5024\u3067\u306f\u3042\u308a\u307e\u305b\u3093")
   checked
