@@ -1,6 +1,10 @@
 #' Read Japan post's zip-code file
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
+#' @details
+#' Reads zip-code data in csv format provided by japan post group and parse it as a data.frame.
+#' Corresponds to the available "oogaki", "kogaki", "roman" and "jigyosyo" types.
+#' These file types must be specified by the argument.
 #' @param path local file path or zip file URL
 #' @param type Input file type, one of "oogaki", "kogaki", "roman", "jigyosyo"
 #' @return [tibble][tibble::tibble]
@@ -8,10 +12,14 @@
 #' [https://www.post.japanpost.jp/zipcode/dl/jigyosyo/readme.html](https://www.post.japanpost.jp/zipcode/dl/jigyosyo/readme.html)
 #' @examples
 #' # Input sources
-#' read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
-#' read_zipcode(system.file("zipcode_dummy/13TOKYO_kogaki.CSV", package = "zipangu"), "oogaki")
-#' read_zipcode(system.file("zipcode_dummy/KEN_ALL_ROME.CSV", package = "zipangu"), "roman")
-#' read_zipcode(system.file("zipcode_dummy/JIGYOSYO.CSV", package = "zipangu"), "jigyosyo")
+#' read_zipcode(path = system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"),
+#'              type = "oogaki")
+#' read_zipcode(system.file("zipcode_dummy/13TOKYO_kogaki.CSV", package = "zipangu"),
+#'              "oogaki")
+#' read_zipcode(system.file("zipcode_dummy/KEN_ALL_ROME.CSV", package = "zipangu"),
+#'              "roman")
+#' read_zipcode(system.file("zipcode_dummy/JIGYOSYO.CSV", package = "zipangu"),
+#'              "jigyosyo")
 #' \dontrun{
 #' # Or directly from a URL
 #' read_zipcode("https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip")
