@@ -7,7 +7,7 @@
 read_zipcode(path, type = c("oogaki", "kogaki", "roman", "jigyosyo"))
 }
 \arguments{
-\item{path}{path}
+\item{path}{local file path or zip file URL}
 
 \item{type}{Input file type, one of "oogaki", "kogaki", "roman", "jigyosyo"}
 }
@@ -16,6 +16,17 @@ read_zipcode(path, type = c("oogaki", "kogaki", "roman", "jigyosyo"))
 }
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
+}
+\examples{
+# Input sources
+read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
+read_zipcode(system.file("zipcode_dummy/13TOKYO_kogaki.CSV", package = "zipangu"), "oogaki")
+read_zipcode(system.file("zipcode_dummy/KEN_ALL_ROME.CSV", package = "zipangu"), "roman")
+read_zipcode(system.file("zipcode_dummy/JIGYOSYO.CSV", package = "zipangu"), "jigyosyo")
+\dontrun{
+# Or directly from a URL
+read_zipcode("https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip")
+}
 }
 \seealso{
 \url{https://www.post.japanpost.jp/zipcode/dl/readme.html},

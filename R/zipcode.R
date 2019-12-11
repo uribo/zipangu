@@ -1,14 +1,31 @@
 #' Read Japan post's zip-code file
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
-#' @param path path
+#' @param path local file path or zip file URL
 #' @param type Input file type, one of "oogaki", "kogaki", "roman", "jigyosyo"
 #' @return [tibble][tibble::tibble]
 #' @seealso [https://www.post.japanpost.jp/zipcode/dl/readme.html](https://www.post.japanpost.jp/zipcode/dl/readme.html),
 #' [https://www.post.japanpost.jp/zipcode/dl/jigyosyo/readme.html](https://www.post.japanpost.jp/zipcode/dl/jigyosyo/readme.html)
+#' @examples
+#' # Input sources
+#' read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
+#' read_zipcode(system.file("zipcode_dummy/13TOKYO_kogaki.CSV", package = "zipangu"), "oogaki")
+#' read_zipcode(system.file("zipcode_dummy/KEN_ALL_ROME.CSV", package = "zipangu"), "roman")
+#' read_zipcode(system.file("zipcode_dummy/JIGYOSYO.CSV", package = "zipangu"), "jigyosyo")
+#' \dontrun{
+#' # Or directly from a URL
+#' read_zipcode("https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip")
+#' }
 #' @rdname read_zipcode
 #' @export
 read_zipcode <- function(path, type = c("oogaki", "kogaki", "roman", "jigyosyo")) {
+  # nocov start
+  if (is_japanpost_zippath(path)) {
+    dl <- dl_zipcode_file(path)
+    path <- dl[[1]]
+    type <- dl[[2]]
+  }
+  # nocov end
   rlang::arg_match(type)
   read_csv_jp <-
     purrr::partial(utils::read.csv,
