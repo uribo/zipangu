@@ -55,6 +55,27 @@ library(zipangu)
 separate_address("東京都千代田区大手町一丁目")
 ```
 
+### Zip-code
+
+```{r}
+read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
+```
+
+You can also load a file directly by specifying a URL.
+
+```{r, eval = FALSE, echo = TRUE}
+read_zipcode("https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip")
+```
+
+Utilities
+
+```{r}
+is_zipcode(7000027)
+is_zipcode("700-0027")
+zipcode_spacer("305-0053")
+zipcode_spacer("305-0053", remove = TRUE)
+```
+
 ### Year (Japanese imperial year)
 
 ```{r}
