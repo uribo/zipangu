@@ -2,6 +2,7 @@
 
 export("%>%")
 export(convert_jyear)
+export(dl_zipcode_file)
 export(is_zipcode)
 export(kansuji2arabic)
 export(kansuji2arabic_all)

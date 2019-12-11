@@ -28,3 +28,16 @@ test_that("zip-code spacer works", {
     "305-0053"
   )
 })
+
+test_that("Utils", {
+  skip_if_offline()
+  expect_false(
+    is_japanpost_zippath("example.com")
+  )
+  expect_true(
+    is_japanpost_zippath("https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/13tokyo.zip")
+  )
+  expect_error(
+    dl_zipcode_file("example.com")
+  )
+})

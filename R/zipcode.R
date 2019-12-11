@@ -129,3 +129,61 @@ zipcode_spacer <- function(x, remove = FALSE) {
                  else
                    NA_character_)
 }
+
+#' Check if it is a zip file provided by japanpost
+#' @param url character.
+#' @return A logical vector.
+is_japanpost_zippath <- function(url) {
+  stringr::str_detect(url,
+                      "https://www.post.japanpost.jp/zipcode/dl/.+/.+.zip")
+}
+
+#' Download a zip-code file
+#' @description
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
+#' @inheritParams read_zipcode
+#' @param exdir The directory to extract zip file. If `NULL`, use temporary folder.
+#' @rdname dl_zipcode_file
+#' @examples
+#' \dontrun{
+#' dl_zipcode_file(path = "https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/02aomori.zip")
+#' dl_zipcode_file("https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/02aomori.zip",
+#'                 exdir = getwd())
+#' }
+#' @export
+dl_zipcode_file <- function(path, exdir = NULL) {
+  # nocov start
+  if (rlang::is_true(is_japanpost_zippath(path))) {
+    if (is.null(exdir))
+      exdir <- tempdir()
+    type <-
+      stringr::str_extract(path, "oogaki|kogaki|roman|jigyosyo")
+    unzip_path <-
+      stringr::str_to_upper(stringr::str_replace(basename(path),
+                                                 "zip",
+                                                 "CSV")) %>%
+      stringr::str_remove("\\?.+")
+    dl_file_path <-
+      list.files(exdir,
+                 pattern = unzip_path,
+                 full.names = TRUE)
+    if (sum(file.exists(dl_file_path)) == 0) {
+      tmp_zip <-
+        tempfile(fileext = ".zip")
+      utils::download.file(url = path,
+                           destfile = tmp_zip)
+      utils::unzip(zipfile = tmp_zip,
+                   exdir = exdir)
+      path <-
+        list.files(exdir,
+                   pattern = ,
+                   full.names = TRUE)
+    } else {
+      path <- dl_file_path
+    }
+    list(path, type)
+  } else {
+    rlang::abort("zip file URL not found.")
+  }
+  # nocov end
+}
