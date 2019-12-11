@@ -60,6 +60,38 @@ separate_address("東京都千代田区大手町一丁目")
 #> [1] "大手町一丁目"
 ```
 
+### Zip-code
+
+``` r
+read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
+#> # A tibble: 1 x 15
+#>   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana
+#>   <chr>    <chr>        <chr>    <chr>           <chr>     <chr>      
+#> 1 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     
+#> # … with 9 more variables: prefecture <chr>, city <chr>, street <chr>,
+#> #   is_street_duplicate <dbl>, is_banchi <dbl>, is_cyoumoku <dbl>,
+#> #   is_zipcode_duplicate <dbl>, status <dbl>, modify_type <dbl>
+```
+
+You can also load a file directly by specifying a URL.
+
+``` r
+read_zipcode("https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip")
+```
+
+Utilities
+
+``` r
+is_zipcode(7000027)
+#> [1] TRUE
+is_zipcode("700-0027")
+#> [1] TRUE
+zipcode_spacer("305-0053")
+#> [1] "305-0053"
+zipcode_spacer("305-0053", remove = TRUE)
+#> [1] "3050053"
+```
+
 ### Year (Japanese imperial year)
 
 ``` r

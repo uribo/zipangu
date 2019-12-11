@@ -22,6 +22,12 @@ reference:
   - title: "Address"
     contents:
     - separate_address
+  - title: "Zip-code"
+    contents:
+    - dl_zipcode_file
+    - is_zipcode
+    - read_zipcode
+    - zipcode_spacer
   - title: "Japanese imperial year"
     contents:
     - convert_jyear
