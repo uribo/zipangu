@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • zipangu</title>
+<title>Check if it is a zip file provided by japanpost — is_japanpost_zippath • zipangu</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Check if it is a zip file provided by japanpost — is_japanpost_zippath" />
+<meta property="og:description" content="Check if it is a zip file provided by japanpost" />
 <meta property="og:image" content="https://uribo.github.io/zipangu/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -63,7 +64,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -113,126 +114,40 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Check if it is a zip file provided by japanpost</h1>
+    <small class="dont-index">Source: <a href='https://github.com/uribo/zipangu/blob/master/R/zipcode.R'><code>R/zipcode.R</code></a></small>
+    <div class="hidden name"><code>is_japanpost_zippath.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Check if it is a zip file provided by japanpost</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>is_japanpost_zippath</span>(<span class='no'>url</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-address" class="hasAnchor"><a href="#section-address" class="anchor"></a>Address</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="separate_address.html">separate_address()</a></code> </p>
-        </td>
-        <td><p>Separate address elements</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-zip-code" class="hasAnchor"><a href="#section-zip-code" class="anchor"></a>Zip-code</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="dl_zipcode_file.html">dl_zipcode_file()</a></code> </p>
-        </td>
-        <td><p>Download a zip-code file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="is_zipcode.html">is_zipcode()</a></code> </p>
-        </td>
-        <td><p>Test zip-code</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="read_zipcode.html">read_zipcode()</a></code> </p>
-        </td>
-        <td><p>Read Japan post's zip-code file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="zipcode_spacer.html">zipcode_spacer()</a></code> </p>
-        </td>
-        <td><p>Insert and remove zip-code connect character</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-japanese-imperial-year" class="hasAnchor"><a href="#section-japanese-imperial-year" class="anchor"></a>Japanese imperial year</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="convert_jyear.html">convert_jyear()</a></code> </p>
-        </td>
-        <td><p>Convert Japanese imperial year to Anno Domini</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-converts-the-kind-of-string-used-as-japanese-people" class="hasAnchor"><a href="#section-converts-the-kind-of-string-used-as-japanese-people" class="anchor"></a>Converts the kind of string used as Japanese people</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="kansuji.html">kansuji2arabic()</a></code> <code><a href="kansuji.html">kansuji2arabic_all()</a></code> </p>
-        </td>
-        <td><p>Convert kansuji character to arabic</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="str_jconv.html">str_jconv()</a></code> <code><a href="str_jconv.html">str_conv_hirakana()</a></code> <code><a href="str_jconv.html">str_conv_zenhan()</a></code> <code><a href="str_jconv.html">str_conv_romanhira()</a></code> <code><a href="str_jconv.html">str_conv_normalize()</a></code> </p>
-        </td>
-        <td><p>Converts the kind of string used as Japanese</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="jpnprefs.html">jpnprefs</a></code> </p>
-        </td>
-        <td><p>Prefectural informations in Japan</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>url</th>
+      <td><p>character.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A logical vector.</p>
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-address">Address</a></li>
-      <li><a href="#section-zip-code">Zip-code</a></li>
-      <li><a href="#section-japanese-imperial-year">Japanese imperial year</a></li>
-      <li><a href="#section-converts-the-kind-of-string-used-as-japanese-people">Converts the kind of string used as Japanese people</a></li>
-      <li><a href="#section-datasets">Datasets</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
     </ul>
+
   </div>
 </div>
 
