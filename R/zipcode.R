@@ -105,6 +105,7 @@ read_zipcode <- function(path, type = c("oogaki", "kogaki", "roman", "jigyosyo")
 #' @examples
 #' is_zipcode(7000027)
 #' is_zipcode("700-0027")
+#' @return A logical vector.
 #' @export
 is_zipcode <- function(x) {
   checked <- stringr::str_detect(x,

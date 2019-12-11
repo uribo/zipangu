@@ -10,6 +10,9 @@ is_zipcode(x)
 \item{x}{Zip-code. Number or character. Hyphens may be included,
 but the input must contain a 7-character number.}
 }
+\value{
+A logical vector.
+}
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 }
