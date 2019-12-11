@@ -53,7 +53,7 @@ read_zipcode <- function(path, type = c("oogaki", "kogaki", "roman", "jigyosyo")
                  "old_zip_code",
                  "grouped",
                  "individual_id",
-                 "multiple_types",
+                 "multiple_type",
                  "update_type"))
   if (type == "oogaki") {
     df <-

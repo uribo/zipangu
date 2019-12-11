@@ -49,7 +49,7 @@ test_that("read_zipcode", {
       "old_zip_code",
       "grouped",
       "individual_id",
-      "multiple_types",
+      "multiple_type",
       "update_type"
     )
   )
