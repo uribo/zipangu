@@ -202,7 +202,7 @@ dl_zipcode_file <- function(path, exdir = NULL) {
                    exdir = exdir)
       path <-
         list.files(exdir,
-                   pattern = ,
+                   pattern = ".CSV",
                    full.names = TRUE)
     } else {
       path <- dl_file_path
