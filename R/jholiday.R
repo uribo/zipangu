@@ -1,3 +1,33 @@
+shunbun_day <- function(year) {
+  dplyr::case_when(
+    year <= 1947 ~ NA_real_,
+    year <= 1979 ~ trunc(20.8357 + 0.242194 * (year - 1980) - trunc((year -
+                                                                       1983) /
+                                                                      4)),
+    year <= 2099 ~ trunc(20.8431 + 0.242194 * (year - 1980) - trunc((year -
+                                                                       1980) /
+                                                                      4)),
+    year <= 2150 ~ trunc(21.851 + 0.242194 * (year - 1980) - trunc((year -
+                                                                      1980) /
+                                                                     4))
+  )
+}
+
+shubun_day <- function(year) {
+  dplyr::case_when(
+    year <= 1947 ~ NA_real_,
+    year <= 1979 ~ trunc(23.2588 + 0.242194 * (year - 1980) - trunc((year -
+                                                                       1983) /
+                                                                      4)),
+    year <= 2099 ~ trunc(23.2488 + 0.242194 * (year - 1980) - trunc((year -
+                                                                       1980) /
+                                                                      4)),
+    year <= 2150 ~ trunc(24.2488 + 0.242194 * (year - 1980) - trunc((year -
+                                                                       1980) /
+                                                                      4))
+  )
+}
+
 #' Find out the date of the specific month and weekday
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
