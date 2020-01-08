@@ -3,6 +3,7 @@
 export("%>%")
 export(convert_jyear)
 export(dl_zipcode_file)
+export(find_date_by_wday)
 export(is_zipcode)
 export(kansuji2arabic)
 export(kansuji2arabic_all)
