@@ -31,11 +31,18 @@ reference:
   - title: "Japanese imperial year"
     contents:
     - convert_jyear
+  - title: "Public holidays in Japan"
+    contents:
+    - is_jholiday
+    - jholiday
   - title: "Converts the kind of string used as Japanese people"
     contents:
     - kansuji2arabic
     - kansuji2arabic_all
     - str_jconv
+  - title: "Utilities"
+    contents:
+    - find_date_by_wday
   - title: "Datasets"
     contents:
     - jpnprefs

@@ -5,6 +5,10 @@
     * `is_zipcode()` test zip-code. Only supports 7-digit numbers or characters.
     * `zipcode_spacer()` insert and remove zip-code connect character.
 * `str_jconv()` and `str_conv_*()` converts the kind of string used as Japanese people.
+* Added some functions related to Japanese holidays.
+    * `jholiday_spec()` to find date from corresponding year and holiday name and `jholiday()` is used to look up a list of holidays for the year.
+    * `is_jholiday()` whether the day is a holiday.
+* Find out the date of the specific month and weekday (`find_date_by_wday()`)
 
 # zipangu 0.1.0
 
