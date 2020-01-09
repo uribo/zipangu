@@ -8,10 +8,6 @@ test_that("Specific year's holiday", {
     jholiday_spec(2000, "New Year's Day", lang = "en")
   )
   expect_equal(
-    jholiday_spec(2000, "Coming of Age Day"),
-    as.Date("2000-01-10")
-  )
-  expect_equal(
     jholiday_spec(2019, "\u6210\u4eba\u306e\u65e5", lang = "jp"),
     as.Date("2019-01-14")
   )
@@ -20,16 +16,55 @@ test_that("Specific year's holiday", {
     as.Date("2020-01-13")
   )
   expect_equal(
+    jholiday_spec(1966, "Vernal Equinox Day"),
+    lubridate::make_date(1966, 3, shunbun_day(1986))
+  )
+  expect_equal(
+    seq.int(2003, 2019) %>%
+      purrr::map_dbl(
+        ~ lubridate::mday(jholiday_spec(.x, "Marine Day"))
+      ),
+    c(21, 19, 18, 17, 16,
+      21, 20, 19, 18, 16, 15,
+      21, 20, 18, 17, 16, 15))
+  expect_equal(
+    length(jholiday(2019, "en")),
+    15L
+  )
+  expect_equal(
+    length(jholiday(2020, "en")),
+    16L
+  )
+})
+
+test_that("Another approaches", {
+  skip_on_cran()
+  expect_equal(
+    jholiday_spec(2000, "Coming of Age Day"),
+    as.Date("2000-01-10")
+  )
+})
+
+test_that("Is jholiday works", {
+  expect_true(
+    is_jholiday("2020-01-01")
+  )
+  expect_false(
+    is_jholiday("2020-01-02")
+  )
+  expect_true(
+    is_jholiday("19930609")
+  )
+  expect_true(
+    is_jholiday(lubridate::ymd("1989-02-11"))
+  )
+  expect_equal(
     jholiday_spec(2020, "Foundation Day"),
     as.Date("2020-02-11")
   )
   expect_equal(
     jholiday_spec(1966, "Foundation Day"),
     as.Date(NA_character_)
-  )
-  expect_equal(
-    jholiday_spec(1966, "Vernal Equinox Day"),
-    lubridate::make_date(1966, 3, shunbun_day(1986))
   )
   expect_equal(
     jholiday_spec(1969, "Vernal Equinox Day"),
@@ -79,14 +114,6 @@ test_that("Specific year's holiday", {
     jholiday_spec(2020, "Marine Day"),
     as.Date("2020-07-23")
   )
-  expect_equal(
-    seq.int(2003, 2019) %>%
-      purrr::map_dbl(
-        ~ lubridate::mday(jholiday_spec(.x, "Marine Day"))
-      ),
-    c(21, 19, 18, 17, 16,
-      21, 20, 19, 18, 16, 15,
-      21, 20, 18, 17, 16, 15))
   expect_equal(
     seq.int(1996, 2002) %>%
       purrr::map_dbl(
@@ -205,42 +232,17 @@ test_that("Specific year's holiday", {
     jholiday_spec(2020, "The Emperor's Birthday"),
     as.Date("2020-02-23")
   )
-  expect_equal(
-    length(jholiday(2019, "en")),
-    15L
-  )
-  expect_equal(
-    length(jholiday(2020, "en")),
-    16L
-  )
-})
-
-test_that("Is jholiday works", {
-  expect_true(
-    is_jholiday("2020-01-01")
-  )
-  expect_false(
-    is_jholiday("2020-01-02")
-  )
-  expect_true(
-    is_jholiday("19930609")
-  )
-  expect_true(
-    is_jholiday(lubridate::ymd("1989-02-11"))
-  )
 })
 
 test_that("Utils", {
   expect_true(
     is_current_law_yr(1948)
   )
-  expect_false(
-    is_current_law_yr(1947)
-  )
   expect_warning(
+    expect_false(
     is_current_law_yr(1947),
     "The year specified must be after the law was enacted in 1948"
-  )
+  ))
   expect_equal(
     find_date_by_wday(2020, 1, 2, 2),
     as.Date("2020-01-13")
