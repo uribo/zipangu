@@ -10,10 +10,19 @@
     <loc>https://uribo.github.io/zipangu/reference/dl_zipcode_file.html</loc>
   </url>
   <url>
+    <loc>https://uribo.github.io/zipangu/reference/find_date_by_wday.html</loc>
+  </url>
+  <url>
     <loc>https://uribo.github.io/zipangu/reference/is_japanpost_zippath.html</loc>
   </url>
   <url>
+    <loc>https://uribo.github.io/zipangu/reference/is_jholiday.html</loc>
+  </url>
+  <url>
     <loc>https://uribo.github.io/zipangu/reference/is_zipcode.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/jholiday.html</loc>
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/jpnprefs.html</loc>
