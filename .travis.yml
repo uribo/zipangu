@@ -10,10 +10,4 @@ matrix:
   - r: release
     after_success:
     - Rscript -e 'covr::codecov()'
-    before_cache:
-    - Rscript -e 'install.packages("remotes"); remotes::install_github("r-lib/pkgdown@134033d9d744c548c6fbe297bc0fbd1a2f498e83")'
-    deploy:
-      provider: script
-      script: Rscript -e 'pkgdown::deploy_site_github(verbose = TRUE)'
-      skip_cleanup: true
   - r: oldrel
