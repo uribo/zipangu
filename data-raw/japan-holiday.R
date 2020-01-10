@@ -15,4 +15,4 @@ jholiday_df <-
   mutate(date = lubridate::as_date(date)) %>%
   tibble::as_tibble()
 
-usethis::use_data(jholiday_df, internal = TRUE)
+usethis::use_data(jholiday_df, internal = TRUE, overwrite = TRUE)

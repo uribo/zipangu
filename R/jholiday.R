@@ -168,8 +168,6 @@ shubun_day <- function(year) {
 #' is_jholiday("2020-01-01")
 #' is_jholiday("2018-12-23") # TRUE
 #' is_jholiday("2019-12-23") # FALSE
-#' is_jholiday("2020-02-23") # TRUE
-#' is_jholiday("2020-05-06") # TRUE
 #' @export
 is_jholiday <- function(date) {
   date <-

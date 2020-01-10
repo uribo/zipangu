@@ -1,4 +1,4 @@
-# zipangu (development version)
+# zipangu 0.2.0
 
 * Added several functions to handle postal code data.
     * `read_zipcode()` to read Japan post's zip-code file and `dl_zipcode_file()` for raw file download.
