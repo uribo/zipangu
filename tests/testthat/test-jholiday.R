@@ -43,21 +43,6 @@ test_that("Another approaches", {
     jholiday_spec(2000, "Coming of Age Day"),
     as.Date("2000-01-10")
   )
-})
-
-test_that("Is jholiday works", {
-  expect_true(
-    is_jholiday("2020-01-01")
-  )
-  expect_false(
-    is_jholiday("2020-01-02")
-  )
-  expect_true(
-    is_jholiday("19930609")
-  )
-  expect_true(
-    is_jholiday(lubridate::ymd("1989-02-11"))
-  )
   expect_equal(
     jholiday_spec(2020, "Foundation Day"),
     as.Date("2020-02-11")
@@ -231,6 +216,21 @@ test_that("Is jholiday works", {
   expect_equal(
     jholiday_spec(2020, "The Emperor's Birthday"),
     as.Date("2020-02-23")
+  )
+})
+
+test_that("Is jholiday works", {
+  expect_true(
+    is_jholiday("2020-01-01")
+  )
+  expect_false(
+    is_jholiday("2020-01-02")
+  )
+  expect_true(
+    is_jholiday("19930609")
+  )
+  expect_true(
+    is_jholiday(lubridate::ymd("1989-02-11"))
   )
 })
 
