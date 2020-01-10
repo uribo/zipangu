@@ -76,10 +76,38 @@ zipcode_spacer("305-0053")
 zipcode_spacer("305-0053", remove = TRUE)
 ```
 
-### Year (Japanese imperial year)
+### Calendar
+
+#### Year (Japanese imperial year)
 
 ```{r}
 convert_jyear("R1")
+```
+
+#### Public holidays in Japan
+
+Given a year and holiday name as input, returns the date.
+
+```{r}
+jholiday_spec(2020, "New Year's Day", lang = "en")
+```
+Holiday names can be specified in English ("en") and Japanese ("jp") by default, en is used.
+
+```{r}
+jholiday_spec(2020, "Coming of Age Day", lang = "en")
+jholiday_spec(2020, "\u6210\u4eba\u306e\u65e5", lang = "jp")
+```
+
+Check the list of holidays for a year with the `jholiday()`.
+
+```{r}
+jholiday(2020, lang = "jp")
+```
+Use `is_jholiday()` function to evaluate whether today is a holiday.
+
+```{r}
+is_jholiday("2020-01-10")
+is_jholiday("2020-02-23")
 ```
 
 ### Convert

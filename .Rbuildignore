@@ -4,7 +4,7 @@
 ^data-raw$
 ^README\.Rmd$
 ^\.travis\.yml$
-^\.github/workflows/R-CMD-check\.yaml$
+^\.github$
 ^codecov\.yml$
 ^\.covrignore$
 ^cran-comments\.md$

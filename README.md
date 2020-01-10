@@ -73,7 +73,8 @@ read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"
 #> #   is_zipcode_duplicate <dbl>, status <dbl>, modify_type <dbl>
 ```
 
-You can also load a file directly by specifying a URL.
+You can also load a file directly by specifying a
+URL.
 
 ``` r
 read_zipcode("https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip")
@@ -92,11 +93,94 @@ zipcode_spacer("305-0053", remove = TRUE)
 #> [1] "3050053"
 ```
 
-### Year (Japanese imperial year)
+### Calendar
+
+#### Year (Japanese imperial year)
 
 ``` r
 convert_jyear("R1")
 #> [1] 2019
+```
+
+#### Public holidays in Japan
+
+Given a year and holiday name as input, returns the date.
+
+``` r
+jholiday_spec(2020, "New Year's Day", lang = "en")
+#> [1] "2020-01-01"
+```
+
+Holiday names can be specified in English (“en”) and Japanese (“jp”) by
+default, en is used.
+
+``` r
+jholiday_spec(2020, "Coming of Age Day", lang = "en")
+#> [1] "2020-01-13"
+jholiday_spec(2020, "\u6210\u4eba\u306e\u65e5", lang = "jp")
+#> [1] "2020-01-13"
+```
+
+Check the list of holidays for a year with the `jholiday()`.
+
+``` r
+jholiday(2020, lang = "jp")
+#> $元日
+#> [1] "2020-01-01"
+#> 
+#> $成人の日
+#> [1] "2020-01-13"
+#> 
+#> $建国記念の日
+#> [1] "2020-02-11"
+#> 
+#> $天皇誕生日
+#> [1] "2020-02-23"
+#> 
+#> $春分の日
+#> [1] "2020-03-20"
+#> 
+#> $昭和の日
+#> [1] "2020-04-29"
+#> 
+#> $憲法記念日
+#> [1] "2020-05-03"
+#> 
+#> $みどりの日
+#> [1] "2020-05-04"
+#> 
+#> $こどもの日
+#> [1] "2020-05-05"
+#> 
+#> $海の日
+#> [1] "2020-07-23"
+#> 
+#> $スポーツの日
+#> [1] "2020-07-24"
+#> 
+#> $山の日
+#> [1] "2020-08-10"
+#> 
+#> $敬老の日
+#> [1] "2020-09-21"
+#> 
+#> $秋分の日
+#> [1] "2020-09-22"
+#> 
+#> $文化の日
+#> [1] "2020-11-03"
+#> 
+#> $勤労感謝の日
+#> [1] "2020-11-23"
+```
+
+Use `is_jholiday()` function to evaluate whether today is a holiday.
+
+``` r
+is_jholiday("2020-01-10")
+#> [1] FALSE
+is_jholiday("2020-02-23")
+#> [1] TRUE
 ```
 
 ### Convert
