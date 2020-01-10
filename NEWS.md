@@ -1,3 +1,5 @@
+# zipangu (development version)
+
 # zipangu 0.2.0
 
 * Added several functions to handle postal code data.
