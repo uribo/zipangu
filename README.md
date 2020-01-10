@@ -16,7 +16,7 @@ version](https://img.shields.io/badge/R%3E%3D-3.2.0-blue.svg)](https://cran.r-pr
 [![Travis build
 status](https://travis-ci.org/uribo/zipangu.svg?branch=master)](https://travis-ci.org/uribo/zipangu)
 [![R build
-status](https://github.com/uribo/zipangu/workflows/R-CMD-check/badge.svg)](https://github.com/uribo/zipangu)
+status](https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg)](https://github.com/uribo/zipangu)
 [![Codecov test
 coverage](https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg)](https://codecov.io/gh/uribo/zipangu?branch=master)
 <!-- badges: end -->
