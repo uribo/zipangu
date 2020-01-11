@@ -158,6 +158,7 @@ zipcode_spacer <- function(x, remove = FALSE) {
 
 #' Check if it is a zip file provided by japanpost
 #' @param url character.
+#' @noRd
 #' @return A logical vector.
 is_japanpost_zippath <- function(url) {
   stringr::str_detect(url,
