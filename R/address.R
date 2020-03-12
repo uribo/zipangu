@@ -30,14 +30,16 @@ separate_address <- function(str) {
       }
     }
   }
+  res <-
+    list(prefecture = split_pref[1])
   if (length(split_pref[2] %>%
              stringr::str_split(city_name_regex,
                                 n = 2,
                                 simplify = TRUE) %>%
              stringr::str_subset(".{1}", negate = FALSE)) == 0L) {
     res <-
-      list(
-        prefecture = split_pref[1],
+      res %>%
+      purrr::list_merge(
         city =
           split_pref[2] %>%
           dplyr::if_else(is_address_block(.),
@@ -46,24 +48,12 @@ separate_address <- function(str) {
                          .) %>%
           stringr::str_replace("(.\u5e02)(.+\u753a.+)", "\\1") %>%
           stringr::str_replace(city_name_regex,
-                               replacement = "\\1"),
-        street =
-          split_pref[2] %>%
-          stringr::str_remove(
-            split_pref[2] %>%
-              dplyr::if_else(is_address_block(.),
-                             stringr::str_remove(., "((\u571f\u5730\u533a|\u8857\u533a).+)") %>%
-                               stringr::str_remove("\u571f\u5730\u533a|\u8857\u533a"),
-                             .) %>%
-              stringr::str_replace("(.\u5e02)(.+\u753a.+)", "\\1") %>%
-              stringr::str_replace(city_name_regex,
-                                   replacement = "\\1")
-          )
-      )
+                               replacement = "\\1")
+        )
   } else {
     res <-
-      list(
-        prefecture = split_pref[1],
+      res %>%
+      purrr::list_merge(
         city =
           split_pref[2] %>%
           dplyr::if_else(is_address_block(.),
@@ -72,21 +62,14 @@ separate_address <- function(str) {
                          .) %>%
           stringr::str_replace(
             paste0(city_name_regex, "(.+)"),
-            replacement = "\\1"),
-        street =
-          split_pref[2] %>%
-          stringr::str_remove(
-            split_pref[2] %>%
-              dplyr::if_else(is_address_block(.),
-                             stringr::str_remove(., "((\u571f\u5730\u533a|\u8857\u533a).+)") %>%
-                               stringr::str_remove("\u571f\u5730\u533a|\u8857\u533a"),
-                             .) %>%
-              stringr::str_replace(
-                paste0(city_name_regex, "(.+)"),
-                replacement = "\\1")
-          )
-      )
+            replacement = "\\1"))
   }
+  res <-
+    res %>%
+    purrr::list_merge(
+      street = split_pref[2] %>%
+        stringr::str_remove(res %>%
+                              purrr::pluck("city")))
   res %>%
     purrr::map(
       ~ dplyr::if_else(.x == "", NA_character_, .x)
