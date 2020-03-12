@@ -43,8 +43,8 @@ separate_address <- function(str) {
         city =
           split_pref[2] %>%
           dplyr::if_else(is_address_block(.),
-                         stringr::str_remove(., "((\u571f\u5730\u533a|\u8857\u533a).+)") %>%
-                           stringr::str_remove("\u571f\u5730\u533a|\u8857\u533a"),
+                         stringr::str_remove(., "((\u571f\u5730\u533a\u753b|\u8857\u533a).+)") %>%
+                           stringr::str_remove("\u571f\u5730\u533a\u753b|\u8857\u533a"),
                          .) %>%
           stringr::str_replace("(.\u5e02)(.+\u753a.+)", "\\1") %>%
           stringr::str_replace(city_name_regex,
@@ -57,8 +57,8 @@ separate_address <- function(str) {
         city =
           split_pref[2] %>%
           dplyr::if_else(is_address_block(.),
-                         stringr::str_remove(., "((\u571f\u5730\u533a|\u8857\u533a).+)") %>%
-                           stringr::str_remove("\u571f\u5730\u533a|\u8857\u533a"),
+                         stringr::str_remove(., "((\u571f\u5730\u533a\u753b|\u8857\u533a).+)") %>%
+                           stringr::str_remove("\u571f\u5730\u533a\u753b|\u8857\u533a"),
                          .) %>%
           stringr::str_replace(
             paste0(city_name_regex, "(.+)"),
@@ -83,5 +83,5 @@ is_prefecture <- function(str) {
 
 is_address_block <- function(str) {
   str %>%
-    stringr::str_detect("(\u571f\u5730\u533a|\u8857\u533a|\u8857\u533a.+)$")
+    stringr::str_detect("(\u571f\u5730\u533a\u753b\u4e8b\u696d\u5730\u5185|\u8857\u533a|\u8857\u533a.+)$")
 }
