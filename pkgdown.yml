@@ -1,6 +1,6 @@
 pandoc: 2.7.3
 pkgdown: 1.4.1.9000
-pkgdown_sha: 732fb5b9ccc0ef87a73dfd0772ae661a4039b2a8
+pkgdown_sha: 2ae20f3d3c207330f5972642ec42a7be277c6a7a
 articles: []
 urls:
   reference: https://uribo.github.io/zipangu/reference
