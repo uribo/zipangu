@@ -60,6 +60,20 @@ separate_address("東京都千代田区大手町一丁目")
 #> [1] "大手町一丁目"
 ```
 
+Applied to data frame.
+
+``` r
+library(dplyr, warn.conflicts = FALSE)
+data.frame(address = c("東京都千代田区大手町一丁目", "岡山県岡山市北区清心町16-13")) %>% 
+  mutate(sss = purrr::pmap(., ~ separate_address(..1))) %>% 
+  tidyr::unnest_wider(col = sss)
+#> # A tibble: 2 x 4
+#>   address                     prefecture city       street      
+#>   <fct>                       <chr>      <chr>      <chr>       
+#> 1 東京都千代田区大手町一丁目  東京都     千代田区   大手町一丁目
+#> 2 岡山県岡山市北区清心町16-13 岡山県     岡山市北区 清心町16-13
+```
+
 ### Zip-code
 
 ``` r
