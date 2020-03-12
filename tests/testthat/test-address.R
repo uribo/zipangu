@@ -63,6 +63,22 @@ test_that("address separate works", {
       street = "西七区"
     )
   )
+  expect_equal(
+    separate_address("愛知県蒲郡市蒲郡中部土地区画整理43街区5"),
+    list(
+      prefecture = "愛知県",
+      city = "蒲郡市",
+      street = "蒲郡中部土地区画整理43街区5"
+    )
+  )
+  expect_equal(
+    separate_address("つくば市谷田部陣場F-6街区3"),
+    list(
+      prefecture = NA_character_,
+      city = "つくば市",
+      street = "谷田部陣場F-6街区3"
+    )
+  )
   expect_equivalent(
     unlist(separate_address("神奈川県")),
     c("神奈川県", NA_character_, NA_character_)
