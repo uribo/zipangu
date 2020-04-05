@@ -1,5 +1,8 @@
 # zipangu (development version)
 
+* `find_date_by_wday()`, `jholiday_spec()`, `jholiday()`, and `is_jholiday()`
+  are now vectorized and accept multiple `year`s (@yutannihilation, #15).
+
 # zipangu 0.2.0
 
 * Added several functions to handle postal code data.
