@@ -16,82 +16,87 @@
 #' jholiday(2020, "en")
 #' @export
 jholiday_spec <- function(year, name, lang = "en") {
+  jholiday_names <- jholiday_list[[lang]]
+
   if (are_all_current_law_yr(year)) {
-    name <-
-      jholiday_list %>%
-      purrr::pluck(lang) %>%
-      purrr::keep(~ .x == name)
+    if (!name %in% jholiday_names) {
+      rlang::abort(glue::glue("No such holiday: {name}"))
+    }
     res <-
       dplyr::case_when(
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(1)) ~ lubridate::make_date(year, 1, 1),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(2)) ~ dplyr::if_else(
-                        year >= 2000,
-                        find_date_by_wday(year, 1, 2, 2),
-                        lubridate::ymd(paste0(year, "0115"))),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(3)) ~ dplyr::if_else(
-                        year >= 1967,
-                        lubridate::ymd(paste0(year, "0211")),
-                        lubridate::as_date(NA_character_)),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(4)) ~ lubridate::make_date(year, 3, day = shunbun_day(year)),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 5) %>%
-                      purrr::flatten_chr()) & year >= 2007 ~ lubridate::make_date(year, 4, 29),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 6) %>%
-                      purrr::flatten_chr()) & dplyr::between(year, 1989, 2006) ~ lubridate::make_date(year, 4, 29),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 7) %>%
-                      purrr::flatten_chr()) & year < 1989 ~ lubridate::make_date(year, 4, 29),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(8)) ~ lubridate::make_date(year, 5, 3),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 9) %>%
-                      purrr::flatten_chr()) & year >= 2007 ~ lubridate::make_date(year, 5, 4),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 10) %>%
-                      purrr::flatten_chr()) & dplyr::between(year, 1988, 2006) ~ lubridate::make_date(year, 5, 4),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(11)) & year >= 1949 ~ lubridate::make_date(year, 5, 5),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(12)) & year == 2020 ~ lubridate::as_date("20200723"),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(12)) & year >= 2003 & year != 2020 ~ find_date_by_wday(year, 7, 2, 3),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(12)) & dplyr::between(year, 1996, 2002) ~ lubridate::make_date(year, 7, 20),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(13)) & year == 2020 ~ lubridate::as_date("20200810"),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(13)) & year >= 2016 & year != 2020 ~ lubridate::make_date(year, 8, 11),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(14)) & dplyr::between(year, 1966, 2002) ~ lubridate::make_date(year, 9, 15),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(14)) & year >= 2003 ~ find_date_by_wday(year, 9, 2, 3),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(15)) ~ lubridate::make_date(year, 9, day = shubun_day(year)),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(17)) & year == 2020 ~ lubridate::as_date("20200724"),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[`, c(16, 17)) %>%
-                      unlist() %>%
-                      unique()) & year >= 2000 & year != 2020 ~ find_date_by_wday(year, 10, 2, 2),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[`, c(16, 17)) %>%
-                      unlist() %>%
-                      unique()) &  dplyr::between(year, 1966, 1999) ~ lubridate::make_date(year, 10, 10),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(18)) ~ lubridate::make_date(year, 11, 3),
-        name %in% c(jholiday_list %>%
-                      purrr::map_chr(19)) ~ lubridate::make_date(year, 11, 23),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 20) %>%
-                      purrr::flatten_chr()) & dplyr::between(year, 1989, 2018) ~ lubridate::make_date(year, 12, 23),
-        name %in% c(jholiday_list %>%
-                      purrr::map(`[[`, 20) %>%
-                      purrr::flatten_chr()) & year >= 2020 ~ lubridate::make_date(year, 2, 23)
+        # New Year's Day
+        name == jholiday_names[1] ~
+          lubridate::make_date(year, 1, 1),
+        # Coming of Age Day
+        name == jholiday_names[2] ~
+          dplyr::if_else(
+            year >= 2000,
+            find_date_by_wday(year, 1, 2, 2),
+            lubridate::ymd(paste0(year, "0115"))
+          ),
+        # Foundation Day
+        name == jholiday_names[3] ~
+          dplyr::if_else(
+            year >= 1967,
+            lubridate::ymd(paste0(year, "0211")),
+            lubridate::as_date(NA_character_)
+          ),
+        # Vernal Equinox Day
+        name == jholiday_names[4] ~
+          lubridate::make_date(year, 3, day = shunbun_day(year)),
+        # Showa Day (2007-), Greenery Day (1989-2006), and The Emperor's Birthday (-1989)
+        (name == jholiday_names[5] & year >= 2007) |
+          (name == jholiday_names[6] & dplyr::between(year, 1989, 2006)) |
+          (name == jholiday_names[7] & year < 1989) ~
+            lubridate::make_date(year, 4, 29),
+        # Constitution Memorial Day
+        name == jholiday_names[8] ~
+          lubridate::make_date(year, 5, 3),
+        # Greenery Day (2007-), and Citizens' Holiday (1988-2006)
+        (name == jholiday_names[9] & year >= 2007) |
+          (name == jholiday_names[10] & dplyr::between(year, 1988, 2006)) ~
+          lubridate::make_date(year, 5, 4),
+        # Children's Day
+        name == jholiday_names[11] & year >= 1949 ~
+          lubridate::make_date(year, 5, 5),
+        # Marine Day
+        name == jholiday_names[12] & year == 2020 ~
+          lubridate::as_date("20200723"),
+        name == jholiday_names[12] & year >= 2003 & year != 2020 ~
+          find_date_by_wday(year, 7, 2, 3),
+        name == jholiday_names[12] & dplyr::between(year, 1996, 2002) ~
+          lubridate::make_date(year, 7, 20),
+        # Mountain Day
+        name == jholiday_names[13] & year == 2020 ~
+          lubridate::as_date("20200810"),
+        name == jholiday_names[13] & year >= 2016 & year != 2020 ~
+          lubridate::make_date(year, 8, 11),
+        # Respect for the Aged Day
+        name == jholiday_names[14] & dplyr::between(year, 1966, 2002) ~
+          lubridate::make_date(year, 9, 15),
+        name == jholiday_names[14] & year >= 2003 ~
+          find_date_by_wday(year, 9, 2, 3),
+        # Autumnal Equinox Day
+        name == jholiday_names[15] ~
+          lubridate::make_date(year, 9, day = shubun_day(year)),
+        # Sports Day
+        name == jholiday_names[17] & year == 2020 ~
+          lubridate::as_date("20200724"),
+        name %in% jholiday_names[16:17] & year >= 2000 & year != 2020 ~
+          find_date_by_wday(year, 10, 2, 2),
+        name %in% jholiday_names[16:17] & dplyr::between(year, 1966, 1999) ~
+          lubridate::make_date(year, 10, 10),
+        # Culture Day
+        name == jholiday_names[18] ~
+          lubridate::make_date(year, 11, 3),
+        # Labour Thanksgiving Day
+        name == jholiday_names[19] ~
+          lubridate::make_date(year, 11, 23),
+        # The Emperor's Birthday
+        name == jholiday_names[20] & dplyr::between(year, 1989, 2018) ~
+          lubridate::make_date(year, 12, 23),
+        name == jholiday_names[20] & year >= 2020 ~
+          lubridate::make_date(year, 2, 23)
       )
     unique(res)
   }
