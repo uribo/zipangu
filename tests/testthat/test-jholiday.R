@@ -232,6 +232,16 @@ test_that("Is jholiday works", {
   expect_true(
     is_jholiday(lubridate::ymd("1989-02-11"))
   )
+  # multiple dates
+  expect_equal(
+    is_jholiday(as.Date("2020-01-01") + 0:2),
+    c(TRUE, FALSE, FALSE)
+  )
+  # multiple dates in multiple years
+  expect_equal(
+    is_jholiday(as.Date(c("2019-01-01", "2020-01-01"))),
+    c(TRUE, TRUE)
+  )
 })
 
 test_that("Utils", {
