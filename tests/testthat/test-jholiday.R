@@ -236,13 +236,23 @@ test_that("Is jholiday works", {
 
 test_that("Utils", {
   expect_true(
-    is_current_law_yr(1948)
+    are_all_current_law_yr(1948)
   )
   expect_warning(
     expect_false(
-    is_current_law_yr(1947),
-    "The year specified must be after the law was enacted in 1948"
-  ))
+      are_all_current_law_yr(1947),
+      "The year specified must be after the law was enacted in 1948"
+    )
+  )
+  expect_true(
+    are_all_current_law_yr(1948:1950)
+  )
+  expect_warning(
+    expect_false(
+      are_all_current_law_yr(1947:1949),
+      "The year specified must be after the law was enacted in 1948"
+    )
+  )
   expect_equal(
     find_date_by_wday(2020, 1, 2, 2),
     as.Date("2020-01-13")

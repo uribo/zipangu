@@ -16,7 +16,7 @@
 #' jholiday(2020, "en")
 #' @export
 jholiday_spec <- function(year, name, lang = "en") {
-  if (is_current_law_yr(year)) {
+  if (are_all_current_law_yr(year)) {
     name <-
       jholiday_list %>%
       purrr::pluck(lang) %>%
@@ -100,7 +100,7 @@ jholiday_spec <- function(year, name, lang = "en") {
 #' @rdname jholiday
 #' @export
 jholiday <- function(year, lang = "en") {
-  if (is_current_law_yr(year)) {
+  if (are_all_current_law_yr(year)) {
     res <-
       jholiday_list %>%
       purrr::pluck(lang) %>%
@@ -118,9 +118,9 @@ jholiday <- function(year, lang = "en") {
   }
 }
 
-is_current_law_yr <- function(year) {
-  checked <- year >= 1948
-  if (checked == FALSE)
+are_all_current_law_yr <- function(years) {
+  checked <- all(years >= 1948)
+  if (!checked)
     rlang::warn("The year specified must be after the law was enacted in 1948")
   checked
 }
