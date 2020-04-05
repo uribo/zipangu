@@ -204,15 +204,19 @@ is_jholiday <- function(date) {
 find_date_by_wday <- function(year, month, wday, ordinal) {
   date_begin <-
     lubridate::make_date(year, month)
-  dom <-
-    date_begin + seq.int(0, lubridate::days_in_month(date_begin) - 1)
-  dom <-
-    lubridate::wday(dom) %>%
-    purrr::set_names(dom)
-  purrr::keep(dom,
-              ~ .x == as.character(wday))[ordinal] %>%
-    names() %>%
-    lubridate::as_date()
+  wday_of_date_begin <-
+    lubridate::wday(date_begin)
+  # First dates of the specified wday on each year-month
+  first_wday <-
+    date_begin + (wday - wday_of_date_begin) %% 7
+  # Add 1 ordinal = 1 week = 7 days
+  result <- first_wday + 7 * (ordinal - 1)
+  # If the calculated result is beyond the end of the month, fill it with NA
+  dplyr::if_else(
+    lubridate::month(result) == lubridate::month(date_begin),
+    result,
+    lubridate::as_date(NA_character_)
+  )
 }
 
 jholiday_list <-

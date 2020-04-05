@@ -266,6 +266,10 @@ test_that("Utils", {
     as.Date(NA_character_)
   )
   expect_equal(
+    find_date_by_wday(2018:2020, 1, 2, 2),
+    as.Date(c("2018-01-08", "2019-01-14", "2020-01-13"))
+  )
+  expect_equal(
     shunbun_day(1966),
     21
   )
