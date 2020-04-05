@@ -105,18 +105,16 @@ jholiday_spec <- function(year, name, lang = "en") {
 #' @rdname jholiday
 #' @export
 jholiday <- function(year, lang = "en") {
+  jholiday_names <- jholiday_list[[lang]]
   if (are_all_current_law_yr(year)) {
-    res <-
-      jholiday_list %>%
-      purrr::pluck(lang) %>%
+    res <- jholiday_names %>%
       purrr::map(~ as.numeric(jholiday_spec(year, name = .x, lang = lang))) %>%
-      purrr::set_names(jholiday_list %>%
-                         purrr::pluck(lang)) %>%
-      purrr::discard(is.na)
+      purrr::set_names(jholiday_names)
     res <-
       res[!duplicated(res)]
     res %>%
       unlist() %>%
+      purrr::discard(is.na) %>%
       sort() %>%
       as.list() %>%
       purrr::map(lubridate::as_date)
@@ -178,7 +176,7 @@ is_jholiday <- function(date) {
   date <-
     lubridate::as_date(date)
   yr <-
-    lubridate::year(date)
+    unique(lubridate::year(date))
   purrr::map2_lgl(date,
                   yr,
                   ~ dplyr::if_else(is.na(match(.x,
