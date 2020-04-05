@@ -20,7 +20,7 @@ jholiday_spec <- function(year, name, lang = "en") {
 
   if (are_all_current_law_yr(year)) {
     if (!name %in% jholiday_names) {
-      rlang::abort(glue::glue("No such holiday: {name}"))
+      rlang::abort(sprintf("No such holiday: %s", name))
     }
     res <-
       dplyr::case_when(
