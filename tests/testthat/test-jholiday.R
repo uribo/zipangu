@@ -35,9 +35,14 @@ test_that("Specific year's holiday", {
     length(jholiday(2020, "en")),
     16L
   )
+  res <- jholiday(2019:2020, "en")
   expect_equal(
-    length(jholiday(2019:2020, "en")),
-    31L
+    length(res),
+    16L
+  )
+  expect_equal(
+    unique(purrr::map_int(res, length)),
+    2L
   )
 })
 

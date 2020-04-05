@@ -107,10 +107,14 @@ jholiday_spec <- function(year, name, lang = "en") {
 jholiday <- function(year, lang = "en") {
   jholiday_names <- jholiday_list[[lang]]
   if (are_all_current_law_yr(year)) {
-    res <- jholiday_names %>%
+    res <-
+      jholiday_names %>%
       purrr::map(~ jholiday_spec(year, name = .x, lang = lang)) %>%
       purrr::set_names(jholiday_names)
-    res[!duplicated(res)]
+    res <-
+      res[!duplicated(res)]
+    res %>%
+      purrr::discard(~ all(is.na(.)))
   }
 }
 
