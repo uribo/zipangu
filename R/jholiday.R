@@ -174,16 +174,12 @@ is_jholiday <- function(date) {
     lubridate::as_date(date)
   yr <-
     unique(lubridate::year(date))
-  purrr::map2_lgl(date,
-                  yr,
-                  ~ dplyr::if_else(is.na(match(.x,
-                                               unique(
-                                                 c(jholiday_df$date,
-                                                   jholiday(.y, "en") %>%
-                                                     purrr::reduce(c))
-                                               ))),
-                                   FALSE,
-                                   TRUE))
+  jholidays <-
+    unique(c(
+      jholiday_df$date,            # Holidays from https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv
+      unlist(jholiday(yr, "en"))   # Calculated holidays
+    ))
+  date %in% jholidays
 }
 
 #' Find out the date of the specific month and weekday
