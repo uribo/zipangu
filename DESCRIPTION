@@ -2,16 +2,15 @@ Package: zipangu
 Title: Japanese Utility Functions and Data
 Version: 0.2.0.9000
 Authors@R: 
-    person(given = "Shinya",
-           family = "Uryu",
-           role = c("aut", "cre"),
-           email = "suika1127@gmail.com",
-           comment = c(ORCID = "0000-0002-0493-6186")),
-    person(given = "Hiroaki",
-           family = "Yutani",
-           role = "ctb",
-           email = "yutani.ini@gmail.com",
-           comment = c(ORCID = "0000-0002-3385-7233"))
+    c(person(given = "Shinya",
+             family = "Uryu",
+             role = c("aut", "cre"),
+             email = "suika1127@gmail.com",
+             comment = c(ORCID = "0000-0002-0493-6186")),
+      person(given = "Hiroaki",
+             family = "Yutani",
+             role = "ctb",
+             comment = c(ORCID = "0000-0002-3385-7233")))
 Description: Some data treated by the Japanese R user require
     unique operations and processing. These are caused by address, Kanji,
     and traditional year representations.  'zipangu' transforms specific
