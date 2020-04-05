@@ -4,14 +4,16 @@
 \name{jpnprefs}
 \alias{jpnprefs}
 \title{Prefectural informations in Japan}
-\format{A tibble with 47 rows 5 variables:
+\format{
+A tibble with 47 rows 5 variables:
 \itemize{
 \item{jis_code: jis code}
 \item{prefecture_kanji: prefecture names}
 \item{prefecture: prefecture names}
 \item{region: region}
 \item{major_island: }
-}}
+}
+}
 \usage{
 jpnprefs
 }
