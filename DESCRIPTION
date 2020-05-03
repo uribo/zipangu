@@ -13,7 +13,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-3385-7233")))
 Description: Some data treated by the Japanese R user require
     unique operations and processing. These are caused by address, Kanji,
-    and traditional year representations.  'zipangu' transforms specific
+    and traditional year representations. 'zipangu' transforms specific
     to Japan into something more general one.
 License: MIT + file LICENSE
 URL: https://uribo.github.io/zipangu,
