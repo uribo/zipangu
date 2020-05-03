@@ -20,7 +20,7 @@
 <script src="pkgdown.js"></script><meta property="og:title" content="Japanese Utility Functions and Data">
 <meta property="og:description" content="Some data treated by the Japanese R user require
     unique operations and processing. These are caused by address, Kanji,
-    and traditional year representations.  zipangu transforms specific
+    and traditional year representations. zipangu transforms specific
     to Japan into something more general one.">
 <meta property="og:image" content="https://uribo.github.io/zipangu/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -103,25 +103,25 @@
 <div id="address" class="section level3">
 <h3 class="hasAnchor">
 <a href="#address" class="anchor"></a>Address</h3>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="st">"æ±äº¬é½åä»£ç°åºå¤§æçºä¸ä¸ç®"</span>)
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="st">"東京都千代田区大手町一丁目"</span>)
 <span class="co">#&gt; $prefecture</span>
-<span class="co">#&gt; [1] "æ±äº¬é½"</span>
+<span class="co">#&gt; [1] "東京都"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $city</span>
-<span class="co">#&gt; [1] "åä»£ç°åº"</span>
+<span class="co">#&gt; [1] "千代田区"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $street</span>
-<span class="co">#&gt; [1] "å¤§æçºä¸ä¸ç®"</span></pre></div>
+<span class="co">#&gt; [1] "大手町一丁目"</span></pre></div>
 <p>Applied to data frame.</p>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>, <span class="kw">warn.conflicts</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="kw">address</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"æ±äº¬é½åä»£ç°åºå¤§æçºä¸ä¸ç®"</span>, <span class="st">"å²¡å±±çå²¡å±±å¸ååºæ¸å¿çº16-13"</span>)) <span class="kw">%&gt;%</span>
+<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="kw">address</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"東京都千代田区大手町一丁目"</span>, <span class="st">"岡山県岡山市北区清心町16-13"</span>)) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">sss</span> <span class="kw">=</span> <span class="kw pkg">purrr</span><span class="kw ns">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span>(<span class="no">.</span>, ~ <span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="no">..1</span>))) <span class="kw">%&gt;%</span>
   <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu">unnest_wider</span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">sss</span>)
 <span class="co">#&gt; # A tibble: 2 x 4</span>
 <span class="co">#&gt;   address                     prefecture city       street      </span>
 <span class="co">#&gt;   &lt;fct&gt;                       &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       </span>
-<span class="co">#&gt; 1 æ±äº¬é½åä»£ç°åºå¤§æçºä¸ä¸ç®  æ±äº¬é½     åä»£ç°åº   å¤§æçºä¸ä¸ç®</span>
-<span class="co">#&gt; 2 å²¡å±±çå²¡å±±å¸ååºæ¸å¿çº16-13 å²¡å±±ç     å²¡å±±å¸ååº æ¸å¿çº16-13</span></pre></div>
+<span class="co">#&gt; 1 東京都千代田区大手町一丁目  東京都     千代田区   大手町一丁目</span>
+<span class="co">#&gt; 2 岡山県岡山市北区清心町16-13 岡山県     岡山市北区 清心町16-13</span></pre></div>
 </div>
 <div id="zip-code" class="section level3">
 <h3 class="hasAnchor">
@@ -130,8 +130,8 @@
 <span class="co">#&gt; # A tibble: 1 x 15</span>
 <span class="co">#&gt;   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana</span>
 <span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;      </span>
-<span class="co">#&gt; 1 13101    100          1000001  ãã¦ã­ã¨ã¦ã    ãã¨ãã¯  ãã¨ã     </span>
-<span class="co">#&gt; # â¦ with 9 more variables: prefecture &lt;chr&gt;, city &lt;chr&gt;, street &lt;chr&gt;,</span>
+<span class="co">#&gt; 1 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     </span>
+<span class="co">#&gt; # … with 9 more variables: prefecture &lt;chr&gt;, city &lt;chr&gt;, street &lt;chr&gt;,</span>
 <span class="co">#&gt; #   is_street_duplicate &lt;dbl&gt;, is_banchi &lt;dbl&gt;, is_cyoumoku &lt;dbl&gt;,</span>
 <span class="co">#&gt; #   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;</span></pre></div>
 <p>You can also load a file directly by specifying a URL.</p>
@@ -161,59 +161,59 @@
 <p>Given a year and holiday name as input, returns the date.</p>
 <div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"New Year's Day"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"en"</span>)
 <span class="co">#&gt; [1] "2020-01-01"</span></pre></div>
-<p>Holiday names can be specified in English (âenâ) and Japanese (âjpâ) by default, en is used.</p>
+<p>Holiday names can be specified in English (“en”) and Japanese (“jp”) by default, en is used.</p>
 <div class="sourceCode" id="cb11"><pre class="r"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"Coming of Age Day"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"en"</span>)
 <span class="co">#&gt; [1] "2020-01-13"</span>
 <span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"\u6210\u4eba\u306e\u65e5"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"jp"</span>)
 <span class="co">#&gt; [1] "2020-01-13"</span></pre></div>
 <p>Check the list of holidays for a year with the <code><a href="reference/jholiday.html">jholiday()</a></code>.</p>
 <div class="sourceCode" id="cb12"><pre class="r"><span class="fu"><a href="reference/jholiday.html">jholiday</a></span>(<span class="fl">2020</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"jp"</span>)
-<span class="co">#&gt; $åæ¥</span>
+<span class="co">#&gt; $元日</span>
 <span class="co">#&gt; [1] "2020-01-01"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æäººã®æ¥</span>
+<span class="co">#&gt; $成人の日</span>
 <span class="co">#&gt; [1] "2020-01-13"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $å»ºå½è¨å¿µã®æ¥</span>
+<span class="co">#&gt; $建国記念の日</span>
 <span class="co">#&gt; [1] "2020-02-11"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $å¤©çèªçæ¥</span>
+<span class="co">#&gt; $天皇誕生日</span>
 <span class="co">#&gt; [1] "2020-02-23"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æ¥åã®æ¥</span>
+<span class="co">#&gt; $春分の日</span>
 <span class="co">#&gt; [1] "2020-03-20"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æ­åã®æ¥</span>
+<span class="co">#&gt; $昭和の日</span>
 <span class="co">#&gt; [1] "2020-04-29"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æ²æ³è¨å¿µæ¥</span>
+<span class="co">#&gt; $憲法記念日</span>
 <span class="co">#&gt; [1] "2020-05-03"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $ã¿ã©ãã®æ¥</span>
+<span class="co">#&gt; $みどりの日</span>
 <span class="co">#&gt; [1] "2020-05-04"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $ãã©ãã®æ¥</span>
+<span class="co">#&gt; $こどもの日</span>
 <span class="co">#&gt; [1] "2020-05-05"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æµ·ã®æ¥</span>
+<span class="co">#&gt; $海の日</span>
 <span class="co">#&gt; [1] "2020-07-23"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $ã¹ãã¼ãã®æ¥</span>
+<span class="co">#&gt; $スポーツの日</span>
 <span class="co">#&gt; [1] "2020-07-24"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $å±±ã®æ¥</span>
+<span class="co">#&gt; $山の日</span>
 <span class="co">#&gt; [1] "2020-08-10"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æ¬èã®æ¥</span>
+<span class="co">#&gt; $敬老の日</span>
 <span class="co">#&gt; [1] "2020-09-21"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $ç§åã®æ¥</span>
+<span class="co">#&gt; $秋分の日</span>
 <span class="co">#&gt; [1] "2020-09-22"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $æåã®æ¥</span>
+<span class="co">#&gt; $文化の日</span>
 <span class="co">#&gt; [1] "2020-11-03"</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; $å¤å´æè¬ã®æ¥</span>
+<span class="co">#&gt; $勤労感謝の日</span>
 <span class="co">#&gt; [1] "2020-11-23"</span></pre></div>
 <p>Use <code><a href="reference/is_jholiday.html">is_jholiday()</a></code> function to evaluate whether today is a holiday.</p>
 <div class="sourceCode" id="cb13"><pre class="r"><span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span>(<span class="st">"2020-01-10"</span>)
@@ -227,22 +227,22 @@
 <a href="#convert" class="anchor"></a>Convert</h3>
 <div id="hiragana-to-katakana-and-more" class="section level4">
 <h4 class="hasAnchor">
-<a href="#hiragana-to-katakana-and-more" class="anchor"></a>Hiragana to Katakana and moreâ¦</h4>
-<div class="sourceCode" id="cb14"><pre class="r"><span class="fu"><a href="reference/str_jconv.html">str_jconv</a></span>(<span class="st">"ã¢ã¤ã¦ã¨ãª"</span>,
+<a href="#hiragana-to-katakana-and-more" class="anchor"></a>Hiragana to Katakana and more…</h4>
+<div class="sourceCode" id="cb14"><pre class="r"><span class="fu"><a href="reference/str_jconv.html">str_jconv</a></span>(<span class="st">"アイウエオ"</span>,
           <span class="no">str_conv_hirakana</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"hiragana"</span>)
-<span class="co">#&gt; [1] "ããããã"</span>
-<span class="fu"><a href="reference/str_jconv.html">str_conv_zenhan</a></span>(<span class="st">"ï½¶ï¾ï½¯"</span>, <span class="st">"zenkaku"</span>)
-<span class="co">#&gt; [1] "ã¬ã"</span>
+<span class="co">#&gt; [1] "あいうえお"</span>
+<span class="fu"><a href="reference/str_jconv.html">str_conv_zenhan</a></span>(<span class="st">"ｶﾞｯ"</span>, <span class="st">"zenkaku"</span>)
+<span class="co">#&gt; [1] "ガッ"</span>
 <span class="fu"><a href="reference/str_jconv.html">str_conv_romanhira</a></span>(<span class="st">"aiueo"</span>, <span class="st">"hiragana"</span>)
-<span class="co">#&gt; [1] "ããããã"</span></pre></div>
+<span class="co">#&gt; [1] "あいうえお"</span></pre></div>
 </div>
 <div id="kansuji" class="section level4">
 <h4 class="hasAnchor">
 <a href="#kansuji" class="anchor"></a>Kansuji</h4>
-<div class="sourceCode" id="cb15"><pre class="r"><span class="fu"><a href="reference/kansuji.html">kansuji2arabic</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"ä¸"</span>, <span class="st">"ç¾"</span>))
+<div class="sourceCode" id="cb15"><pre class="r"><span class="fu"><a href="reference/kansuji.html">kansuji2arabic</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"一"</span>, <span class="st">"百"</span>))
 <span class="co">#&gt; [1] "1"   "100"</span>
-<span class="fu"><a href="reference/kansuji.html">kansuji2arabic_all</a></span>(<span class="st">"åæµ·éæ­å¹å¸ä¸­å¤®åºåä¸æ¡è¥¿äºä¸ç®"</span>)
-<span class="co">#&gt; [1] "åæµ·éæ­å¹å¸ä¸­å¤®åºå1æ¡è¥¿2ä¸ç®"</span></pre></div>
+<span class="fu"><a href="reference/kansuji.html">kansuji2arabic_all</a></span>(<span class="st">"北海道札幌市中央区北一条西二丁目"</span>)
+<span class="co">#&gt; [1] "北海道札幌市中央区北1条西2丁目"</span></pre></div>
 </div>
 </div>
 <div id="data-set" class="section level3">
@@ -252,17 +252,17 @@
 <span class="co">#&gt; # A tibble: 47 x 5</span>
 <span class="co">#&gt;    jis_code prefecture_kanji prefecture    region   major_island</span>
 <span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       </span>
-<span class="co">#&gt;  1 01       åæµ·é           Hokkaido      Hokkaido Hokkaido    </span>
-<span class="co">#&gt;  2 02       éæ£®ç           Aomori-ken    Tohoku   Honshu      </span>
-<span class="co">#&gt;  3 03       å²©æç           Iwate-ken     Tohoku   Honshu      </span>
-<span class="co">#&gt;  4 04       å®®åç           Miyagi-ken    Tohoku   Honshu      </span>
-<span class="co">#&gt;  5 05       ç§ç°ç           Akita-ken     Tohoku   Honshu      </span>
-<span class="co">#&gt;  6 06       å±±å½¢ç           Yamagata-ken  Tohoku   Honshu      </span>
-<span class="co">#&gt;  7 07       ç¦å³¶ç           Fukushima-ken Tohoku   Honshu      </span>
-<span class="co">#&gt;  8 08       è¨åç           Ibaraki-ken   Kanto    Honshu      </span>
-<span class="co">#&gt;  9 09       æ æ¨ç           Tochigi-ken   Kanto    Honshu      </span>
-<span class="co">#&gt; 10 10       ç¾¤é¦¬ç           Gunma-ken     Kanto    Honshu      </span>
-<span class="co">#&gt; # â¦ with 37 more rows</span></pre></div>
+<span class="co">#&gt;  1 01       北海道           Hokkaido      Hokkaido Hokkaido    </span>
+<span class="co">#&gt;  2 02       青森県           Aomori-ken    Tohoku   Honshu      </span>
+<span class="co">#&gt;  3 03       岩手県           Iwate-ken     Tohoku   Honshu      </span>
+<span class="co">#&gt;  4 04       宮城県           Miyagi-ken    Tohoku   Honshu      </span>
+<span class="co">#&gt;  5 05       秋田県           Akita-ken     Tohoku   Honshu      </span>
+<span class="co">#&gt;  6 06       山形県           Yamagata-ken  Tohoku   Honshu      </span>
+<span class="co">#&gt;  7 07       福島県           Fukushima-ken Tohoku   Honshu      </span>
+<span class="co">#&gt;  8 08       茨城県           Ibaraki-ken   Kanto    Honshu      </span>
+<span class="co">#&gt;  9 09       栃木県           Tochigi-ken   Kanto    Honshu      </span>
+<span class="co">#&gt; 10 10       群馬県           Gunma-ken     Kanto    Honshu      </span>
+<span class="co">#&gt; # … with 37 more rows</span></pre></div>
 </div>
 </div>
 </div>
@@ -314,7 +314,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
