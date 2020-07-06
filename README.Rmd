@@ -93,6 +93,12 @@ zipcode_spacer("305-0053", remove = TRUE)
 convert_jyear("R1")
 ```
 
+### Date
+
+```{r}
+convert_jdate("平成元年11月25日")
+```
+
 #### Public holidays in Japan
 
 Given a year and holiday name as input, returns the date.
