@@ -95,6 +95,15 @@ test_that("address separate works", {
       street = NA_character_
     )
   )
+  str <-
+    c("\u8328\u57ce\u770c\u3064\u304f\u3070\u5e02\u7814\u7a76\u5b66\u5712\u4e00\u4e01\u76ee1\u756a\u57301",
+      "\u5ca1\u5c71\u770c\u5ca1\u5c71\u5e02\u5317\u533a\u5927\u4f9b\u4e00\u4e01\u76ee1\u756a1\u53f7")
+  res <-
+    separate_address(str)
+  expect_length(
+    res,
+    2L
+  )
 })
 
 test_that("Is address elements", {
