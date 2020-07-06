@@ -113,8 +113,13 @@ jholiday <- function(year, lang = "en") {
       purrr::set_names(jholiday_names)
     res <-
       res[!duplicated(res)]
-    res %>%
+    res <-
+      res %>%
       purrr::discard(~ all(is.na(.)))
+    purrr::flatten_dbl(res) %>%
+      purrr::set_names(names(res)) %>%
+      sort() %>%
+      purrr::map(lubridate::as_date)
   }
 }
 
