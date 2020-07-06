@@ -177,7 +177,7 @@ is_jholiday <- function(date) {
   jholidays <-
     unique(c(
       jholiday_df$date,            # Holidays from https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv
-      unlist(jholiday(yr, "en"))   # Calculated holidays
+      lubridate::as_date(unlist(jholiday(yr, "en")))   # Calculated holidays
     ))
   date %in% jholidays
 }
