@@ -116,10 +116,13 @@ jholiday <- function(year, lang = "en") {
     res <-
       res %>%
       purrr::discard(~ all(is.na(.)))
-    purrr::flatten_dbl(res) %>%
-      purrr::set_names(names(res)) %>%
-      sort() %>%
-      purrr::map(lubridate::as_date)
+    if (length(year) == 1L) {
+      purrr::flatten_dbl(res) %>%
+          purrr::set_names(names(res)) %>%
+          sort() %>%
+          purrr::map(lubridate::as_date)
+    }
+    res
   }
 }
 
