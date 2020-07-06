@@ -10,7 +10,11 @@ Authors@R:
       person(given = "Hiroaki",
              family = "Yutani",
              role = "ctb",
-             comment = c(ORCID = "0000-0002-3385-7233")))
+             comment = c(ORCID = "0000-0002-3385-7233")),
+    person(given = "Kazuhiro",
+             family = "Maeda",
+             role = "ctb") 
+             )
 Description: Some data treated by the Japanese R user require
     unique operations and processing. These are caused by address, Kanji,
     and traditional year representations. 'zipangu' transforms specific

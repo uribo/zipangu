@@ -26,3 +26,10 @@ test_that("convert jyear works", {
     c(1935, 2002)
   )
 })
+
+test_that("convert japanese date format", {
+  expect_equal(
+    convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5"),
+    as.Date("2020-07-06")
+  )
+})

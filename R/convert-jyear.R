@@ -45,6 +45,21 @@ convert_jyear <- function(jyear) {
   res
 }
 
+#' Convert Japanese date format to date object
+#' @description
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
+#' @param date a character object.
+#' @examples
+#' convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5")
+#' @export
+convert_jdate <- function(date) {
+  date %>%
+    stringi::stri_trans_nfkc() %>%
+    stringr::str_replace(".*(?=\u5e74)",
+                         convert_jyear) %>%
+    lubridate::ymd()
+}
+
 jyear_initial_tolower <- function(jyear) {
   jyear %>%
     stringr::str_replace("\u5143", "1") %>%
