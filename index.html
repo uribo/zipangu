@@ -91,19 +91,26 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of <code>{zipangu}</code> from CRAN with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"zipangu"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"zipangu"</span>)
+</pre></div>
 <p>and also, the developmment version from GitHub</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"uribo/zipangu"</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<span class="kw">remotes</span>::<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"uribo/zipangu"</span>)
+</pre></div>
 </div>
 <div id="api" class="section level2">
 <h2 class="hasAnchor">
 <a href="#api" class="anchor"></a>API</h2>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">zipangu</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://uribo.github.io/zipangu">zipangu</a></span>)
+</pre></div>
 <div id="address" class="section level3">
 <h3 class="hasAnchor">
 <a href="#address" class="anchor"></a>Address</h3>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="st">"東京都千代田区大手町一丁目"</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="st">"東京都千代田区大手町一丁目"</span>)
 <span class="co">#&gt; $prefecture</span>
 <span class="co">#&gt; [1] "東京都"</span>
 <span class="co">#&gt; </span>
@@ -111,40 +118,49 @@
 <span class="co">#&gt; [1] "千代田区"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $street</span>
-<span class="co">#&gt; [1] "大手町一丁目"</span></pre></div>
+<span class="co">#&gt; [1] "大手町一丁目"</span>
+</pre></div>
 <p>Applied to data frame.</p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>, <span class="kw">warn.conflicts</span> <span class="kw">=</span> <span class="fl">FALSE</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(<span class="kw">address</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"東京都千代田区大手町一丁目"</span>, <span class="st">"岡山県岡山市北区清心町16-13"</span>)) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="kw">sss</span> <span class="kw">=</span> <span class="kw pkg">purrr</span><span class="kw ns">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span>(<span class="no">.</span>, ~ <span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="no">..1</span>))) <span class="kw">%&gt;%</span>
-  <span class="kw pkg">tidyr</span><span class="kw ns">::</span><span class="fu">unnest_wider</span>(<span class="kw">col</span> <span class="kw">=</span> <span class="no">sss</span>)
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>, warn.conflicts = <span class="fl">FALSE</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(address = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"東京都千代田区大手町一丁目"</span>, <span class="st">"岡山県岡山市北区清心町16-13"</span>)) <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(sss = <span class="kw">purrr</span>::<span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span>(<span class="kw">.</span>, <span class="op">~</span> <span class="fu"><a href="reference/separate_address.html">separate_address</a></span>(<span class="kw">..1</span>))) <span class="op">%&gt;%</span> 
+  <span class="kw">tidyr</span>::<span class="fu">unnest_wider</span>(col = <span class="kw">sss</span>)
 <span class="co">#&gt; # A tibble: 2 x 4</span>
 <span class="co">#&gt;   address                     prefecture city       street      </span>
-<span class="co">#&gt;   &lt;fct&gt;                       &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       </span>
+<span class="co">#&gt;   &lt;chr&gt;                       &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       </span>
 <span class="co">#&gt; 1 東京都千代田区大手町一丁目  東京都     千代田区   大手町一丁目</span>
-<span class="co">#&gt; 2 岡山県岡山市北区清心町16-13 岡山県     岡山市北区 清心町16-13</span></pre></div>
+<span class="co">#&gt; 2 岡山県岡山市北区清心町16-13 岡山県     岡山市北区 清心町16-13</span>
+</pre></div>
 </div>
 <div id="zip-code" class="section level3">
 <h3 class="hasAnchor">
 <a href="#zip-code" class="anchor"></a>Zip-code</h3>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/read_zipcode.html">read_zipcode</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"zipcode_dummy/13TOKYO_oogaki.CSV"</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"zipangu"</span>), <span class="st">"oogaki"</span>)
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="fu"><a href="reference/read_zipcode.html">read_zipcode</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"zipcode_dummy/13TOKYO_oogaki.CSV"</span>, package = <span class="st">"zipangu"</span>), <span class="st">"oogaki"</span>)
 <span class="co">#&gt; # A tibble: 1 x 15</span>
 <span class="co">#&gt;   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana</span>
 <span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;      </span>
 <span class="co">#&gt; 1 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     </span>
 <span class="co">#&gt; # … with 9 more variables: prefecture &lt;chr&gt;, city &lt;chr&gt;, street &lt;chr&gt;,</span>
 <span class="co">#&gt; #   is_street_duplicate &lt;dbl&gt;, is_banchi &lt;dbl&gt;, is_cyoumoku &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;</span></pre></div>
+<span class="co">#&gt; #   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;</span>
+</pre></div>
 <p>You can also load a file directly by specifying a URL.</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/read_zipcode.html">read_zipcode</a></span>(<span class="st">"https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"</span>)</pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="fu"><a href="reference/read_zipcode.html">read_zipcode</a></span>(<span class="st">"https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"</span>)
+</pre></div>
 <p>Utilities</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="fu"><a href="reference/is_zipcode.html">is_zipcode</a></span>(<span class="fl">7000027</span>)
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="reference/is_zipcode.html">is_zipcode</a></span>(<span class="fl">7000027</span>)
 <span class="co">#&gt; [1] TRUE</span>
 <span class="fu"><a href="reference/is_zipcode.html">is_zipcode</a></span>(<span class="st">"700-0027"</span>)
 <span class="co">#&gt; [1] TRUE</span>
 <span class="fu"><a href="reference/zipcode_spacer.html">zipcode_spacer</a></span>(<span class="st">"305-0053"</span>)
 <span class="co">#&gt; [1] "305-0053"</span>
-<span class="fu"><a href="reference/zipcode_spacer.html">zipcode_spacer</a></span>(<span class="st">"305-0053"</span>, <span class="kw">remove</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
-<span class="co">#&gt; [1] "3050053"</span></pre></div>
+<span class="fu"><a href="reference/zipcode_spacer.html">zipcode_spacer</a></span>(<span class="st">"305-0053"</span>, remove = <span class="fl">TRUE</span>)
+<span class="co">#&gt; [1] "3050053"</span>
+</pre></div>
 </div>
 <div id="calendar" class="section level3">
 <h3 class="hasAnchor">
@@ -152,22 +168,37 @@
 <div id="year-japanese-imperial-year" class="section level4">
 <h4 class="hasAnchor">
 <a href="#year-japanese-imperial-year" class="anchor"></a>Year (Japanese imperial year)</h4>
-<div class="sourceCode" id="cb9"><pre class="r"><span class="fu"><a href="reference/convert_jyear.html">convert_jyear</a></span>(<span class="st">"R1"</span>)
-<span class="co">#&gt; [1] 2019</span></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="fu"><a href="reference/convert_jyear.html">convert_jyear</a></span>(<span class="st">"R1"</span>)
+<span class="co">#&gt; [1] 2019</span>
+</pre></div>
 </div>
+</div>
+<div id="date" class="section level3">
+<h3 class="hasAnchor">
+<a href="#date" class="anchor"></a>Date</h3>
+<div class="sourceCode" id="cb10"><pre class="downlit">
+<span class="fu"><a href="reference/convert_jdate.html">convert_jdate</a></span>(<span class="st">"平成元年11月25日"</span>)
+<span class="co">#&gt; [1] "1989-11-25"</span>
+</pre></div>
 <div id="public-holidays-in-japan" class="section level4">
 <h4 class="hasAnchor">
 <a href="#public-holidays-in-japan" class="anchor"></a>Public holidays in Japan</h4>
 <p>Given a year and holiday name as input, returns the date.</p>
-<div class="sourceCode" id="cb10"><pre class="r"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"New Year's Day"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"en"</span>)
-<span class="co">#&gt; [1] "2020-01-01"</span></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit">
+<span class="fu"><a href="reference/jholiday_spec.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"New Year's Day"</span>, lang = <span class="st">"en"</span>)
+<span class="co">#&gt; [1] "2020-01-01"</span>
+</pre></div>
 <p>Holiday names can be specified in English (“en”) and Japanese (“jp”) by default, en is used.</p>
-<div class="sourceCode" id="cb11"><pre class="r"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"Coming of Age Day"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"en"</span>)
+<div class="sourceCode" id="cb12"><pre class="downlit">
+<span class="fu"><a href="reference/jholiday_spec.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"Coming of Age Day"</span>, lang = <span class="st">"en"</span>)
 <span class="co">#&gt; [1] "2020-01-13"</span>
-<span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"\u6210\u4eba\u306e\u65e5"</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"jp"</span>)
-<span class="co">#&gt; [1] "2020-01-13"</span></pre></div>
-<p>Check the list of holidays for a year with the <code><a href="reference/jholiday.html">jholiday()</a></code>.</p>
-<div class="sourceCode" id="cb12"><pre class="r"><span class="fu"><a href="reference/jholiday.html">jholiday</a></span>(<span class="fl">2020</span>, <span class="kw">lang</span> <span class="kw">=</span> <span class="st">"jp"</span>)
+<span class="fu"><a href="reference/jholiday_spec.html">jholiday_spec</a></span>(<span class="fl">2020</span>, <span class="st">"\u6210\u4eba\u306e\u65e5"</span>, lang = <span class="st">"jp"</span>)
+<span class="co">#&gt; [1] "2020-01-13"</span>
+</pre></div>
+<p>Check the list of holidays for a year with the <code><a href="reference/jholiday_spec.html">jholiday()</a></code>.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit">
+<span class="fu"><a href="reference/jholiday_spec.html">jholiday</a></span>(<span class="fl">2020</span>, lang = <span class="st">"jp"</span>)
 <span class="co">#&gt; $元日</span>
 <span class="co">#&gt; [1] "2020-01-01"</span>
 <span class="co">#&gt; </span>
@@ -214,12 +245,15 @@
 <span class="co">#&gt; [1] "2020-11-03"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $勤労感謝の日</span>
-<span class="co">#&gt; [1] "2020-11-23"</span></pre></div>
+<span class="co">#&gt; [1] "2020-11-23"</span>
+</pre></div>
 <p>Use <code><a href="reference/is_jholiday.html">is_jholiday()</a></code> function to evaluate whether today is a holiday.</p>
-<div class="sourceCode" id="cb13"><pre class="r"><span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span>(<span class="st">"2020-01-10"</span>)
+<div class="sourceCode" id="cb14"><pre class="downlit">
+<span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span>(<span class="st">"2020-01-10"</span>)
 <span class="co">#&gt; [1] FALSE</span>
 <span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span>(<span class="st">"2020-02-23"</span>)
-<span class="co">#&gt; [1] TRUE</span></pre></div>
+<span class="co">#&gt; [1] TRUE</span>
+</pre></div>
 </div>
 </div>
 <div id="convert" class="section level3">
@@ -228,27 +262,32 @@
 <div id="hiragana-to-katakana-and-more" class="section level4">
 <h4 class="hasAnchor">
 <a href="#hiragana-to-katakana-and-more" class="anchor"></a>Hiragana to Katakana and more…</h4>
-<div class="sourceCode" id="cb14"><pre class="r"><span class="fu"><a href="reference/str_jconv.html">str_jconv</a></span>(<span class="st">"アイウエオ"</span>,
-          <span class="no">str_conv_hirakana</span>, <span class="kw">to</span> <span class="kw">=</span> <span class="st">"hiragana"</span>)
+<div class="sourceCode" id="cb15"><pre class="downlit">
+<span class="fu"><a href="reference/str_jconv.html">str_jconv</a></span>(<span class="st">"アイウエオ"</span>, 
+          <span class="kw">str_conv_hirakana</span>, to = <span class="st">"hiragana"</span>)
 <span class="co">#&gt; [1] "あいうえお"</span>
 <span class="fu"><a href="reference/str_jconv.html">str_conv_zenhan</a></span>(<span class="st">"ｶﾞｯ"</span>, <span class="st">"zenkaku"</span>)
 <span class="co">#&gt; [1] "ガッ"</span>
 <span class="fu"><a href="reference/str_jconv.html">str_conv_romanhira</a></span>(<span class="st">"aiueo"</span>, <span class="st">"hiragana"</span>)
-<span class="co">#&gt; [1] "あいうえお"</span></pre></div>
+<span class="co">#&gt; [1] "あいうえお"</span>
+</pre></div>
 </div>
 <div id="kansuji" class="section level4">
 <h4 class="hasAnchor">
 <a href="#kansuji" class="anchor"></a>Kansuji</h4>
-<div class="sourceCode" id="cb15"><pre class="r"><span class="fu"><a href="reference/kansuji.html">kansuji2arabic</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"一"</span>, <span class="st">"百"</span>))
+<div class="sourceCode" id="cb16"><pre class="downlit">
+<span class="fu"><a href="reference/kansuji2arabic.html">kansuji2arabic</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"一"</span>, <span class="st">"百"</span>))
 <span class="co">#&gt; [1] "1"   "100"</span>
-<span class="fu"><a href="reference/kansuji.html">kansuji2arabic_all</a></span>(<span class="st">"北海道札幌市中央区北一条西二丁目"</span>)
-<span class="co">#&gt; [1] "北海道札幌市中央区北1条西2丁目"</span></pre></div>
+<span class="fu"><a href="reference/kansuji2arabic.html">kansuji2arabic_all</a></span>(<span class="st">"北海道札幌市中央区北一条西二丁目"</span>)
+<span class="co">#&gt; [1] "北海道札幌市中央区北1条西2丁目"</span>
+</pre></div>
 </div>
 </div>
 <div id="data-set" class="section level3">
 <h3 class="hasAnchor">
 <a href="#data-set" class="anchor"></a>Data set</h3>
-<div class="sourceCode" id="cb16"><pre class="r"><span class="no">jpnprefs</span>
+<div class="sourceCode" id="cb17"><pre class="downlit">
+<span class="kw">jpnprefs</span>
 <span class="co">#&gt; # A tibble: 47 x 5</span>
 <span class="co">#&gt;    jis_code prefecture_kanji prefecture    region   major_island</span>
 <span class="co">#&gt;    &lt;chr&gt;    &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       </span>
@@ -262,7 +301,8 @@
 <span class="co">#&gt;  8 08       茨城県           Ibaraki-ken   Kanto    Honshu      </span>
 <span class="co">#&gt;  9 09       栃木県           Tochigi-ken   Kanto    Honshu      </span>
 <span class="co">#&gt; 10 10       群馬県           Gunma-ken     Kanto    Honshu      </span>
-<span class="co">#&gt; # … with 37 more rows</span></pre></div>
+<span class="co">#&gt; # … with 37 more rows</span>
+</pre></div>
 </div>
 </div>
 </div>
