@@ -16,6 +16,7 @@ RUN set -x && \
   install2.r --error --ncpus -1 --repos 'http://mran.revolutionanalytics.com/snapshot/2020-07-05' \
     magick \
     pkgdown \
+    rhub \
     roxygen2 && \
   installGithub.r \
     r-lib/revdepcheck && \
