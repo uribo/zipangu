@@ -28,8 +28,9 @@ reference:
     - is_zipcode
     - read_zipcode
     - zipcode_spacer
-  - title: "Japanese imperial year"
+  - title: "Convert Japanese year and date format"
     contents:
+    - convert_jdate
     - convert_jyear
   - title: "Public holidays in Japan"
     contents:
