@@ -21,15 +21,10 @@ test_that("convert jyear works", {
       NA_real_
     )
   )
-  expect_equal(
-    convert_jyear(c("\u662d\u548c10\u5e74", "\u5e73\u621014\u5e74")),
-    c(1935, 2002)
-  )
-
-  expect_warning(
+  expect_silent(
     expect_equal(
-      convert_jyear(c("\u5e73\u621030\u5e741\u67081\u65e5", "\u5e73\u621030\u5e742\u67081\u65e5", NA)),
-      c(2018, 2018, NA)
+      convert_jyear(c("\u662d\u548c10\u5e74", "\u5e73\u621014\u5e74", NA)),
+      c(1935, 2002, NA)
     )
   )
 })

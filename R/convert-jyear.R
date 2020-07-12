@@ -22,7 +22,7 @@ convert_jyear <- function(jyear) {
     which(is_jyear(jyear))
 
   # If there are some index not covered by AD or Wareki, show a warning
-  if (length(setdiff(seq_along(jyear), c(idx_ad, idx_wareki))) > 0) {
+  if (length(setdiff(seq_along(jyear), c(idx_ad, idx_wareki, which(is.na(jyear))))) > 0) {
     rlang::warn("Unsupported Japanese imperial year.\nPlease include the year after 1868 or the year used since then, Meiji, Taisho, Showa, Heisei and Reiwa.")
   }
 
