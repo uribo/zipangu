@@ -33,3 +33,10 @@ test_that("convert japanese date format", {
     as.Date("2020-07-06")
   )
 })
+
+test_that("is_jyear() works", {
+  expect_equal(
+    is_jyear(c("Heisei1", "1989\u5e74", NA, "\u6587\u4e453\u5e74")),
+    c(TRUE, FALSE, NA, FALSE)
+  )
+})
