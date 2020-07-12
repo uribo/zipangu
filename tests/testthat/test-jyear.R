@@ -21,9 +21,11 @@ test_that("convert jyear works", {
       NA_real_
     )
   )
-  expect_equal(
-    convert_jyear(c("\u662d\u548c10\u5e74", "\u5e73\u621014\u5e74")),
-    c(1935, 2002)
+  expect_silent(
+    expect_equal(
+      convert_jyear(c("\u662d\u548c10\u5e74", "\u5e73\u621014\u5e74", NA)),
+      c(1935, 2002, NA)
+    )
   )
 })
 
@@ -31,5 +33,17 @@ test_that("convert japanese date format", {
   expect_equal(
     convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5"),
     as.Date("2020-07-06")
+  )
+
+  expect_equal(
+    convert_jdate(c("\u5e73\u621030\u5e741\u67081\u65e5", "\u5e73\u621030\u5e742\u67081\u65e5", NA)),
+    as.Date(c("2018-01-01", "2018-02-01", NA))
+  )
+})
+
+test_that("is_jyear() works", {
+  expect_equal(
+    is_jyear(c("Heisei1", "1989\u5e74", NA, "\u6587\u4e453\u5e74")),
+    c(TRUE, FALSE, NA, FALSE)
   )
 })
