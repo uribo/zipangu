@@ -61,22 +61,29 @@ convert_jdate <- function(date) {
 }
 
 jyear_initial_tolower <- function(jyear) {
-  jyear %>%
-    stringr::str_replace("\u5143", "1") %>%
-    purrr::modify_if(
-      .p = ~ stringr::str_detect(.x, "[A-Za-z]"),
-      stringr::str_to_lower)
+  jyear <-
+    stringr::str_replace(jyear, "\u5143", "1")
+
+  idx <-
+    which(stringr::str_detect(jyear, "[A-Za-z]"))
+  jyear[idx] <-
+    stringr::str_to_lower(jyear[idx])
+
+  jyear
 }
 
 is_jyear <- function(jyear) {
-  jyear_initial_tolower(jyear) %>%
-    purrr::map_lgl(
-      ~ stringr::str_detect(.x,
-                            paste0("^(", paste(jyear_sets %>%
-                                                 purrr::flatten() %>%
-                                                 purrr::keep(is.character) %>%
-                                                 purrr::as_vector(),
-                                               collapse = "|"), ")")))
+  pattern <- paste0(
+    "^(",
+    paste(jyear_sets %>%
+            purrr::flatten() %>%
+            purrr::keep(is.character) %>%
+            purrr::as_vector(),
+          collapse = "|"),
+    ")"
+  )
+
+  stringr::str_detect(jyear_initial_tolower(jyear), pattern)
 }
 
 convert_jyear_roman <- function(x) {
