@@ -10,38 +10,47 @@
 #' convert_jyear(kansuji2arabic_all("\u5e73\u6210\u4e09\u5e74"))
 #' @export
 convert_jyear <- function(jyear) {
-  jyear <- sapply(jyear,
-                  stringr::str_trim,
-                  USE.NAMES = FALSE)
-  if (sum(sapply(jyear, stringr::str_detect,
-                 pattern = "([0-9]{4}|[0-9]{4}.+\u5e74)",
-                 USE.NAMES = FALSE)) > 0) {
-    res <-
-      as.numeric(stringr::str_replace(jyear, "\u5e74", ""))
-  } else if (sum(is_jyear(jyear)) == 0) {
+  jyear <-
+    stringr::str_trim(jyear)
+
+  res <- rep(NA_real_, length(jyear))
+
+  # Convert to position to ignore NAs
+  idx_ad <-
+    which(stringr::str_detect(jyear, "([0-9]{4}|[0-9]{4}.+\u5e74)"))
+  idx_wareki <-
+    which(is_jyear(jyear))
+
+  # If there are some index not covered by AD or Wareki, show a warning
+  if (length(setdiff(seq_along(jyear), c(idx_ad, idx_wareki))) > 0) {
     rlang::warn("Unsupported Japanese imperial year.\nPlease include the year after 1868 or the year used since then, Meiji, Taisho, Showa, Heisei and Reiwa.")
-    res <- NA_real_
-  }  else {
-    jyear <-
-      jyear_initial_tolower(jyear)
-    wareki_yr <-
-      as.integer(
-        stringr::str_extract(
-          jyear,
-          pattern = "[0-9]{1,2}"))
-    wareki_roman <-
-      stringr::str_sub(jyear, 1, 1) %>%
-      purrr::map_chr(convert_jyear_roman)
-    res <-
-      wareki_yr +
-      wareki_roman %>%
-      purrr::map_dbl(function(.x) {
-        jyear_sets %>%
-          purrr::map("start_year") %>%
-          purrr::map(~ .x - 1) %>%
-          purrr::pluck(stringr::str_which(.x, names(jyear_sets)))
-      })
   }
+
+  # For AD years, simply parse the numbers
+  res[idx_ad] <-
+      as.numeric(stringr::str_replace(jyear[idx_ad], "\u5e74", ""))
+
+  # For Wareki years, do some complex stuff...
+  jyear_wareki <-
+    jyear_initial_tolower(jyear[idx_wareki])
+  wareki_yr <-
+    as.integer(
+      stringr::str_extract(
+        jyear_wareki,
+        pattern = "[0-9]{1,2}"))
+  wareki_roman <-
+    stringr::str_sub(jyear_wareki, 1, 1) %>%
+    purrr::map_chr(convert_jyear_roman)
+  res[idx_wareki] <-
+    wareki_yr +
+    wareki_roman %>%
+    purrr::map_dbl(function(.x) {
+      jyear_sets %>%
+        purrr::map("start_year") %>%
+        purrr::map(~ .x - 1) %>%
+        purrr::pluck(stringr::str_which(.x, names(jyear_sets)))
+    })
+
   res
 }
 
