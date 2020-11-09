@@ -3,11 +3,22 @@
 \name{kansuji2arabic}
 \alias{kansuji2arabic}
 \alias{kansuji2arabic_all}
+\alias{kansuji2arabic_num}
+\alias{kansuji2arabic_str}
 \title{Convert kansuji character to arabic}
 \usage{
 kansuji2arabic(str, convert = TRUE, .under = Inf)
 
 kansuji2arabic_all(str, ...)
+
+kansuji2arabic_num(str, ...)
+
+kansuji2arabic_str(
+  str,
+  consecutive = c("convert", "non"),
+  widths = c("all", "halfwidth"),
+  ...
+)
 }
 \arguments{
 \item{str}{Input vector.}
@@ -18,6 +29,14 @@ and numeric values are treated as strings.}
 \item{.under}{Number scale to be converted. The default value is infinity.}
 
 \item{...}{Other arguments to carry over to \code{kansuji2arabic()}}
+
+\item{consecutive}{If you select "convert", any sequence of 1 to 9 kansuji will
+be replaced with Arabic numerals. If you select "non", any sequence of 1-9
+kansuji will not be replaced by Arabic numerals.}
+
+\item{widths}{If you select "all", both full-width and half-width Arabic numerals
+are taken into account when calculating kansuji, but if you select "halfwidth",
+only half-width Arabic numerals are taken into account when calculating kansuji.}
 }
 \value{
 a character or numeric.
