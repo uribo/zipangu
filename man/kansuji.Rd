@@ -11,7 +11,7 @@ kansuji2arabic(str, convert = TRUE, .under = Inf)
 
 kansuji2arabic_all(str, ...)
 
-kansuji2arabic_num(str, ...)
+kansuji2arabic_num(str, consecutive = c("convert", "non"), ...)
 
 kansuji2arabic_str(
   str,

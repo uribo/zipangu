@@ -89,7 +89,7 @@ arabic2kansuji <- function(str,
 }
 
 #'
-kansuji2arabic_kai <- function(str, consecutive = c("convert", "non"), ...) {
+kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ...) {
   consecutive <- match.arg(consecutive)
 
   n <- stringr::str_split(str,
@@ -167,7 +167,8 @@ kansuji2arabic_kai <- function(str, consecutive = c("convert", "non"), ...) {
             res[i] <- nn[i] * nn[i + 1]
           else if(nn[i] >=10 && nn[i - 1] >=10)
             res[i] <- nn[i]
-          else stop("This format of kansuji characters cannot be converted.")
+          else if(nn[i] <= 9 && nn[i + 1] <=9)
+            stop("This format of kansuji characters cannot be converted.")
         }
         ans[k] <- sum(stats::na.omit(res)) * digits_number[k]
         l <- digits_location[k] + 1
@@ -181,13 +182,15 @@ kansuji2arabic_kai <- function(str, consecutive = c("convert", "non"), ...) {
 
 #' @rdname kansuji
 #' @export
-kansuji2arabic_num <- function(str, ...){
-  purrr::map(str, kansuji2arabic_kai, ...) %>% unlist()
+kansuji2arabic_num <- function(str, consecutive = c("convert", "non"), ...){
+  consecutive <- match.arg(consecutive)
+
+  purrr::map(str, kansuji2arabic_num_single, ...) %>% unlist()
 }
 
 
 #'
-kansuji2arabic_kai2 <- function(str, consecutive = c("convert", "non"), widths = c("all", "halfwidth"), ...){
+kansuji2arabic_str_single <- function(str, consecutive = c("convert", "non"), widths = c("all", "halfwidth"), ...){
   consecutive <- match.arg(consecutive)
   widths <- match.arg(widths)
 
@@ -205,34 +208,34 @@ kansuji2arabic_kai2 <- function(str, consecutive = c("convert", "non"), widths =
   str <- arabic2kansuji(str)
 
 
-  doc_num <- stringr::str_split(str, pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]")[[1]]
-  doc_num[doc_num == ""] <- NA
+  str_num <- stringr::str_split(str, pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]")[[1]]
+  str_num[str_num == ""] <- NA
   str <- stringr::str_replace_all(str, pattern = "[\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]",  replacement = "\u3007\u3007")
-  doc_str <- stringr::str_split(str, pattern = "[\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]")[[1]]
-  doc_num <- kansuji2arabic_num(stats::na.omit(doc_num), consecutive)
+  doc_cha <- stringr::str_split(str, pattern = "[\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]")[[1]]
+  str_num <- kansuji2arabic_num(stats::na.omit(str_num), consecutive)
 
   j <- 1
-  for(i in 1:length(doc_str)){
-    if(!stringr::str_detect(doc_str[i], pattern = "") && i == 1){
-      doc_str[i] <- doc_num[j]
+  for(i in 1:length(doc_cha)){
+    if(!stringr::str_detect(doc_cha[i], pattern = "") && i == 1){
+      doc_cha[i] <- str_num[j]
       j <- j + 1
     }
     else if(consecutive == "non"){
-      if((stringr::str_detect(doc_str[i - 1], pattern = "[^0123456789]")
-          && stringr::str_detect(doc_str[i - 1], pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d]"))
-         && !stringr::str_detect(doc_str[i], pattern = "")){
-        doc_str[i] <- doc_num[j]
+      if((stringr::str_detect(doc_cha[i - 1], pattern = "[^0123456789]")
+          && stringr::str_detect(doc_cha[i - 1], pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d]"))
+         && !stringr::str_detect(doc_cha[i], pattern = "")){
+        doc_cha[i] <- str_num[j]
         j <- j + 1
       }
     }
-    else if(stringr::str_detect(doc_str[i - 1], pattern = "[^0123456789]")
-            && !stringr::str_detect(doc_str[i], pattern = "")){
-      doc_str[i] <- doc_num[j]
+    else if(stringr::str_detect(doc_cha[i - 1], pattern = "[^0123456789]")
+            && !stringr::str_detect(doc_cha[i], pattern = "")){
+      doc_cha[i] <- str_num[j]
       j <- j + 1
     }
-    if((length(doc_num) + 1)  ==  j) break
+    if((length(str_num) + 1)  ==  j) break
   }
-  ans <- stringr::str_c(doc_str, collapse = "")
+  ans <- stringr::str_c(doc_cha, collapse = "")
   return(ans)
 }
 
@@ -247,5 +250,6 @@ kansuji2arabic_kai2 <- function(str, consecutive = c("convert", "non"), widths =
 kansuji2arabic_str <- function(str, consecutive = c("convert", "non"), widths = c("all", "halfwidth"),...){
   consecutive <- match.arg(consecutive)
   widths <- match.arg(widths)
-  purrr::map(str, kansuji2arabic_kai2, consecutive, widths, ...) %>% unlist()
+
+  purrr::map(str, kansuji2arabic_str_single, consecutive, widths, ...) %>% unlist()
 }
