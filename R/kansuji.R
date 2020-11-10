@@ -185,7 +185,7 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
 kansuji2arabic_num <- function(str, consecutive = c("convert", "non"), ...){
   consecutive <- match.arg(consecutive)
 
-  purrr::map(str, kansuji2arabic_num_single, ...) %>% unlist()
+  purrr::map(str, kansuji2arabic_num_single, consecutive, ...) %>% unlist()
 }
 
 
