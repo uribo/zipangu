@@ -3,6 +3,10 @@
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
 #' `kansuji2arabic_all()` converts only Kansuji in the string.
+#' `kansuji2arabic_num()` convert kansuji that contain the positions (e.g. Hyaku,
+#' Sen, etc) with the numbers represented by kansuji. `kansuji2arabic_str()`
+#' converts kansuji in a string to numbers represented by kansuji while
+#' retaining the non-kansuji characters.
 #' @param str Input vector.
 #' @param convert If `FALSE`, will return as numeric. The default value is `TRUE`,
 #' and numeric values are treated as strings.
@@ -18,6 +22,14 @@
 #' # Convert all character
 #' kansuji2arabic_all("\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341")
 #' kansuji2arabic_all("\u516b\u4e01\u76ee")
+#' # Convert kansuji that contain the positions with the numbers represented by kansuji.
+#' kansuji2arabic_num("\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07")
+#' kansuji2arabic_num("\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d")
+#' # Converts kansuji in a string to numbers represented by kansuji.
+#' kansuji2arabic_str("\u91d1\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07\u5186")
+#' kansuji2arabic_str("\u91d1\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d\u5186")
+#' kansuji2arabic_str("\u91d11\u51042345\u4e076789\u5186")
+#'
 #' @export
 kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
   kanjiarabic_key <-
