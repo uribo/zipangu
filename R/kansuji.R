@@ -67,7 +67,7 @@ kansuji2arabic_all <- function(str, ...) {
       purrr::map(kansuji2arabic, ...) %>%
       purrr::reduce(c) %>%
       paste(collapse = "")
-  }) %>%
+  }, ...) %>%
     unlist()
 }
 
