@@ -60,8 +60,8 @@ Applied to data frame.
 ```{r, warning=FALSE}
 library(dplyr, warn.conflicts = FALSE)
 data.frame(address = c("東京都千代田区大手町一丁目", "岡山県岡山市北区清心町16-13")) %>% 
-  mutate(sss = purrr::pmap(., ~ separate_address(..1))) %>% 
-  tidyr::unnest_wider(col = sss)
+  mutate(address_components = purrr::pmap(., ~ separate_address(..1))) %>% 
+  tidyr::unnest_wider(col = address_components)
 ```
 
 ### Zip-code

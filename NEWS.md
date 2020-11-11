@@ -1,8 +1,10 @@
 # zipangu (development version)
 
-* Added functions to convert Kansuji to Arabic numbers.
-    * `kansuji2arabic_num` converts Kansuji that containing kansuji for positions (e.g. Hyaku, Sen, etc) to Arabic numerals with the numbers represented by Kansuji.
-    * `kansuji2arabic_str` converts Kansujis in the string to Arabic numerals with the numbers they represent.
+## New Features
+
+* Added functions to convert Kansuji to Arabic numbers (@indenkun #23).
+    * `kansuji2arabic_num()` converts Kansuji that containing kansuji for positions (e.g. `Hyaku`, `Sen`, etc) to Arabic numerals with the numbers represented by Kansuji (Fix #8).
+    * `kansuji2arabic_str()` converts Kansuji in the string to Arabic numerals with the numbers they represent.
 
 # zipangu 0.2.1
 

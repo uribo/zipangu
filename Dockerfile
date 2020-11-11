@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.0.2@sha256:d6a1292df5bece13e3119abe7ae5cd7a8cc7ffd533ae60853968481fff0b2e94
+FROM rocker/tidyverse:4.0.3@sha256:1cbcb925b66654af369d94577c38756d05cfc406a112df2ffaab099f6541bc9c
 
 RUN set -x && \
   apt-get update && \
@@ -13,7 +13,7 @@ RUN set -x && \
   echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
 
 RUN set -x && \
-  install2.r --error --ncpus -1 --repos 'http://mran.revolutionanalytics.com/snapshot/2020-07-05' \
+  install2.r --error --ncpus -1 --repos 'https://cran.microsoft.com/snapshot/2020-11-10/' \
     magick \
     pkgdown \
     rhub \
