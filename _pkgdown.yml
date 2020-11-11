@@ -40,6 +40,8 @@ reference:
     contents:
     - kansuji2arabic
     - kansuji2arabic_all
+    - kansuji2arabic_num
+    - kansuji2arabic_str
     - str_jconv
   - title: "Utilities"
     contents:
