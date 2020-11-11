@@ -50,7 +50,11 @@
 <meta property="og:description" content="
 
 Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
-kansuji2arabic_all() converts only Kansuji in the string." />
+kansuji2arabic_all() converts only Kansuji in the string.
+kansuji2arabic_num() convert kansuji that contain the positions (e.g. Hyaku,
+Sen, etc) with the numbers represented by kansuji. kansuji2arabic_str()
+converts kansuji in a string to numbers represented by kansuji while
+retaining the non-kansuji characters." />
 <meta property="og:image" content="https://uribo.github.io/zipangu/logo.png" />
 
 
@@ -131,12 +135,25 @@ kansuji2arabic_all() converts only Kansuji in the string." />
     <p><a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>
 
 Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
-<code><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic_all()</a></code> converts only Kansuji in the string.</p>
+<code>kansuji2arabic_all()</code> converts only Kansuji in the string.
+<code>kansuji2arabic_num()</code> convert kansuji that contain the positions (e.g. Hyaku,
+Sen, etc) with the numbers represented by kansuji. <code>kansuji2arabic_str()</code>
+converts kansuji in a string to numbers represented by kansuji while
+retaining the non-kansuji characters.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic</a></span>(<span class='kw'>str</span>, convert = <span class='fl'>TRUE</span>, .under = <span class='fl'>Inf</span>)
+    <pre class="usage"><span class='fu'>kansuji2arabic</span><span class='op'>(</span><span class='va'>str</span>, convert <span class='op'>=</span> <span class='cn'>TRUE</span>, .under <span class='op'>=</span> <span class='cn'>Inf</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic_all</a></span>(<span class='kw'>str</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'>kansuji2arabic_all</span><span class='op'>(</span><span class='va'>str</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>kansuji2arabic_num</span><span class='op'>(</span><span class='va'>str</span>, consecutive <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"convert"</span>, <span class='st'>"non"</span><span class='op'>)</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>kansuji2arabic_str</span><span class='op'>(</span>
+  <span class='va'>str</span>,
+  consecutive <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"convert"</span>, <span class='st'>"non"</span><span class='op'>)</span>,
+  widths <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"all"</span>, <span class='st'>"halfwidth"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -156,7 +173,19 @@ and numeric values are treated as strings.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Other arguments to carry over to <code><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic()</a></code></p></td>
+      <td><p>Other arguments to carry over to <code>kansuji2arabic()</code></p></td>
+    </tr>
+    <tr>
+      <th>consecutive</th>
+      <td><p>If you select "convert", any sequence of 1 to 9 kansuji will
+be replaced with Arabic numerals. If you select "non", any sequence of 1-9
+kansuji will not be replaced by Arabic numerals.</p></td>
+    </tr>
+    <tr>
+      <th>widths</th>
+      <td><p>If you select "all", both full-width and half-width Arabic numerals
+are taken into account when calculating kansuji, but if you select "halfwidth",
+only half-width Arabic numerals are taken into account when calculating kansuji.</p></td>
     </tr>
     </table>
 
@@ -165,9 +194,22 @@ and numeric values are treated as strings.</p></td>
     <p>a character or numeric.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic</a></span>(<span class='st'>"\u4e00"</span>)</div><div class='output co'>#&gt; [1] "1"</div><div class='input'><span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"\u4e00"</span>, <span class='st'>"\u767e"</span>))</div><div class='output co'>#&gt; [1] "1"   "100"</div><div class='input'><span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"\u4e00"</span>, <span class='st'>"\u767e"</span>), convert = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1]   1 100</div><div class='input'><span class='co'># Keep Kansuji over 1000.</span>
-<span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"\u4e00"</span>, <span class='st'>"\u767e"</span>, <span class='st'>"\u5343"</span>), .under = <span class='fl'>1000</span>)</div><div class='output co'>#&gt; [1] "1"   "100" "千" </div><div class='input'><span class='co'># Convert all character</span>
-<span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic_all</a></span>(<span class='st'>"\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341"</span>)</div><div class='output co'>#&gt; [1] "012345678910"</div><div class='input'><span class='fu'><a href='https://uribo.github.io/zipangu/reference/kansuji.html'>kansuji2arabic_all</a></span>(<span class='st'>"\u516b\u4e01\u76ee"</span>)</div><div class='output co'>#&gt; [1] "8丁目"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>kansuji2arabic</span><span class='op'>(</span><span class='st'>"\u4e00"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1"</div><div class='input'><span class='fu'>kansuji2arabic</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"\u4e00"</span>, <span class='st'>"\u767e"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1"   "100"</div><div class='input'><span class='fu'>kansuji2arabic</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"\u4e00"</span>, <span class='st'>"\u767e"</span><span class='op'>)</span>, convert <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1]   1 100</div><div class='input'><span class='co'># Keep Kansuji over 1000.</span>
+<span class='fu'>kansuji2arabic</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"\u4e00"</span>, <span class='st'>"\u767e"</span>, <span class='st'>"\u5343"</span><span class='op'>)</span>, .under <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1"   "100" "千" </div><div class='input'><span class='co'># Convert all character</span>
+<span class='fu'>kansuji2arabic_all</span><span class='op'>(</span><span class='st'>"\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "012345678910"</div><div class='input'><span class='fu'>kansuji2arabic_all</span><span class='op'>(</span><span class='st'>"\u516b\u4e01\u76ee"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "8丁目"</div><div class='input'><span class='co'># Convert kansuji that contain the positions with the numbers represented by kansuji.</span>
+<span class='fu'>kansuji2arabic_num</span><span class='op'>(</span><span class='st'>"\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 123450000</div><div class='input'><span class='fu'>kansuji2arabic_num</span><span class='op'>(</span><span class='st'>"\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] 123456789</div><div class='input'><span class='co'># Converts kansuji in a string to numbers represented by kansuji.</span>
+<span class='fu'>kansuji2arabic_str</span><span class='op'>(</span><span class='st'>"\u91d1\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07\u5186"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "金123450000円"</div><div class='input'><span class='fu'>kansuji2arabic_str</span><span class='op'>(</span><span class='st'>"\u91d1\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d\u5186"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "金123456789円"</div><div class='input'><span class='fu'>kansuji2arabic_str</span><span class='op'>(</span><span class='st'>"\u91d11\u51042345\u4e076789\u5186"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "金123456789円"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -183,7 +225,7 @@ and numeric values are treated as strings.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
