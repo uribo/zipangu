@@ -3,11 +3,22 @@
 \name{kansuji2arabic}
 \alias{kansuji2arabic}
 \alias{kansuji2arabic_all}
+\alias{kansuji2arabic_num}
+\alias{kansuji2arabic_str}
 \title{Convert kansuji character to arabic}
 \usage{
 kansuji2arabic(str, convert = TRUE, .under = Inf)
 
 kansuji2arabic_all(str, ...)
+
+kansuji2arabic_num(str, consecutive = c("convert", "non"), ...)
+
+kansuji2arabic_str(
+  str,
+  consecutive = c("convert", "non"),
+  widths = c("all", "halfwidth"),
+  ...
+)
 }
 \arguments{
 \item{str}{Input vector.}
@@ -18,6 +29,14 @@ and numeric values are treated as strings.}
 \item{.under}{Number scale to be converted. The default value is infinity.}
 
 \item{...}{Other arguments to carry over to \code{kansuji2arabic()}}
+
+\item{consecutive}{If you select "convert", any sequence of 1 to 9 kansuji will
+be replaced with Arabic numerals. If you select "non", any sequence of 1-9
+kansuji will not be replaced by Arabic numerals.}
+
+\item{widths}{If you select "all", both full-width and half-width Arabic numerals
+are taken into account when calculating kansuji, but if you select "halfwidth",
+only half-width Arabic numerals are taken into account when calculating kansuji.}
 }
 \value{
 a character or numeric.
@@ -26,6 +45,10 @@ a character or numeric.
 \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
 \code{kansuji2arabic_all()} converts only Kansuji in the string.
+\code{kansuji2arabic_num()} convert kansuji that contain the positions (e.g. Hyaku,
+Sen, etc) with the numbers represented by kansuji. \code{kansuji2arabic_str()}
+converts kansuji in a string to numbers represented by kansuji while
+retaining the non-kansuji characters.
 }
 \examples{
 kansuji2arabic("\u4e00")
@@ -36,4 +59,11 @@ kansuji2arabic(c("\u4e00", "\u767e", "\u5343"), .under = 1000)
 # Convert all character
 kansuji2arabic_all("\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341")
 kansuji2arabic_all("\u516b\u4e01\u76ee")
+# Convert kansuji that contain the positions with the numbers represented by kansuji.
+kansuji2arabic_num("\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07")
+kansuji2arabic_num("\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d")
+# Converts kansuji in a string to numbers represented by kansuji.
+kansuji2arabic_str("\u91d1\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07\u5186")
+kansuji2arabic_str("\u91d1\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d\u5186")
+kansuji2arabic_str("\u91d11\u51042345\u4e076789\u5186")
 }
