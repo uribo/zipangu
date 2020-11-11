@@ -29,7 +29,6 @@
 #' kansuji2arabic_str("\u91d1\u4e00\u5104\u4e8c\u5343\u4e09\u767e\u56db\u5341\u4e94\u4e07\u5186")
 #' kansuji2arabic_str("\u91d1\u4e00\u5104\u4e8c\u4e09\u56db\u4e94\u4e07\u516d\u4e03\u516b\u4e5d\u5186")
 #' kansuji2arabic_str("\u91d11\u51042345\u4e076789\u5186")
-#'
 #' @export
 kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
   kanjiarabic_key <-
