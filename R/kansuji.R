@@ -61,11 +61,14 @@ kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
 #' @rdname kansuji
 #' @export
 kansuji2arabic_all <- function(str, ...) {
-  stringr::str_split(str,
-                     pattern = stringr::boundary("character")) %>%
-    purrr::map(kansuji2arabic, ...) %>%
-    purrr::reduce(c) %>%
-    paste(collapse = "")
+  purrr::map(str, function(str, ...){
+    stringr::str_split(str,
+                       pattern = stringr::boundary("character")) %>%
+      purrr::map(kansuji2arabic, ...) %>%
+      purrr::reduce(c) %>%
+      paste(collapse = "")
+  }) %>%
+    unlist()
 }
 
 #'
