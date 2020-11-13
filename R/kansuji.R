@@ -133,7 +133,6 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
   if(!any(n >= 10000)){
     if(length(n) == 1){
       res <- n
-      return(res)
     }else{
       res <- NULL
       for(i in 1:length(n)){
@@ -148,11 +147,9 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
       }
     }
     res <- sum(stats::na.omit(res))
-    return(res)
   }else{
     if(length(n) == 1){
       res <- n
-      return(res)
     }else{
       ans <- NULL
       l <- 1
@@ -187,10 +184,10 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
         l <- digits_location[k] + 1
         k <- k + 1
       }
-      ans <- sum(stats::na.omit(ans))
-      return(ans)
+      res <- sum(stats::na.omit(ans))
     }
   }
+  return(as.character(res))
 }
 
 #' @rdname kansuji
