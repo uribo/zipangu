@@ -105,12 +105,19 @@ arabic2kansuji <- function(str,
 kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ...) {
   consecutive <- match.arg(consecutive)
 
+  if(is.na(str) || is.nan(str) || is.infinite(str) || is.null(str)){
+    warning("Only strings consisting only of kansuji characters can be converted.")
+    return(NA)
+  }
+
   n <- stringr::str_split(str,
                           pattern = stringr::boundary("character"))%>%
     purrr::reduce(c)
 
-  if(any(stringr::str_detect(n, pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]")))
-    stop("Only strings consisting only of kansuji characters can be converted.")
+  if(any(stringr::str_detect(n, pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]"))){
+    warning("Only strings consisting only of kansuji characters can be converted.")
+    return(NA)
+  }
 
   n <- n %>% purrr::map(kansuji2arabic) %>% as.numeric()
 
@@ -177,8 +184,10 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
             res[i] <- nn[i] * nn[i + 1]
           else if(nn[i] >=10 && nn[i - 1] >=10)
             res[i] <- nn[i]
-          else if(nn[i] <= 9 && nn[i + 1] <=9)
-            stop("This format of kansuji characters cannot be converted.")
+          else if(nn[i] <= 9 && nn[i + 1] <=9){
+            warning("This format of kansuji characters cannot be converted.")
+            return(NA)
+          }
         }
         ans[k] <- sum(stats::na.omit(res)) * digits_number[k]
         l <- digits_location[k] + 1
@@ -203,6 +212,11 @@ kansuji2arabic_num <- function(str, consecutive = c("convert", "non"), ...){
 kansuji2arabic_str_single <- function(str, consecutive = c("convert", "non"), widths = c("all", "halfwidth"), ...){
   consecutive <- match.arg(consecutive)
   widths <- match.arg(widths)
+
+  if(is.na(str) || is.nan(str) || is.infinite(str) || is.null(str)){
+    warning("It is a type that cannot be converted.")
+    return(NA)
+  }
 
   if(widths == "all"){
     arabicn_half <- "1234567890"
