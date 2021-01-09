@@ -23,8 +23,11 @@
 #'  label for each input value.
 #'
 #' @examples
-#' scales::demo_continuous(c(1, 1e9), label = label_kansuji())
-#' scales::demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
+#' \dontrun{
+#' library("scales")
+#' demo_continuous(c(1, 1e9), label = label_kansuji())
+#' demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
+#' }
 #'
 #' @export
 
