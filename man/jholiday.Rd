@@ -20,7 +20,7 @@ jholiday(year, lang = "en")
 \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 }
 \details{
-Holiday information refers to data published as of January 1, 2020.
+Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.
 }
 \examples{
