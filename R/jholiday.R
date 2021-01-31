@@ -1,7 +1,7 @@
 #' Public holidays in Japan
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
-#' @details Holiday information refers to data published as of January 1, 2020.
+#' @details Holiday information refers to data published as of December 21, 2020.
 #' Future holidays are subject to change.
 #' @param year numeric year and in and after 1949.
 #' @param name holiday name
@@ -61,14 +61,18 @@ jholiday_spec <- function(year, name, lang = "en") {
       # Marine Day
       name == jholiday_names[12] & year == 2020 ~
         lubridate::as_date("20200723"),
-      name == jholiday_names[12] & year >= 2003 & year != 2020 ~
+      name == jholiday_names[12] & year == 2021 ~
+        lubridate::as_date("20210722"),
+      name == jholiday_names[12] & year >= 2003 & year != 2020 & year != 2021 ~
         find_date_by_wday(year, 7, 2, 3),
       name == jholiday_names[12] & dplyr::between(year, 1996, 2002) ~
         lubridate::make_date(year, 7, 20),
       # Mountain Day
       name == jholiday_names[13] & year == 2020 ~
         lubridate::as_date("20200810"),
-      name == jholiday_names[13] & year >= 2016 & year != 2020 ~
+      name == jholiday_names[13] & year == 2021 ~
+        lubridate::as_date("20210808"),
+      name == jholiday_names[13] & year >= 2016 & year != 2020 & year != 2021 ~
         lubridate::make_date(year, 8, 11),
       # Respect for the Aged Day
       name == jholiday_names[14] & dplyr::between(year, 1966, 2002) ~
@@ -81,7 +85,9 @@ jholiday_spec <- function(year, name, lang = "en") {
       # Sports Day
       name == jholiday_names[17] & year == 2020 ~
         lubridate::as_date("20200724"),
-        name %in% jholiday_names[16:17] & year >= 2000 & year != 2020 ~
+      name == jholiday_names[17] & year == 2021 ~
+        lubridate::as_date("20210723"),
+      name %in% jholiday_names[16:17] & year >= 2000 & year != 2020 & year != 2021 ~
           find_date_by_wday(year, 10, 2, 2),
       name %in% jholiday_names[16:17] & dplyr::between(year, 1966, 1999) ~
         lubridate::make_date(year, 10, 10),
@@ -168,7 +174,7 @@ shubun_day <- function(year) {
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' Whether it is a holiday defined by Japanese law (enacted in 1948)
-#' @details Holiday information refers to data published as of January 1, 2020.
+#' @details Holiday information refers to data published as of December 21, 2020.
 #' Future holidays are subject to change.
 #' @param date a vector of [POSIXt], numeric or character objects
 #' @return TRUE if x is a public holidays in Japan, FALSE otherwise.

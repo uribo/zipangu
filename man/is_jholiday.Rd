@@ -17,7 +17,7 @@ TRUE if x is a public holidays in Japan, FALSE otherwise.
 Whether it is a holiday defined by Japanese law (enacted in 1948)
 }
 \details{
-Holiday information refers to data published as of January 1, 2020.
+Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.
 }
 \examples{

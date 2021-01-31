@@ -35,6 +35,10 @@ test_that("Specific year's holiday", {
     length(jholiday(2020, "en")),
     16L
   )
+  expect_equal(
+    length(jholiday(2021, "en")),
+    16L
+  )
   res <- jholiday(2019:2020, "en")
   expect_equal(
     length(res),
@@ -109,6 +113,10 @@ test_that("Another approaches", {
     as.Date("2020-07-23")
   )
   expect_equal(
+    jholiday_spec(2021, "Marine Day"),
+    as.Date("2021-07-22")
+  )
+  expect_equal(
     seq.int(1996, 2002) %>%
       purrr::map_dbl(
         ~ lubridate::mday(jholiday_spec(.x, "Marine Day"))
@@ -123,6 +131,10 @@ test_that("Another approaches", {
   expect_equal(
     jholiday_spec(2020, "Mountain Day"),
     as.Date("2020-08-10")
+  )
+  expect_equal(
+    jholiday_spec(2021, "Mountain Day"),
+    as.Date("2021-08-08")
   )
   expect_equal(
     seq.int(2016, 2019) %>%
@@ -176,6 +188,10 @@ test_that("Another approaches", {
   expect_equal(
     jholiday_spec(2020, "Sports Day"),
     as.Date("2020-07-24")
+  )
+  expect_equal(
+    jholiday_spec(2021, "Sports Day"),
+    as.Date("2021-07-23")
   )
   expect_equal(
     seq.int(2000, 2019) %>%
