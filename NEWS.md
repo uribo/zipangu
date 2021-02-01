@@ -1,4 +1,4 @@
-# zipangu (development version)
+# zipangu 0.2.2
 
 ## New Features
 
