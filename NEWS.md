@@ -7,7 +7,12 @@
     * `kansuji2arabic_str()` converts Kansuji in the string to Arabic numerals with the numbers they represent.
 * Added functions to graph labels to handle Kansuji (@indenkun #4).
     * `label_kansuji()` and `label_kansuji_suffix()` converts the label value to either Kansuji value or mixture of Arabic numerals and the Kansuji Scales.
-    
+
+## Enhancement
+
+- Holiday determination now reflects the 2021 calendar (@zettsu-t #28).
+- `convert_jyear()` supports strict representation of the Japanese imperial year (#30).
+
 # zipangu 0.2.1
 
 ## New Features
