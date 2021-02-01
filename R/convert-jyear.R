@@ -85,14 +85,35 @@ is_jyear <- function(jyear) {
   pattern <- paste0(
     "^(",
     paste(jyear_sets %>%
+            purrr::map(~ .x[c("kanji", "roman")]) %>%
             purrr::flatten() %>%
-            purrr::keep(is.character) %>%
             purrr::as_vector(),
           collapse = "|"),
-    ")"
-  )
-
-  stringr::str_detect(jyear_initial_tolower(jyear), pattern)
+    ")")
+  res <-
+    stringr::str_detect(jyear_initial_tolower(jyear),
+                        pattern)
+  res %>%
+    purrr::map2_lgl(
+      .y = jyear,
+      function(.x, .y) {
+        if (is.na(.x)) {
+          .x
+        } else if (.x == FALSE) {
+          pattern <- paste0(
+            "^(",
+            paste(jyear_sets %>%
+                    purrr::map(~ .x[c("kanji_capital", "roman_capital")]) %>%
+                    purrr::flatten(),
+                  collapse = "|"),
+            ")([0-9]|[\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341])")
+          stringr::str_detect(jyear_initial_tolower(.y),
+                              pattern)
+        } else {
+          TRUE
+        }
+      }
+    )
 }
 
 convert_jyear_roman <- function(x) {
