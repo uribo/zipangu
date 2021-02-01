@@ -54,11 +54,11 @@ label for each input value.
 \description{
 Automatically scales and labels with the Kansuji Myriad Scale (e.g. "Man",
 "Oku", etc).
-Use \code{label_kansuji()} converts the value of the label to either Kansuji
-numerals value or a mixture of Arabic numerals and the Kansuji Myriad Scales
-for ten thousands, billions, and kings.
+Use \code{label_kansuji()} converts the label value to either Kansuji value or a
+mixture of Arabic numerals and the Kansuji Scales for ten thousands,
+billions, and ten quadrillions.
 Use \code{label_kansuji_suffix()} converts the label value to an Arabic numeral
-followed by the Kansuji Myriad Scale with the suffix.
+followed by the Kansuji Scale with the suffix.
 }
 \examples{
 \dontrun{

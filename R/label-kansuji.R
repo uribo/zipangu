@@ -3,11 +3,11 @@
 #' @description
 #' Automatically scales and labels with the Kansuji Myriad Scale (e.g. "Man",
 #' "Oku", etc).
-#' Use `label_kansuji()` converts the value of the label to either Kansuji
-#'  numerals value or a mixture of Arabic numerals and the Kansuji Myriad Scales
-#'   for ten thousands, billions, and kings.
+#' Use `label_kansuji()` converts the label value to either Kansuji value or a
+#' mixture of Arabic numerals and the Kansuji Scales for ten thousands,
+#' billions, and ten quadrillions.
 #' Use `label_kansuji_suffix()` converts the label value to an Arabic numeral
-#' followed by the Kansuji Myriad Scale with the suffix.
+#' followed by the Kansuji Scale with the suffix.
 #'
 #' @param unit Optional units specifier.
 #' @param sep Separator between number and Kansuji unit.
