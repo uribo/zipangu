@@ -140,6 +140,21 @@
 <code><a href="../reference/kansuji2arabic.html">kansuji2arabic_str()</a></code> converts Kansuji in the string to Arabic numerals with the numbers they represent.</li>
 </ul>
 </li>
+<li>Added functions to graph labels to handle Kansuji (<a href='https://github.com/indenkun'>@indenkun</a> <a href='https://github.com/uribo/zipangu/issues/4'>#4</a>).
+<ul>
+<li>
+<code><a href="../reference/label_kansuji.html">label_kansuji()</a></code> and <code><a href="../reference/label_kansuji.html">label_kansuji_suffix()</a></code> converts the label value to either Kansuji value or mixture of Arabic numerals and the Kansuji Scales.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="enhancement" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancement" class="anchor"></a>Enhancement</h2>
+<ul>
+<li>Holiday determination now reflects the 2021 calendar (<a href='https://github.com/zettsu-t'>@zettsu-t</a> <a href='https://github.com/uribo/zipangu/issues/28'>#28</a>).</li>
+<li>
+<code><a href="../reference/convert_jyear.html">convert_jyear()</a></code> supports strict representation of the Japanese imperial year (<a href='https://github.com/uribo/zipangu/issues/30'>#30</a>).</li>
 </ul>
 </div>
 </div>
@@ -155,9 +170,9 @@
 <code><a href="../reference/convert_jdate.html">convert_jdate()</a></code> can converts the Japanese date format to as a date object.</li>
 </ul>
 </div>
-<div id="enhancement" class="section level2">
+<div id="enhancement-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#enhancement" class="anchor"></a>Enhancement</h2>
+<a href="#enhancement-1" class="anchor"></a>Enhancement</h2>
 <ul>
 <li>
 <code><a href="../reference/find_date_by_wday.html">find_date_by_wday()</a></code>, <code><a href="../reference/jholiday_spec.html">jholiday_spec()</a></code>, <code><a href="../reference/jholiday_spec.html">jholiday()</a></code>, and <code><a href="../reference/is_jholiday.html">is_jholiday()</a></code> are now vectorized and accept multiple <code>year</code>s (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/uribo/zipangu/issues/15'>#15</a>).</li>

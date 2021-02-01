@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Find out the date of the specific month and weekday — find_date_by_wday • zipangu</title>
+<title>Label numbers in Kansuji format — label_kansuji • zipangu</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,10 +46,14 @@
 
 
 
-<meta property="og:title" content="Find out the date of the specific month and weekday — find_date_by_wday" />
-<meta property="og:description" content="
-
-Get the date of the Xth the specific weekday" />
+<meta property="og:title" content="Label numbers in Kansuji format — label_kansuji" />
+<meta property="og:description" content="Automatically scales and labels with the Kansuji Myriad Scale (e.g. &quot;Man&quot;,
+&quot;Oku&quot;, etc).
+Use label_kansuji() converts the label value to either Kansuji value or a
+mixture of Arabic numerals and the Kansuji Scales for ten thousands,
+billions, and ten quadrillions.
+Use label_kansuji_suffix() converts the label value to an Arabic numeral
+followed by the Kansuji Scale with the suffix." />
 <meta property="og:image" content="https://uribo.github.io/zipangu/logo.png" />
 
 
@@ -123,47 +127,96 @@ Get the date of the Xth the specific weekday" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Find out the date of the specific month and weekday</h1>
-    <small class="dont-index">Source: <a href='https://github.com/uribo/zipangu/blob/master/R/jholiday.R'><code>R/jholiday.R</code></a></small>
-    <div class="hidden name"><code>find_date_by_wday.Rd</code></div>
+    <h1>Label numbers in Kansuji format</h1>
+    <small class="dont-index">Source: <a href='https://github.com/uribo/zipangu/blob/master/R/label-kansuji.R'><code>R/label-kansuji.R</code></a></small>
+    <div class="hidden name"><code>label_kansuji.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><a href='https://www.tidyverse.org/lifecycle/#experimental'><img src='figures/lifecycle-experimental.svg' alt='Experimental lifecycle'></a>
-
-Get the date of the Xth the specific weekday</p>
+    <p>Automatically scales and labels with the Kansuji Myriad Scale (e.g. "Man",
+"Oku", etc).
+Use <code>label_kansuji()</code> converts the label value to either Kansuji value or a
+mixture of Arabic numerals and the Kansuji Scales for ten thousands,
+billions, and ten quadrillions.
+Use <code>label_kansuji_suffix()</code> converts the label value to an Arabic numeral
+followed by the Kansuji Scale with the suffix.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>find_date_by_wday</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>month</span>, <span class='va'>wday</span>, <span class='va'>ordinal</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>label_kansuji</span><span class='op'>(</span>
+  unit <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sep <span class='op'>=</span> <span class='st'>""</span>,
+  prefix <span class='op'>=</span> <span class='st'>""</span>,
+  big.mark <span class='op'>=</span> <span class='st'>""</span>,
+  number <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"arabic"</span>, <span class='st'>"kansuji"</span><span class='op'>)</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='fu'>label_kansuji_suffix</span><span class='op'>(</span>
+  accuracy <span class='op'>=</span> <span class='fl'>1</span>,
+  unit <span class='op'>=</span> <span class='cn'>NULL</span>,
+  sep <span class='op'>=</span> <span class='cn'>NULL</span>,
+  prefix <span class='op'>=</span> <span class='st'>""</span>,
+  big.mark <span class='op'>=</span> <span class='st'>""</span>,
+  significant.digits <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>year</th>
-      <td><p>numeric year</p></td>
+      <th>unit</th>
+      <td><p>Optional units specifier.</p></td>
     </tr>
     <tr>
-      <th>month</th>
-      <td><p>numeric month</p></td>
+      <th>sep</th>
+      <td><p>Separator between number and Kansuji unit.</p></td>
     </tr>
     <tr>
-      <th>wday</th>
-      <td><p>numeric weekday</p></td>
+      <th>prefix</th>
+      <td><p>Symbols to display before value.</p></td>
     </tr>
     <tr>
-      <th>ordinal</th>
-      <td><p>number of week</p></td>
+      <th>big.mark</th>
+      <td><p>Character used between every 3 digits to separate thousands.</p></td>
+    </tr>
+    <tr>
+      <th>number</th>
+      <td><p>If Number is arabic, it will return a mixture of Arabic and the
+Kansuji Myriad Scale; if Kansuji, it will return only Kansuji numerals.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Other arguments passed on to <code><a href='https://rdrr.io/r/base/formatc.html'>base::prettyNum()</a></code> or <code><a href='https://scales.r-lib.org//reference/label_number.html'>scales::label_number()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>accuracy</th>
+      <td><p>A number to round to. Use (e.g.) 0.01 to show 2 decimal
+places of precision.</p></td>
+    </tr>
+    <tr>
+      <th>significant.digits</th>
+      <td><p>Determines whether or not the value of accurary is
+valid as a significant figure with a decimal point. The default is FALSE, in
+which case if accurary is 2 and the value is 1.10, 1.1 will be displayed,
+but if TRUE and installed 'scales` package, 1.10 will be displayed.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a vector of class POSIXct</p>
+    <p>All label_() functions return a "labelling" function, i.e. a function
+that takes a vector x and returns a character vector of length(x) giving a
+label for each input value.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>find_date_by_wday</span><span class='op'>(</span><span class='fl'>2021</span>, <span class='fl'>1</span>, <span class='fl'>2</span>, <span class='fl'>2</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "2021-01-11"</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://scales.r-lib.org'>"scales"</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://scales.r-lib.org//reference/demo_continuous.html'>demo_continuous</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1e9</span><span class='op'>)</span>, label <span class='op'>=</span> <span class='fu'>label_kansuji</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://scales.r-lib.org//reference/demo_continuous.html'>demo_continuous</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>1e9</span><span class='op'>)</span>, label <span class='op'>=</span> <span class='fu'>label_kansuji_suffix</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
