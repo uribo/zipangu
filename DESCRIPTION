@@ -38,12 +38,12 @@ Imports:
     stringi (>= 1.4.3),
     stringr (>= 1.4.0),
     tibble (>= 2.1.3),
-    arabic2kansuji,
+    arabic2kansuji (>= 0.1.0),
     stats
 Suggests: 
     covr (>= 3.4.0),
     testthat (>= 2.1.0),
-    scales
+    scales (>= 1.1.0)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
