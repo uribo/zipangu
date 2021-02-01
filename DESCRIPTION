@@ -23,7 +23,7 @@ Description: Some data treated by the Japanese R user require
     and traditional year representations. 'zipangu' transforms specific
     to Japan into something more general one.
 License: MIT + file LICENSE
-URL: https://uribo.github.io/zipangu,
+URL: https://uribo.github.io/zipangu/,
     https://github.com/uribo/zipangu
 BugReports: https://github.com/uribo/zipangu/issues
 Depends: 

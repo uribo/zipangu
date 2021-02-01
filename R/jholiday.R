@@ -7,7 +7,7 @@
 #' @param name holiday name
 #' @param lang return holiday names to "en" or "jp".
 #' @references Public Holiday Law [https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html),
-#' [https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=323AC1000000178](https://elaws.e-gov.go.jp/search/elawsSearch/elaws_search/lsg0500/detail?lawId=323AC1000000178)
+#' [https://elaws.e-gov.go.jp/document?lawid=323AC1000000178](https://elaws.e-gov.go.jp/document?lawid=323AC1000000178)
 #' @rdname jholiday
 #' @examples
 #' jholiday_spec(2019, "Sports Day")

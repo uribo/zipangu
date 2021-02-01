@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/zipangu)](https://cran.r-project.org/package=zipangu)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/zipangu?color=FF5254)](https://cran.r-project.org/package=zipangu)
@@ -65,8 +65,8 @@ Applied to data frame.
 ``` r
 library(dplyr, warn.conflicts = FALSE)
 data.frame(address = c("東京都千代田区大手町一丁目", "岡山県岡山市北区清心町16-13")) %>% 
-  mutate(sss = purrr::pmap(., ~ separate_address(..1))) %>% 
-  tidyr::unnest_wider(col = sss)
+  mutate(address_components = purrr::pmap(., ~ separate_address(..1))) %>% 
+  tidyr::unnest_wider(col = address_components)
 #> # A tibble: 2 x 4
 #>   address                     prefecture city       street      
 #>   <chr>                       <chr>      <chr>      <chr>       
@@ -127,79 +127,79 @@ convert_jdate("平成元年11月25日")
 Given a year and holiday name as input, returns the date.
 
 ``` r
-jholiday_spec(2020, "New Year's Day", lang = "en")
-#> [1] "2020-01-01"
+jholiday_spec(2021, "New Year's Day", lang = "en")
+#> [1] "2021-01-01"
 ```
 
 Holiday names can be specified in English (“en”) and Japanese (“jp”) by
 default, en is used.
 
 ``` r
-jholiday_spec(2020, "Coming of Age Day", lang = "en")
-#> [1] "2020-01-13"
-jholiday_spec(2020, "\u6210\u4eba\u306e\u65e5", lang = "jp")
-#> [1] "2020-01-13"
+jholiday_spec(2021, "Coming of Age Day", lang = "en")
+#> [1] "2021-01-11"
+jholiday_spec(2021, "\u6210\u4eba\u306e\u65e5", lang = "jp")
+#> [1] "2021-01-11"
 ```
 
 Check the list of holidays for a year with the `jholiday()`.
 
 ``` r
-jholiday(2020, lang = "jp")
+jholiday(2021, lang = "jp")
 #> $元日
-#> [1] "2020-01-01"
+#> [1] "2021-01-01"
 #> 
 #> $成人の日
-#> [1] "2020-01-13"
+#> [1] "2021-01-11"
 #> 
 #> $建国記念の日
-#> [1] "2020-02-11"
+#> [1] "2021-02-11"
 #> 
 #> $天皇誕生日
-#> [1] "2020-02-23"
+#> [1] "2021-02-23"
 #> 
 #> $春分の日
-#> [1] "2020-03-20"
+#> [1] "2021-03-20"
 #> 
 #> $昭和の日
-#> [1] "2020-04-29"
+#> [1] "2021-04-29"
 #> 
 #> $憲法記念日
-#> [1] "2020-05-03"
+#> [1] "2021-05-03"
 #> 
 #> $みどりの日
-#> [1] "2020-05-04"
+#> [1] "2021-05-04"
 #> 
 #> $こどもの日
-#> [1] "2020-05-05"
+#> [1] "2021-05-05"
 #> 
 #> $海の日
-#> [1] "2020-07-23"
+#> [1] "2021-07-22"
 #> 
 #> $スポーツの日
-#> [1] "2020-07-24"
+#> [1] "2021-07-23"
 #> 
 #> $山の日
-#> [1] "2020-08-10"
+#> [1] "2021-08-08"
 #> 
 #> $敬老の日
-#> [1] "2020-09-21"
+#> [1] "2021-09-20"
 #> 
 #> $秋分の日
-#> [1] "2020-09-22"
+#> [1] "2021-09-23"
 #> 
 #> $文化の日
-#> [1] "2020-11-03"
+#> [1] "2021-11-03"
 #> 
 #> $勤労感謝の日
-#> [1] "2020-11-23"
+#> [1] "2021-11-23"
 ```
 
 Use `is_jholiday()` function to evaluate whether today is a holiday.
 
 ``` r
-is_jholiday("2020-01-10")
-#> [1] FALSE
-is_jholiday("2020-02-23")
+is_jholiday("2021-01-11")
+#> [1] TRUE
+is_jholiday("2021-02-23")
 #> [1] TRUE
 ```
 
