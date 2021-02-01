@@ -71,37 +71,6 @@ kansuji2arabic_all <- function(str, ...) {
 }
 
 #'
-arabic2kansuji <- function(str,
-                           zero = c("rei", "zero"),
-                           width = c("halfwidth", "fullwidth", "all")){
-
-  zero <- match.arg(zero)
-  width <- match.arg(width)
-
-  arabicn_half <- "1234567890"
-  arabicn_full <- "\uff11\uff12\uff13\uff14\uff15\uff16\uff17\uff18\uff19\uff10"
-
-  if(zero == "rei") kansuji <- "\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u3007"
-  else if(zero == "zero") kansuji <- "\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u96f6"
-
-  arabicn_half <- unlist(stringr::str_split(arabicn_half, ""))
-  arabicn_full <- unlist(stringr::str_split(arabicn_full, ""))
-  kansuji <- unlist(stringr::str_split(kansuji, ""))
-
-  if(width == "halfwidth") arabicn <- arabicn_half
-  else if(width == "fullwidth") arabicn <- arabicn_full
-  else if(width == "all"){
-    arabicn <- c(arabicn_half, arabicn_full)
-    kansuji <- c(kansuji, kansuji)
-  }
-
-  names(kansuji) <- arabicn
-
-  stringr::str_replace_all(str, kansuji)
-
-}
-
-#'
 kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ...) {
   consecutive <- match.arg(consecutive)
 
@@ -229,7 +198,7 @@ kansuji2arabic_str_single <- function(str, consecutive = c("convert", "non"), wi
 
     str <- stringr::str_replace_all(str, arabicn_half)
   }
-  str <- arabic2kansuji(str)
+  str <- arabic2kansuji::arabic2kansuji(str)
 
 
   str_num <- stringr::str_split(str, pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]")[[1]]
