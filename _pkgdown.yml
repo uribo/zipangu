@@ -46,6 +46,7 @@ reference:
   - title: "Utilities"
     contents:
     - find_date_by_wday
+    - label_kansuji
   - title: "Datasets"
     contents:
     - jpnprefs
