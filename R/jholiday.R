@@ -11,9 +11,9 @@
 #' @rdname jholiday
 #' @examples
 #' jholiday_spec(2019, "Sports Day")
-#' jholiday_spec(2020, "Sports Day")
+#' jholiday_spec(2021, "Sports Day")
 #' # List of a specific year holidays
-#' jholiday(2020, "en")
+#' jholiday(2021, "en")
 #' @export
 jholiday_spec <- function(year, name, lang = "en") {
   jholiday_names <- jholiday_list[[lang]]
@@ -87,9 +87,11 @@ jholiday_spec <- function(year, name, lang = "en") {
         lubridate::as_date("20200724"),
       name == jholiday_names[17] & year == 2021 ~
         lubridate::as_date("20210723"),
-      name %in% jholiday_names[16:17] & year >= 2000 & year != 2020 & year != 2021 ~
+      name %in% jholiday_names[16] & dplyr::between(year, 2000, 2019) ~
           find_date_by_wday(year, 10, 2, 2),
-      name %in% jholiday_names[16:17] & dplyr::between(year, 1966, 1999) ~
+      name %in% jholiday_names[17] & year >= 2022 ~
+          find_date_by_wday(year, 10, 2, 2),
+      name %in% jholiday_names[16] & dplyr::between(year, 1966, 1999) ~
         lubridate::make_date(year, 10, 10),
       # Culture Day
       name == jholiday_names[18] ~
@@ -180,7 +182,7 @@ shubun_day <- function(year) {
 #' @return TRUE if x is a public holidays in Japan, FALSE otherwise.
 #' @rdname is_jholiday
 #' @examples
-#' is_jholiday("2020-01-01")
+#' is_jholiday("2021-01-01")
 #' is_jholiday("2018-12-23") # TRUE
 #' is_jholiday("2019-12-23") # FALSE
 #' @export
@@ -208,7 +210,7 @@ is_jholiday <- function(date) {
 #' @return a vector of class POSIXct
 #' @rdname find_date_by_wday
 #' @examples
-#' find_date_by_wday(2020, 1, 2, 2)
+#' find_date_by_wday(2021, 1, 2, 2)
 #' @export
 find_date_by_wday <- function(year, month, wday, ordinal) {
   date_begin <-

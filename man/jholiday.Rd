@@ -25,9 +25,9 @@ Future holidays are subject to change.
 }
 \examples{
 jholiday_spec(2019, "Sports Day")
-jholiday_spec(2020, "Sports Day")
+jholiday_spec(2021, "Sports Day")
 # List of a specific year holidays
-jholiday(2020, "en")
+jholiday(2021, "en")
 }
 \references{
 Public Holiday Law \url{https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html},

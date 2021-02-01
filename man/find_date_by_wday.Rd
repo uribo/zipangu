@@ -23,5 +23,5 @@ a vector of class POSIXct
 Get the date of the Xth the specific weekday
 }
 \examples{
-find_date_by_wday(2020, 1, 2, 2)
+find_date_by_wday(2021, 1, 2, 2)
 }

@@ -21,7 +21,7 @@ Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.
 }
 \examples{
-is_jholiday("2020-01-01")
+is_jholiday("2021-01-01")
 is_jholiday("2018-12-23") # TRUE
 is_jholiday("2019-12-23") # FALSE
 }
