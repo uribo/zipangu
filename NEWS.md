@@ -5,7 +5,9 @@
 * Added functions to convert Kansuji to Arabic numbers (@indenkun #23).
     * `kansuji2arabic_num()` converts Kansuji that containing kansuji for positions (e.g. `Hyaku`, `Sen`, etc) to Arabic numerals with the numbers represented by Kansuji (Fix #8).
     * `kansuji2arabic_str()` converts Kansuji in the string to Arabic numerals with the numbers they represent.
-
+* Added functions to graph labels to handle Kansuji (@indenkun #4).
+    * `label_kansuji()` and `label_kansuji_suffix()` converts the label value to either Kansuji value or mixture of Arabic numerals and the Kansuji Scales.
+    
 # zipangu 0.2.1
 
 ## New Features
