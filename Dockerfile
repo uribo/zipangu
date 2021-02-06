@@ -13,7 +13,8 @@ RUN set -x && \
   echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
 
 RUN set -x && \
-  install2.r --error --ncpus -1 --repos 'https://cran.microsoft.com/snapshot/2021-01-31/' \
+  install2.r --error --ncpus -1 --repos 'https://cran.microsoft.com/snapshot/2021-02-05/' \
+    arabic2kansuji \
     magick \
     pkgdown \
     rhub \
