@@ -155,64 +155,69 @@
 
     <p>Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.</p>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+
+    <p><div class="r"></p><pre><span class='fu'>jholiday_spec</span><span class='op'>(</span><span class='fl'>2019</span>, <span class='st'>"Sports Day"</span><span class='op'>)</span>
+</pre><p></div></p><pre><span class='co'>## [1] "2019-10-14"</span>
+</pre><p><div class="r"></p><pre><span class='fu'>jholiday_spec</span><span class='op'>(</span><span class='fl'>2021</span>, <span class='st'>"Sports Day"</span><span class='op'>)</span>
+</pre><p></div></p><pre><span class='co'>## [1] "2021-07-23"</span>
+</pre>
+
+<p>List of a specific year holidays<div class="r"></p><pre><span class='fu'>jholiday</span><span class='op'>(</span><span class='fl'>2021</span>, <span class='st'>"en"</span><span class='op'>)</span>
+</pre><p></div></p><pre><span class='co'>## $`New Year's Day`</span>
+<span class='co'>## [1] "2021-01-01"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Coming of Age Day`</span>
+<span class='co'>## [1] "2021-01-11"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Foundation Day`</span>
+<span class='co'>## [1] "2021-02-11"</span>
+<span class='co'>## </span>
+<span class='co'>## $`The Emperor's Birthday`</span>
+<span class='co'>## [1] "2021-02-23"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Vernal Equinox Day`</span>
+<span class='co'>## [1] "2021-03-20"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Showa Day`</span>
+<span class='co'>## [1] "2021-04-29"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Constitution Memorial Day`</span>
+<span class='co'>## [1] "2021-05-03"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Greenery Day`</span>
+<span class='co'>## [1] "2021-05-04"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Children's Day`</span>
+<span class='co'>## [1] "2021-05-05"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Marine Day`</span>
+<span class='co'>## [1] "2021-07-22"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Sports Day`</span>
+<span class='co'>## [1] "2021-07-23"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Mountain Day`</span>
+<span class='co'>## [1] "2021-08-08"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Respect for the Aged Day`</span>
+<span class='co'>## [1] "2021-09-20"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Autumnal Equinox Day`</span>
+<span class='co'>## [1] "2021-09-23"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Culture Day`</span>
+<span class='co'>## [1] "2021-11-03"</span>
+<span class='co'>## </span>
+<span class='co'>## $`Labour Thanksgiving Day`</span>
+<span class='co'>## [1] "2021-11-23"</span>
+</pre>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Public Holiday Law <a href='https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html'>https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html</a>,
 <a href='https://elaws.e-gov.go.jp/document?lawid=323AC1000000178'>https://elaws.e-gov.go.jp/document?lawid=323AC1000000178</a></p>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>jholiday_spec</span><span class='op'>(</span><span class='fl'>2019</span>, <span class='st'>"Sports Day"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "2019-10-14"</div><div class='input'><span class='fu'>jholiday_spec</span><span class='op'>(</span><span class='fl'>2021</span>, <span class='st'>"Sports Day"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "2021-07-23"</div><div class='input'><span class='co'># List of a specific year holidays</span>
-<span class='fu'>jholiday</span><span class='op'>(</span><span class='fl'>2021</span>, <span class='st'>"en"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; $`New Year's Day`
-#&gt; [1] "2021-01-01"
-#&gt; 
-#&gt; $`Coming of Age Day`
-#&gt; [1] "2021-01-11"
-#&gt; 
-#&gt; $`Foundation Day`
-#&gt; [1] "2021-02-11"
-#&gt; 
-#&gt; $`The Emperor's Birthday`
-#&gt; [1] "2021-02-23"
-#&gt; 
-#&gt; $`Vernal Equinox Day`
-#&gt; [1] "2021-03-20"
-#&gt; 
-#&gt; $`Showa Day`
-#&gt; [1] "2021-04-29"
-#&gt; 
-#&gt; $`Constitution Memorial Day`
-#&gt; [1] "2021-05-03"
-#&gt; 
-#&gt; $`Greenery Day`
-#&gt; [1] "2021-05-04"
-#&gt; 
-#&gt; $`Children's Day`
-#&gt; [1] "2021-05-05"
-#&gt; 
-#&gt; $`Marine Day`
-#&gt; [1] "2021-07-22"
-#&gt; 
-#&gt; $`Sports Day`
-#&gt; [1] "2021-07-23"
-#&gt; 
-#&gt; $`Mountain Day`
-#&gt; [1] "2021-08-08"
-#&gt; 
-#&gt; $`Respect for the Aged Day`
-#&gt; [1] "2021-09-20"
-#&gt; 
-#&gt; $`Autumnal Equinox Day`
-#&gt; [1] "2021-09-23"
-#&gt; 
-#&gt; $`Culture Day`
-#&gt; [1] "2021-11-03"
-#&gt; 
-#&gt; $`Labour Thanksgiving Day`
-#&gt; [1] "2021-11-23"
-#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
