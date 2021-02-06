@@ -3,7 +3,7 @@
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' Parses and decomposes address string into elements of
 #' prefecture, city, and lower address.
-#' @param str Input vector. address string.
+#' @param str Input vector. address strings.
 #' @return A list of elements that make up an address.
 #' @examples
 #' separate_address("\u5317\u6d77\u9053\u672d\u5e4c\u5e02\u4e2d\u592e\u533a")

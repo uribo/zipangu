@@ -2,12 +2,17 @@
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 #' @param jyear Japanese imperial year (jyear). Kanji or Roman character
-#' @examples
+#' @section Examples:
+#' ```{r, child = "man/rmd/setup.Rmd"}
+#' ```
+#'
+#' ```{r}
 #' convert_jyear("R1")
 #' convert_jyear("Heisei2")
 #' convert_jyear("\u5e73\u6210\u5143\u5e74")
 #' convert_jyear(c("\u662d\u548c10\u5e74", "\u5e73\u621014\u5e74"))
 #' convert_jyear(kansuji2arabic_all("\u5e73\u6210\u4e09\u5e74"))
+#' ```
 #' @export
 convert_jyear <- function(jyear) {
   jyear <-
@@ -58,8 +63,13 @@ convert_jyear <- function(jyear) {
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 #' @param date a character object.
-#' @examples
+#' @section Examples:
+#' ```{r, child = "man/rmd/setup.Rmd"}
+#' ```
+#'
+#' ```{r}
 #' convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5")
+#' ```
 #' @export
 convert_jdate <- function(date) {
   date %>%

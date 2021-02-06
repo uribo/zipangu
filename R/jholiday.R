@@ -9,11 +9,18 @@
 #' @references Public Holiday Law [https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html),
 #' [https://elaws.e-gov.go.jp/document?lawid=323AC1000000178](https://elaws.e-gov.go.jp/document?lawid=323AC1000000178)
 #' @rdname jholiday
-#' @examples
+#' @section Examples:
+#' ```{r, child = "man/rmd/setup.Rmd"}
+#' ```
+#'
+#' ```{r}
 #' jholiday_spec(2019, "Sports Day")
 #' jholiday_spec(2021, "Sports Day")
-#' # List of a specific year holidays
+#' ```
+#' List of a specific year holidays
+#' ```{r}
 #' jholiday(2021, "en")
+#' ```
 #' @export
 jholiday_spec <- function(year, name, lang = "en") {
   jholiday_names <- jholiday_list[[lang]]
@@ -181,10 +188,15 @@ shubun_day <- function(year) {
 #' @param date a vector of [POSIXt], numeric or character objects
 #' @return TRUE if x is a public holidays in Japan, FALSE otherwise.
 #' @rdname is_jholiday
-#' @examples
+#' @section Examples:
+#' ```{r, child = "man/rmd/setup.Rmd"}
+#' ```
+#'
+#' ```{r}
 #' is_jholiday("2021-01-01")
-#' is_jholiday("2018-12-23") # TRUE
-#' is_jholiday("2019-12-23") # FALSE
+#' is_jholiday("2018-12-23")
+#' is_jholiday("2019-12-23")
+#' ```
 #' @export
 is_jholiday <- function(date) {
   date <-

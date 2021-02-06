@@ -36,7 +36,7 @@ label_kansuji_suffix(
 \item{number}{If Number is arabic, it will return a mixture of Arabic and the
 Kansuji Myriad Scale; if Kansuji, it will return only Kansuji numerals.}
 
-\item{...}{Other arguments passed on to \code{base::prettyNum()} or \code{scales::label_number()}.}
+\item{...}{Other arguments passed on to \code{\link[base:formatc]{base::prettyNum()}} or \code{\link[scales:label_number]{scales::label_number()}}.}
 
 \item{accuracy}{A number to round to. Use (e.g.) 0.01 to show 2 decimal
 places of precision.}
@@ -47,24 +47,23 @@ which case if accurary is 2 and the value is 1.10, 1.1 will be displayed,
 but if TRUE and installed '{scales}` package, 1.10 will be displayed.}
 }
 \value{
-All label_() functions return a "labelling" function, i.e. a function
+All \code{label_()} functions return a "labelling" function, i.e. a function
 that takes a vector x and returns a character vector of length(x) giving a
 label for each input value.
 }
 \description{
 Automatically scales and labels with the Kansuji Myriad Scale (e.g. "Man",
 "Oku", etc).
-Use \code{label_kansuji()} converts the label value to either Kansuji value or a
+Use \code{\link[=label_kansuji]{label_kansuji()}} converts the label value to either Kansuji value or a
 mixture of Arabic numerals and the Kansuji Scales for ten thousands,
 billions, and ten quadrillions.
-Use \code{label_kansuji_suffix()} converts the label value to an Arabic numeral
+Use \code{\link[=label_kansuji_suffix]{label_kansuji_suffix()}} converts the label value to an Arabic numeral
 followed by the Kansuji Scale with the suffix.
 }
-\examples{
-\dontrun{
-library("scales")
+\section{Examples}{
+\if{html}{\out{<div class="r">}}\preformatted{library("scales")
 demo_continuous(c(1, 1e9), label = label_kansuji())
 demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
+}\if{html}{\out{</div>}}
 }
 
-}

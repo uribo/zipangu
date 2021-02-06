@@ -12,6 +12,9 @@ convert_jdate(date)
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 }
-\examples{
-convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5")
+\section{Examples}{
+\if{html}{\out{<div class="r">}}\preformatted{convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
+}\if{html}{\out{</div>}}\preformatted{## [1] "2020-07-06"
 }
+}
+

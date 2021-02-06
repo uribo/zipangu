@@ -3,10 +3,10 @@
 #' @description
 #' Automatically scales and labels with the Kansuji Myriad Scale (e.g. "Man",
 #' "Oku", etc).
-#' Use `label_kansuji()` converts the label value to either Kansuji value or a
+#' Use [label_kansuji()] converts the label value to either Kansuji value or a
 #' mixture of Arabic numerals and the Kansuji Scales for ten thousands,
 #' billions, and ten quadrillions.
-#' Use `label_kansuji_suffix()` converts the label value to an Arabic numeral
+#' Use [label_kansuji_suffix()] converts the label value to an Arabic numeral
 #' followed by the Kansuji Scale with the suffix.
 #'
 #' @param unit Optional units specifier.
@@ -15,22 +15,23 @@
 #' @param big.mark Character used between every 3 digits to separate thousands.
 #' @param number If Number is arabic, it will return a mixture of Arabic and the
 #'  Kansuji Myriad Scale; if Kansuji, it will return only Kansuji numerals.
-#' @param ... Other arguments passed on to `base::prettyNum()` or `scales::label_number()`.
+#' @param ... Other arguments passed on to [base::prettyNum()] or [scales::label_number()].
 #' @rdname label_kansuji
 #'
-#' @return All label_() functions return a "labelling" function, i.e. a function
+#' @return All `label_()` functions return a "labelling" function, i.e. a function
 #'  that takes a vector x and returns a character vector of length(x) giving a
 #'  label for each input value.
 #'
-#' @examples
-#' \dontrun{
+#' @section Examples:
+#' ```{r, child = "man/rmd/setup.Rmd"}
+#' ```
+#'
+#' ```{r, eval = FALSE, echo = TRUE}
 #' library("scales")
 #' demo_continuous(c(1, 1e9), label = label_kansuji())
 #' demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
-#' }
-#'
+#' ```
 #' @export
-
 label_kansuji <- function(unit = NULL, sep = "", prefix = "", big.mark = "", number = c("arabic", "kansuji"), ...){
   number <- match.arg(number)
   if(number == "arabic"){
@@ -64,7 +65,6 @@ label_kansuji <- function(unit = NULL, sep = "", prefix = "", big.mark = "", num
 #' but if TRUE and installed '{scales}` package, 1.10 will be displayed.
 #' @rdname label_kansuji
 #' @export
-
 label_kansuji_suffix <- function(accuracy = 1, unit = NULL, sep = NULL, prefix = "", big.mark = "", significant.digits = FALSE, ...) {
   function(x) {
 

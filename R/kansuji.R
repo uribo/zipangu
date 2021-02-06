@@ -2,9 +2,9 @@
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
-#' `kansuji2arabic_all()` converts only Kansuji in the string.
-#' `kansuji2arabic_num()` convert kansuji that contain the positions (e.g. Hyaku,
-#' Sen, etc) with the numbers represented by kansuji. `kansuji2arabic_str()`
+#' [kansuji2arabic_all()] converts only Kansuji in the string.
+#' [kansuji2arabic_num()] convert kansuji that contain the positions (e.g. Hyaku,
+#' Sen, etc) with the numbers represented by kansuji. [kansuji2arabic_str()]
 #' converts kansuji in a string to numbers represented by kansuji while
 #' retaining the non-kansuji characters.
 #' @param str Input vector.
@@ -57,7 +57,7 @@ kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
   res
 }
 
-#' @param ... Other arguments to carry over to `kansuji2arabic()`
+#' @param ... Other arguments to carry over to [kansuji2arabic()]
 #' @rdname kansuji
 #' @export
 kansuji2arabic_all <- function(str, ...) {
@@ -70,7 +70,6 @@ kansuji2arabic_all <- function(str, ...) {
   }, ...)
 }
 
-#'
 kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ...) {
   consecutive <- match.arg(consecutive)
 
@@ -176,8 +175,6 @@ kansuji2arabic_num <- function(str, consecutive = c("convert", "non"), ...){
   purrr::map(str, kansuji2arabic_num_single, consecutive, ...) %>% unlist()
 }
 
-
-#'
 kansuji2arabic_str_single <- function(str, consecutive = c("convert", "non"), widths = c("all", "halfwidth"), ...){
   consecutive <- match.arg(consecutive)
   widths <- match.arg(widths)

@@ -23,12 +23,64 @@ jholiday(year, lang = "en")
 Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.
 }
-\examples{
-jholiday_spec(2019, "Sports Day")
-jholiday_spec(2021, "Sports Day")
-# List of a specific year holidays
-jholiday(2021, "en")
+\section{Examples}{
+\if{html}{\out{<div class="r">}}\preformatted{jholiday_spec(2019, "Sports Day")
+}\if{html}{\out{</div>}}\preformatted{## [1] "2019-10-14"
+}\if{html}{\out{<div class="r">}}\preformatted{jholiday_spec(2021, "Sports Day")
+}\if{html}{\out{</div>}}\preformatted{## [1] "2021-07-23"
 }
+
+List of a specific year holidays\if{html}{\out{<div class="r">}}\preformatted{jholiday(2021, "en")
+}\if{html}{\out{</div>}}\preformatted{## $`New Year's Day`
+## [1] "2021-01-01"
+## 
+## $`Coming of Age Day`
+## [1] "2021-01-11"
+## 
+## $`Foundation Day`
+## [1] "2021-02-11"
+## 
+## $`The Emperor's Birthday`
+## [1] "2021-02-23"
+## 
+## $`Vernal Equinox Day`
+## [1] "2021-03-20"
+## 
+## $`Showa Day`
+## [1] "2021-04-29"
+## 
+## $`Constitution Memorial Day`
+## [1] "2021-05-03"
+## 
+## $`Greenery Day`
+## [1] "2021-05-04"
+## 
+## $`Children's Day`
+## [1] "2021-05-05"
+## 
+## $`Marine Day`
+## [1] "2021-07-22"
+## 
+## $`Sports Day`
+## [1] "2021-07-23"
+## 
+## $`Mountain Day`
+## [1] "2021-08-08"
+## 
+## $`Respect for the Aged Day`
+## [1] "2021-09-20"
+## 
+## $`Autumnal Equinox Day`
+## [1] "2021-09-23"
+## 
+## $`Culture Day`
+## [1] "2021-11-03"
+## 
+## $`Labour Thanksgiving Day`
+## [1] "2021-11-23"
+}
+}
+
 \references{
 Public Holiday Law \url{https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html},
 \url{https://elaws.e-gov.go.jp/document?lawid=323AC1000000178}

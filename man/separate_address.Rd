@@ -7,7 +7,7 @@
 separate_address(str)
 }
 \arguments{
-\item{str}{Input vector. address string.}
+\item{str}{Input vector. address strings.}
 }
 \value{
 A list of elements that make up an address.

@@ -28,7 +28,7 @@ and numeric values are treated as strings.}
 
 \item{.under}{Number scale to be converted. The default value is infinity.}
 
-\item{...}{Other arguments to carry over to \code{kansuji2arabic()}}
+\item{...}{Other arguments to carry over to \code{\link[=kansuji2arabic]{kansuji2arabic()}}}
 
 \item{consecutive}{If you select "convert", any sequence of 1 to 9 kansuji will
 be replaced with Arabic numerals. If you select "non", any sequence of 1-9
@@ -44,9 +44,9 @@ a character or numeric.
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 Converts a given Kansuji element such as Ichi (1) and Nana (7) to an Arabic.
-\code{kansuji2arabic_all()} converts only Kansuji in the string.
-\code{kansuji2arabic_num()} convert kansuji that contain the positions (e.g. Hyaku,
-Sen, etc) with the numbers represented by kansuji. \code{kansuji2arabic_str()}
+\code{\link[=kansuji2arabic_all]{kansuji2arabic_all()}} converts only Kansuji in the string.
+\code{\link[=kansuji2arabic_num]{kansuji2arabic_num()}} convert kansuji that contain the positions (e.g. Hyaku,
+Sen, etc) with the numbers represented by kansuji. \code{\link[=kansuji2arabic_str]{kansuji2arabic_str()}}
 converts kansuji in a string to numbers represented by kansuji while
 retaining the non-kansuji characters.
 }
