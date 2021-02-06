@@ -144,6 +144,37 @@ kansuji2arabic(c("一", "百"))
 kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 ```
 
+### Label
+
+```{r, echo=TRUE, eval=FALSE}
+library(scales)
+library(ggplot2)
+theme_set(theme_bw(base_family = "IPAexGothic"))
+demo_continuous(c(1, 1e9), label = label_kansuji())
+```
+
+```{r, echo=FALSE, eval=FALSE}
+ggsave("man/figures/readme_demo_label_kansuji.png",
+       last_plot(),
+       width = 6,
+       height = 2)
+```
+
+![](man/figures/readme_demo_label_kansuji.png)
+
+```{r, eval=FALSE, echo=TRUE}
+demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
+```
+
+```{r, echo=FALSE, eval=FALSE}
+ggsave("man/figures/readme_demo_label_kansuji_suffix.png",
+       last_plot(),
+       width = 6,
+       height = 2)
+```
+
+![](man/figures/readme_demo_label_kansuji_suffix.png)
+
 ### Data set
 
 ```{r}

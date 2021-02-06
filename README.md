@@ -226,6 +226,23 @@ kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 #> [1] "北海道札幌市中央区北1条西2丁目"
 ```
 
+### Label
+
+``` r
+library(scales)
+library(ggplot2)
+theme_set(theme_bw(base_family = "IPAexGothic"))
+demo_continuous(c(1, 1e9), label = label_kansuji())
+```
+
+![](man/figures/readme_demo_label_kansuji.png)
+
+``` r
+demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
+```
+
+![](man/figures/readme_demo_label_kansuji_suffix.png)
+
 ### Data set
 
 ``` r
