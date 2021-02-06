@@ -10,13 +10,13 @@
 |collate  |ja_JP.UTF-8                  |
 |ctype    |ja_JP.UTF-8                  |
 |tz       |Asia/Tokyo                   |
-|date     |2021-02-01                   |
+|date     |2021-02-07                   |
 
 # Dependencies
 
 |package |old   |new        |Δ |
 |:-------|:-----|:----------|:--|
-|zipangu |0.2.1 |0.2.1.9000 |*  |
+|zipangu |0.2.2 |0.2.2.9000 |*  |
 
 # Revdeps
 

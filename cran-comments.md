@@ -15,3 +15,5 @@
 Possibly mis-spelled words in DESCRIPTION:
      Kanji
 ```
+
+* Days since last update: 5. This is because the raw data used in the package was found to be incorrect and needed to be patched.
