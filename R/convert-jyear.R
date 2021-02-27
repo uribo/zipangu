@@ -68,15 +68,17 @@ convert_jyear <- function(jyear) {
 #' ```
 #'
 #' ```{r}
+#' convert_jdate("R3/2/27")
 #' convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5")
 #' ```
 #' @export
 convert_jdate <- function(date) {
   date %>%
-    stringi::stri_trans_nfkc() %>%
-    stringr::str_replace(".*(?=\u5e74)",
-                         convert_jyear) %>%
-    lubridate::ymd()
+    purrr::map(
+      ~ rlang::exec(lubridate::make_date,
+                    !!!split_ymd_elements(.x))
+    ) %>%
+    purrr::reduce(c)
 }
 
 jyear_initial_tolower <- function(jyear) {
