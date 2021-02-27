@@ -91,6 +91,28 @@ jyear_initial_tolower <- function(jyear) {
   jyear
 }
 
+split_ymd_elements <- function(x) {
+  x %>%
+    purrr::map(
+      function(.x) {
+        if (is.na(.x)) {
+          NA_real_
+        } else {
+          .x %>%
+            stringi::stri_trans_general(id = "nfkc") %>%
+            stringr::str_split("(\u5e74|\u6708|\u65e5)|(\\.)|(\\-)|(\\/)",
+                               simplify = TRUE) %>%
+            purrr::keep(~ nchar(.) > 0) %>%
+            purrr::modify_at(1,
+                             ~ convert_jyear(.x)) %>%
+            purrr::map(as.integer) %>%
+            purrr::set_names(c("year", "month", "day"))
+        }
+      }
+      ) %>%
+    purrr::flatten()
+}
+
 is_jyear <- function(jyear) {
   pattern <- paste0(
     "^(",
