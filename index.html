@@ -29,6 +29,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -85,24 +87,24 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><a href="https://travis-ci.org/uribo/zipangu"><img src="https://travis-ci.org/uribo/zipangu.svg?branch=master" alt="Travis build status"></a> <a href="https://github.com/uribo/zipangu"><img src="https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg" alt="R build status"></a> <a href="https://codecov.io/gh/uribo/zipangu?branch=master"><img src="https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
+<p><a href="https://travis-ci.org/uribo/zipangu" class="external-link"><img src="https://travis-ci.org/uribo/zipangu.svg?branch=master" alt="Travis build status"></a> <a href="https://github.com/uribo/zipangu" class="external-link"><img src="https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg" alt="R build status"></a> <a href="https://codecov.io/gh/uribo/zipangu?branch=master" class="external-link"><img src="https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
 <p>The goal of <a href="https://uribo.github.io/zipangu/">zipangu</a> is to replace the functionality provided by the <code>{Nippon}</code> archived from CRAN. Add some functions to make it easier to treat data that address, year, and Kanji.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of <a href="https://uribo.github.io/zipangu/">zipangu</a> from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"zipangu"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"zipangu"</span><span class="op">)</span></code></pre></div>
 <p>and also, the developmment version from GitHub</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"uribo/zipangu"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"uribo/zipangu"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="api" class="section level2">
 <h2 class="hasAnchor">
 <a href="#api" class="anchor"></a>API</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://uribo.github.io/zipangu/">zipangu</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://uribo.github.io/zipangu/">zipangu</a></span><span class="op">)</span></code></pre></div>
 <div id="address" class="section level3">
 <h3 class="hasAnchor">
 <a href="#address" class="anchor"></a>Address</h3>
@@ -118,9 +120,9 @@
 <span class="co">#&gt; [1] "大手町一丁目"</span></code></pre></div>
 <p>Applied to data frame.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>address <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"東京都千代田区大手町一丁目"</span>, <span class="st">"岡山県岡山市北区清心町16-13"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>address_components <span class="op">=</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html">pmap</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">~</span> <span class="fu"><a href="reference/separate_address.html">separate_address</a></span><span class="op">(</span><span class="va">..1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>address <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"東京都千代田区大手町一丁目"</span>, <span class="st">"岡山県岡山市北区清心町16-13"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>address_components <span class="op">=</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map2.html" class="external-link">pmap</a></span><span class="op">(</span><span class="va">.</span>, <span class="op">~</span> <span class="fu"><a href="reference/separate_address.html">separate_address</a></span><span class="op">(</span><span class="va">..1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">tidyr</span><span class="fu">::</span><span class="fu">unnest_wider</span><span class="op">(</span>col <span class="op">=</span> <span class="va">address_components</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 2 x 4</span>
 <span class="co">#&gt;   address                     prefecture city       street      </span>
@@ -132,7 +134,7 @@
 <h3 class="hasAnchor">
 <a href="#zip-code" class="anchor"></a>Zip-code</h3>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/read_zipcode.html">read_zipcode</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/13TOKYO_oogaki.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>, <span class="st">"oogaki"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="reference/read_zipcode.html">read_zipcode</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/13TOKYO_oogaki.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>, <span class="st">"oogaki"</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1 x 15</span>
 <span class="co">#&gt;   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana</span>
 <span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;      </span>
@@ -261,7 +263,7 @@
 <h4 class="hasAnchor">
 <a href="#kansuji" class="anchor"></a>Kansuji</h4>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/kansuji2arabic.html">kansuji2arabic</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"一"</span>, <span class="st">"百"</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="reference/kansuji2arabic.html">kansuji2arabic</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"一"</span>, <span class="st">"百"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "1"   "100"</span>
 <span class="fu"><a href="reference/kansuji2arabic.html">kansuji2arabic_all</a></span><span class="op">(</span><span class="st">"北海道札幌市中央区北一条西二丁目"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "北海道札幌市中央区北1条西2丁目"</span></code></pre></div>
@@ -271,13 +273,13 @@
 <h3 class="hasAnchor">
 <a href="#label" class="anchor"></a>Label</h3>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org" class="external-link">scales</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span>
 <span class="fu">theme_set</span><span class="op">(</span><span class="fu">theme_bw</span><span class="op">(</span>base_family <span class="op">=</span> <span class="st">"IPAexGothic"</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://scales.r-lib.org//reference/demo_continuous.html">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="reference/label_kansuji.html">label_kansuji</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://scales.r-lib.org//reference/demo_continuous.html" class="external-link">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="reference/label_kansuji.html">label_kansuji</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/readme_demo_label_kansuji.png"></p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://scales.r-lib.org//reference/demo_continuous.html">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="reference/label_kansuji.html">label_kansuji_suffix</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://scales.r-lib.org//reference/demo_continuous.html" class="external-link">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="reference/label_kansuji.html">label_kansuji_suffix</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/readme_demo_label_kansuji_suffix.png"></p>
 </div>
 <div id="data-set" class="section level3">
@@ -306,7 +308,7 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=zipangu">https://​cloud.r-project.org/​package=zipangu</a>
 </li>
@@ -316,41 +318,47 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
 <a href="https://suryu.me">Shinya Uryu</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0493-6186" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html">More on authors...</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://cran.r-project.org/package=zipangu"><img src="http://www.r-pkg.org/badges/version/zipangu" alt="CRAN_Status_Badge"></a></li>
-<li><a href="https://cran.r-project.org/package=zipangu"><img src="http://cranlogs.r-pkg.org/badges/zipangu?color=FF5254" alt="CRAN RStudio mirror downloads"></a></li>
-<li><a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.2.0-blue.svg" alt="minimal R version"></a></li>
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://cran.r-project.org/package=zipangu" class="external-link"><img src="http://www.r-pkg.org/badges/version/zipangu" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=zipangu" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/zipangu?color=FF5254" alt="CRAN RStudio mirror downloads"></a></li>
+<li><a href="https://cran.r-project.org/" class="external-link"><img src="https://img.shields.io/badge/R%3E%3D-3.2.0-blue.svg" alt="minimal R version"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://suryu.me">Shinya Uryu</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://suryu.me" class="external-link">Shinya Uryu</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -358,6 +366,8 @@
 
   
 
+
+  
 
   </body>
 </html>
