@@ -1,4 +1,4 @@
-test_that("conver jstr works", {
+test_that("convert jstr works", {
   expect_equal(
     str_jconv("\u30a2\u30a4\u30a6\u30a8\u30aa", str_conv_hirakana, to = "hiragana"),
     "\u3042\u3044\u3046\u3048\u304a"
