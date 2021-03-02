@@ -11,11 +11,14 @@ Authors@R:
              family = "Yutani",
              role = "ctb",
              comment = c(ORCID = "0000-0002-3385-7233")),
-    person(given = "Kazuhiro",
+      person(given = "Kazuhiro",
              family = "Maeda",
              role = "ctb"),
       person(given = "Mao",
              family = "Kobayashi",
+             role = "ctb"),
+      person(given = "Akiru",
+             family = "Kato",
              role = "ctb")
              )
 Description: Some data treated by the Japanese R user require
