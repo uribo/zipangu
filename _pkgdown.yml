@@ -43,6 +43,7 @@ reference:
     - kansuji2arabic_num
     - kansuji2arabic_str
     - str_jconv
+    - str_jnormalize
   - title: "Utilities"
     contents:
     - find_date_by_wday

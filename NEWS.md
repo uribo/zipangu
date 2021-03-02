@@ -2,6 +2,11 @@
 
 # zipangu 0.2.3
 
+## New Features
+
+* Added a function.
+  * `str_jnormalize` can preprocess Japanese characters following the rules of 'neologd' (@paithiov909, #36).
+
 ## Fix
 
 - Determination of substitute holidays due to forgetting to update raw data (#31).
