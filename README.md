@@ -7,7 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/zipangu)](https://cran.r-project.org/package=zipangu)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/zipangu)](https://cran.r-project.org/package=zipangu)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/zipangu?color=FF5254)](https://cran.r-project.org/package=zipangu)
 [![minimal R
@@ -67,7 +67,7 @@ library(dplyr, warn.conflicts = FALSE)
 data.frame(address = c("東京都千代田区大手町一丁目", "岡山県岡山市北区清心町16-13")) %>% 
   mutate(address_components = purrr::pmap(., ~ separate_address(..1))) %>% 
   tidyr::unnest_wider(col = address_components)
-#> # A tibble: 2 x 4
+#> # A tibble: 2 × 4
 #>   address                     prefecture city       street      
 #>   <chr>                       <chr>      <chr>      <chr>       
 #> 1 東京都千代田区大手町一丁目  東京都     千代田区   大手町一丁目
@@ -78,7 +78,7 @@ data.frame(address = c("東京都千代田区大手町一丁目", "岡山県岡�
 
 ``` r
 read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
-#> # A tibble: 1 x 15
+#> # A tibble: 1 × 15
 #>   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana
 #>   <chr>    <chr>        <chr>    <chr>           <chr>     <chr>      
 #> 1 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     
@@ -104,6 +104,9 @@ zipcode_spacer("305-0053")
 #> [1] "305-0053"
 zipcode_spacer("305-0053", remove = TRUE)
 #> [1] "3050053"
+
+is_prefecture("東京都")
+#> [1] TRUE
 ```
 
 ### Calendar
@@ -226,6 +229,19 @@ kansuji2arabic_all("北海道札幌市中央区北一条西二丁目")
 #> [1] "北海道札幌市中央区北1条西2丁目"
 ```
 
+#### Prefecture name
+
+``` r
+harmonize_prefecture_name(
+  c("東京都", "北海道", "沖縄県"), 
+  to = "short")
+#> [1] "東京"   "北海道" "沖縄"
+harmonize_prefecture_name(
+  c("東京", "北海道", "沖縄"), 
+  to = "long")
+#> [1] "東京都" "北海道" "沖縄県"
+```
+
 ### Label
 
 ``` r
@@ -247,7 +263,7 @@ demo_continuous(c(1, 1e9), label = label_kansuji_suffix())
 
 ``` r
 jpnprefs
-#> # A tibble: 47 x 5
+#> # A tibble: 47 × 5
 #>    jis_code prefecture_kanji prefecture    region   major_island
 #>    <chr>    <chr>            <chr>         <chr>    <chr>       
 #>  1 01       北海道           Hokkaido      Hokkaido Hokkaido    

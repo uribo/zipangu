@@ -1,5 +1,10 @@
 # zipangu (development version)
 
+## New Features
+
+- `harmonize_prefecture_name()`: New function for processing prefectural strings (#37).
+    - Determine if the string is a prefecture string by `is_prefecture()`. 
+
 # zipangu 0.2.3
 
 ## New Features
