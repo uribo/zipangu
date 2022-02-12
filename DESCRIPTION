@@ -36,6 +36,7 @@ Imports:
     lifecycle (>= 0.1.0),
     lubridate (>= 1.7.4),
     magrittr (>= 1.5),
+    memoise,
     purrr (>= 0.3.3),
     rlang (>= 0.4.0),
     stringi (>= 1.4.3),
@@ -50,4 +51,4 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
