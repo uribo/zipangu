@@ -10,9 +10,9 @@ jholiday_spec(year, name, lang = "en")
 jholiday(year, lang = "en")
 }
 \arguments{
-\item{year}{numeric year and in and after 1949.}
+\item{year}{numeric years in and after 1949.}
 
-\item{name}{holiday name}
+\item{name}{string; holiday name.}
 
 \item{lang}{return holiday names to "en" or "jp".}
 }
@@ -24,13 +24,13 @@ Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.
 }
 \section{Examples}{
-\if{html}{\out{<div class="r">}}\preformatted{jholiday_spec(2019, "Sports Day")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2019, "Sports Day")
 }\if{html}{\out{</div>}}\preformatted{## [1] "2019-10-14"
-}\if{html}{\out{<div class="r">}}\preformatted{jholiday_spec(2021, "Sports Day")
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2021, "Sports Day")
 }\if{html}{\out{</div>}}\preformatted{## [1] "2021-07-23"
 }
 
-List of a specific year holidays\if{html}{\out{<div class="r">}}\preformatted{jholiday(2021, "en")
+List of a specific year holidays\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday(2021, "en")
 }\if{html}{\out{</div>}}\preformatted{## $`New Year's Day`
 ## [1] "2021-01-01"
 ## 
@@ -40,29 +40,26 @@ List of a specific year holidays\if{html}{\out{<div class="r">}}\preformatted{jh
 ## $`Foundation Day`
 ## [1] "2021-02-11"
 ## 
-## $`The Emperor's Birthday`
-## [1] "2021-02-23"
-## 
 ## $`Vernal Equinox Day`
 ## [1] "2021-03-20"
 ## 
 ## $`Showa Day`
 ## [1] "2021-04-29"
 ## 
-## $`Constitution Memorial Day`
-## [1] "2021-05-03"
-## 
 ## $`Greenery Day`
 ## [1] "2021-05-04"
+## 
+## $`The Emperor's Birthday`
+## [1] "2021-02-23"
+## 
+## $`Constitution Memorial Day`
+## [1] "2021-05-03"
 ## 
 ## $`Children's Day`
 ## [1] "2021-05-05"
 ## 
 ## $`Marine Day`
 ## [1] "2021-07-22"
-## 
-## $`Sports Day`
-## [1] "2021-07-23"
 ## 
 ## $`Mountain Day`
 ## [1] "2021-08-08"
@@ -72,6 +69,9 @@ List of a specific year holidays\if{html}{\out{<div class="r">}}\preformatted{jh
 ## 
 ## $`Autumnal Equinox Day`
 ## [1] "2021-09-23"
+## 
+## $`Sports Day`
+## [1] "2021-07-23"
 ## 
 ## $`Culture Day`
 ## [1] "2021-11-03"

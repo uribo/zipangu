@@ -13,15 +13,15 @@ convert_jyear(jyear)
 \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 }
 \section{Examples}{
-\if{html}{\out{<div class="r">}}\preformatted{convert_jyear("R1")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jyear("R1")
 }\if{html}{\out{</div>}}\preformatted{## [1] 2019
-}\if{html}{\out{<div class="r">}}\preformatted{convert_jyear("Heisei2")
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jyear("Heisei2")
 }\if{html}{\out{</div>}}\preformatted{## [1] 1990
-}\if{html}{\out{<div class="r">}}\preformatted{convert_jyear("\\u5e73\\u6210\\u5143\\u5e74")
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jyear("\\u5e73\\u6210\\u5143\\u5e74")
 }\if{html}{\out{</div>}}\preformatted{## [1] 1989
-}\if{html}{\out{<div class="r">}}\preformatted{convert_jyear(c("\\u662d\\u548c10\\u5e74", "\\u5e73\\u621014\\u5e74"))
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jyear(c("\\u662d\\u548c10\\u5e74", "\\u5e73\\u621014\\u5e74"))
 }\if{html}{\out{</div>}}\preformatted{## [1] 1935 2002
-}\if{html}{\out{<div class="r">}}\preformatted{convert_jyear(kansuji2arabic_all("\\u5e73\\u6210\\u4e09\\u5e74"))
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jyear(kansuji2arabic_all("\\u5e73\\u6210\\u4e09\\u5e74"))
 }\if{html}{\out{</div>}}\preformatted{## [1] 1991
 }
 }
