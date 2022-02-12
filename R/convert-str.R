@@ -33,7 +33,7 @@ str_jconv <- function(str, fun, to) {
 #' @rdname str_jconv
 #' @export
 str_conv_hirakana <- function(str, to = c("hiragana", "katakana")) {
-  rlang::arg_match(to)
+  to <- rlang::arg_match(to)
   if (to == "hiragana") {
     stringi::stri_trans_general(str, "Katakana-Hiragana")
   } else {
@@ -44,26 +44,24 @@ str_conv_hirakana <- function(str, to = c("hiragana", "katakana")) {
 #' @rdname str_jconv
 #' @export
 str_conv_zenhan <- function(str, to = c("zenkaku", "hankaku")) {
-  rlang::arg_match(to)
-  switch (to,
-          "zenkaku" = stringi::stri_trans_general(str, "Halfwidth-Fullwidth"),
-          "hankaku" = stringi::stri_trans_general(str, "Fullwidth-Halfwidth")
-  )
+  to <- rlang::arg_match(to)
+  switch(to,
+         "zenkaku" = stringi::stri_trans_general(str, "Halfwidth-Fullwidth"),
+         "hankaku" = stringi::stri_trans_general(str, "Fullwidth-Halfwidth"))
 }
 
 #' @rdname str_jconv
 #' @export
 str_conv_romanhira <- function(str, to = c("roman", "hiragana")) {
-  rlang::arg_match(to)
-  switch (to,
-          "roman" = stringi::stri_trans_general(str, "Any-Latin"),
-          "hiragana" = stringi::stri_trans_general(str, "Latin-Hiragana")
-  )
+  to <- rlang::arg_match(to)
+  switch(to,
+         "roman" = stringi::stri_trans_general(str, "Any-Latin"),
+         "hiragana" = stringi::stri_trans_general(str, "Latin-Hiragana"))
 }
 
 #' @rdname str_jconv
 #' @export
 str_conv_normalize <- function(str, to = c("nfkc")) {
-  rlang::arg_match(to)
+  to <- rlang::arg_match(to)
   stringi::stri_trans_general(str, "nfkc")
 }
