@@ -3,8 +3,8 @@
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' @details Holiday information refers to data published as of December 21, 2020.
 #' Future holidays are subject to change.
-#' @param year numeric year and in and after 1949.
-#' @param name holiday name
+#' @param year numeric years in and after 1949.
+#' @param name string; holiday name.
 #' @param lang return holiday names to "en" or "jp".
 #' @references Public Holiday Law [https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html),
 #' [https://elaws.e-gov.go.jp/document?lawid=323AC1000000178](https://elaws.e-gov.go.jp/document?lawid=323AC1000000178)
@@ -23,9 +23,27 @@
 #' ```
 #' @export
 jholiday_spec <- function(year, name, lang = "en") {
-  jholiday_names <- jholiday_list[[lang]]
-
   if (are_all_current_law_yr(year)) {
+    res <- purrr::map2(year, name, function(yr, nm) {
+      fn_name <- paste("jholiday_spec", yr, lang, sep = "_")
+      if (!rlang::env_has(.pkgenv, fn_name)) {
+        rlang::env_bind(
+          .pkgenv,
+          !!fn_name := memoise::memoise(jholiday_spec_impl()(yr, lang))
+        )
+      }
+      rlang::env_get(.pkgenv, fn_name, inherit = TRUE)(nm)
+    })
+    res <- unlist(res)
+    lubridate::as_date(res)
+  }
+}
+
+#' @noRd
+jholiday_spec_impl <- function() {
+  fn <- function(year, name, lang) {
+    jholiday_names <- jholiday_list[[lang]]
+
     if (!name %in% jholiday_names) {
       rlang::abort(sprintf("No such holiday: %s", name))
     }
@@ -115,6 +133,9 @@ jholiday_spec <- function(year, name, lang = "en") {
       TRUE ~ lubridate::as_date(NA_character_)
     )
   }
+  function(year, lang) {
+    purrr::partial(fn, year = year, lang = lang)
+  }
 }
 
 #' @rdname jholiday
@@ -130,14 +151,10 @@ jholiday <- function(year, lang = "en") {
       res[!duplicated(res)]
     res <-
       res %>%
-      purrr::discard(~ all(is.na(.)))
-    if (length(year) == 1L) {
-      res <-
-        purrr::flatten_dbl(res) %>%
-          purrr::set_names(names(res)) %>%
-          sort() %>%
-          purrr::map(lubridate::as_date)
-    }
+      purrr::discard(~ all(is.na(.))) %>%
+      purrr::imap(function(x, y) {
+        lubridate::as_date(sort(x))
+      })
     res
   }
 }
