@@ -3,7 +3,7 @@
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
 #' @details Holiday information refers to data published as of December 21, 2020.
 #' Future holidays are subject to change.
-#' @param year numeric years in and after 1949.
+#' @param year numeric years after 1949.
 #' @param name holiday names. If not the same length of year, the first element will be recycled.
 #' @param lang return holiday names to "en" or "jp".
 #' @references Public Holiday Law [https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html),
@@ -26,7 +26,7 @@
 jholiday_spec <- function(year, name, lang = "en") {
   if (are_all_current_law_yr(year)) {
     if (length(year) < length(name))
-      rlang::abort("`year` is expected to be a vector of length 1 or longer length than `name`.")
+      rlang::abort("`year` must be a vector of length 1 or longer length than `name`.")
     if (!identical(length(name), 1L) & (length(year) > length(name))) {
       rlang::warn(
         paste("`name` is expected to be a vector of length 1 or the same length of `year`.",
