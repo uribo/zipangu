@@ -10,9 +10,9 @@ jholiday_spec(year, name, lang = "en")
 jholiday(year, lang = "en")
 }
 \arguments{
-\item{year}{numeric years in and after 1949.}
+\item{year}{numeric years after 1949.}
 
-\item{name}{string; holiday name.}
+\item{name}{holiday names. If not the same length of year, the first element will be recycled.}
 
 \item{lang}{return holiday names to "en" or "jp".}
 }

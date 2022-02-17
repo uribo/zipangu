@@ -4,13 +4,13 @@
 
 - `harmonize_prefecture_name()`: New function for processing prefectural strings (#37).
     - Determine if the string is a prefecture string by `is_prefecture()`. 
+- `str_jnormalize`: New function for preprocessing Japanese characters following the rules of 'neologd' (@paithiov909, #36).
+
+## Enhancement
+
+- `jholiday_spec()` is now memoised internally. This change makes its second and later calls faster. Also, now `name` is acceptable with multiple values. (@paithiov909, #38).
 
 # zipangu 0.2.3
-
-## New Features
-
-* Added a function.
-  * `str_jnormalize` can preprocess Japanese characters following the rules of 'neologd' (@paithiov909, #36).
 
 ## Fix
 
