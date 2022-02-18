@@ -295,6 +295,11 @@ test_that("Utils", {
   expect_true(
     are_all_current_law_yr(1948:1950)
   )
+  expect_true(
+    all(are_all_current_law_yr(NA_real_),
+        are_all_current_law_yr(c("", NA_character_)),
+        are_all_current_law_yr(NULL))
+  )
   expect_warning(
     expect_false(
       are_all_current_law_yr(1947:1949),

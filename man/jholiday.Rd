@@ -10,11 +10,14 @@ jholiday_spec(year, name, lang = "en")
 jholiday(year, lang = "en")
 }
 \arguments{
-\item{year}{numeric years after 1949.}
+\item{year}{numeric years after 1949.
+If \code{NA} supplied, \code{jholiday_spec} returns \code{NA} respectively.
+On the other hand, \code{jholiday} always omits any \code{NA} values.}
 
-\item{name}{holiday names. If not the same length of year, the first element will be recycled.}
+\item{name}{holiday names.
+If this argument is not the same length of year, the first element will be recycled.}
 
-\item{lang}{return holiday names to "en" or "jp".}
+\item{lang}{switch for turning values to "en" or "jp".}
 }
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}

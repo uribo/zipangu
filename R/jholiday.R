@@ -4,8 +4,11 @@
 #' @details Holiday information refers to data published as of December 21, 2020.
 #' Future holidays are subject to change.
 #' @param year numeric years after 1949.
-#' @param name holiday names. If not the same length of year, the first element will be recycled.
-#' @param lang return holiday names to "en" or "jp".
+#' If `NA` supplied, `jholiday_spec` returns `NA` respectively.
+#' On the other hand, `jholiday` always omits any `NA` values.
+#' @param name holiday names.
+#' If this argument is not the same length of year, the first element will be recycled.
+#' @param lang switch for turning values to "en" or "jp".
 #' @references Public Holiday Law [https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html),
 #' [https://elaws.e-gov.go.jp/document?lawid=323AC1000000178](https://elaws.e-gov.go.jp/document?lawid=323AC1000000178)
 #' @rdname jholiday
@@ -34,6 +37,13 @@ jholiday_spec <- function(year, name, lang = "en") {
         ))
       name <- name[1]
     }
+    jholiday_names <- jholiday_list[[lang]]
+    if (!purrr::every(name, ~ match(., jholiday_names, nomatch = 0) > 0)) {
+      rlang::abort(
+        sprintf("No such holiday: %s",
+                purrr::discard(name, ~ match(., jholiday_names, nomatch = 0) > 0))
+      )
+    }
     res <-
       purrr::map2(year, name, function(yr, nm) {
         fn_name <- paste("jholiday_spec", yr, lang, sep = "_")
@@ -54,11 +64,11 @@ jholiday_spec <- function(year, name, lang = "en") {
 #' @noRd
 jholiday_spec_impl <- function() {
   fn <- function(year, name, lang) {
-    jholiday_names <- jholiday_list[[lang]]
-
-    if (!name %in% jholiday_names) {
-      rlang::abort(sprintf("No such holiday: %s", name))
+    if (!is.numeric(year) || is.na(year)) {
+      # early return
+      return(lubridate::as_date(NA_character_))
     }
+    jholiday_names <- jholiday_list[[lang]]
     dplyr::case_when(
       # New Year's Day
       name == jholiday_names[1] ~
@@ -165,14 +175,15 @@ jholiday <- function(year, lang = "en") {
       res %>%
       purrr::discard(~ all(is.na(.))) %>%
       purrr::imap(function(x, y) {
-        lubridate::as_date(sort(x))
+        sort(x)
       })
     res
   }
 }
 
 are_all_current_law_yr <- function(years) {
-  checked <- all(years >= 1948)
+  # This check omits any NAs, NULL, and empty strings for convenience.
+  checked <- all(as.numeric(years) >= 1948, na.rm = TRUE)
   if (!checked)
     rlang::warn("The year specified must be after the law was enacted in 1948")
   checked
