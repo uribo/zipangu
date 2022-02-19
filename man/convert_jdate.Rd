@@ -13,9 +13,9 @@ convert_jdate(date)
 \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 }
 \section{Examples}{
-\if{html}{\out{<div class="r">}}\preformatted{convert_jdate("R3/2/27")
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("R3/2/27")
 }\if{html}{\out{</div>}}\preformatted{## [1] "2021-02-27"
-}\if{html}{\out{<div class="r">}}\preformatted{convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
 }\if{html}{\out{</div>}}\preformatted{## [1] "2020-07-06"
 }
 }
