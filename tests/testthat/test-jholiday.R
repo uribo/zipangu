@@ -267,6 +267,12 @@ test_that("Is jholiday works", {
     is_jholiday(as.Date(c("2019-01-01", "2021-01-01"))),
     c(TRUE, TRUE)
   )
+  # for multiple dates with NA
+  expect_equal(
+    zipangu::is_jholiday(c("2019-01-01", NA, "2021-01-01")),
+    c(TRUE, FALSE, TRUE)
+  )
+
 })
 
 test_that("Utils", {
