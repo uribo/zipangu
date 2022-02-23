@@ -201,14 +201,8 @@ shubun_day <- function(year) {
 is_jholiday <- function(date) {
   date <-
     lubridate::as_date(date)
-  na_index <- which(sapply(date, is.na))
-  # make sure to exclude NA otherwise, lubridate::as_date(unlist(jholiday(yr, "en"))) fails.
-  if (length(na_index) == 0) {
-    yr <- unique(lubridate::year(date))
-  } else {
-    yr <-
-      unique(lubridate::year(date[-na_index]))
-  }
+  yr <-
+    unique(lubridate::year(date[!is.na(date)]))
   jholidays <-
     unique(c(
       jholiday_df$date,            # Holidays from https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv
@@ -216,12 +210,7 @@ is_jholiday <- function(date) {
     ))
 
   # exclude NA from jholidays then check if the date is Japanese Holiday or not.
-  jholidays_na_index <- which(sapply(jholidays, is.na))
-  if (length(jholidays_na_index) == 0) {
-    date %in% jholidays
-  } else {
-    date %in% jholidays[-jholidays_na_index]
-  }
+  date %in% jholidays[!is.na(jholidays)]
 }
 
 #' Find out the date of the specific month and weekday
