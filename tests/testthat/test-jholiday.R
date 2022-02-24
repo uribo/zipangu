@@ -48,6 +48,19 @@ test_that("Specific year's holiday", {
     unique(purrr::map_int(res, length)),
     2L
   )
+  expect_error(
+    jholiday_spec(2019:2020, c("Coming of Age Day",
+                               "Foundation Day",
+                               "Vernal Equinox Day")),
+    "longer length than `name`."
+  )
+  expect_warning(
+    res <-
+      jholiday_spec(2019:2021, c("Coming of Age Day",
+                                 "Foundation Day")),
+    "the first element of `name` is recycled."
+  )
+  expect_equal(res, as.Date(c("2019-01-14", "2020-01-13", "2021-01-11")))
 })
 
 test_that("Another approaches", {
@@ -295,6 +308,11 @@ test_that("Utils", {
   )
   expect_true(
     are_all_current_law_yr(1948:1950)
+  )
+  expect_true(
+    all(are_all_current_law_yr(NA_real_),
+        are_all_current_law_yr(c("", NA_character_)),
+        are_all_current_law_yr(NULL))
   )
   expect_warning(
     expect_false(
