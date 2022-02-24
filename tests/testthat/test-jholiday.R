@@ -280,6 +280,20 @@ test_that("Is jholiday works", {
     is_jholiday(as.Date(c("2019-01-01", "2021-01-01"))),
     c(TRUE, TRUE)
   )
+  # for multiple dates with NA
+  expect_equal(
+    is_jholiday(c("2019-01-01", NA, "2021-01-01")),
+    c(TRUE, FALSE, TRUE)
+  )
+
+  current_option <- getOption("lubridate.week.start")
+  # Set the week start day to Monday (1) to see if it can still recognize correct Japanese Holidays
+  options(lubridate.week.start = 1)
+  expect_equal(is_jholiday("2019-10-08"), FALSE)
+  expect_equal(getOption("lubridate.week.start"),1)
+  # reset
+  options(lubridate.week.start = current_option)
+
 })
 
 test_that("Utils", {

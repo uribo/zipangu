@@ -242,13 +242,15 @@ is_jholiday <- function(date) {
   date <-
     lubridate::as_date(date)
   yr <-
-    unique(lubridate::year(date))
+    unique(lubridate::year(date[!is.na(date)]))
   jholidays <-
     unique(c(
       jholiday_df$date,            # Holidays from https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv
       lubridate::as_date(unlist(jholiday(yr, "en")))   # Calculated holidays
     ))
-  date %in% jholidays
+
+  # exclude NA from jholidays then check if the date is Japanese Holiday or not.
+  date %in% jholidays[!is.na(jholidays)]
 }
 
 #' Find out the date of the specific month and weekday
@@ -267,8 +269,10 @@ is_jholiday <- function(date) {
 find_date_by_wday <- function(year, month, wday, ordinal) {
   date_begin <-
     lubridate::make_date(year, month)
+  # If the lubridate.week.start option is set, lubridate::wday results is affected by it.
+  # To get the correct Japanese Holiday information, explicitly pass Sunday (7) as week_start.
   wday_of_date_begin <-
-    lubridate::wday(date_begin)
+    lubridate::wday(date_begin, week_start = 7)
   # First dates of the specified wday on each year-month
   first_wday <-
     date_begin + (wday - wday_of_date_begin) %% 7

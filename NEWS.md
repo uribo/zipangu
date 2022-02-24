@@ -9,6 +9,8 @@
 ## Fix
 
 - Fix the behaviors of `jholiday_spec()` when any NAs, NULL, and empty strings are supplied (@paithiov909, #38).
+- is_jholiday fails if the date argument contains NA (@hidekoji, #39).
+- is_jholiday returns incorrect result if lubridate.week.start option is set to other than Sunday (@hidekoji, #40).
 
 ## Enhancement
 
