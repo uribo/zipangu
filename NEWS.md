@@ -4,6 +4,12 @@
 
 - `harmonize_prefecture_name()`: New function for processing prefectural strings (#37).
     - Determine if the string is a prefecture string by `is_prefecture()`. 
+    
+## Fix
+
+- is_jholiday fails if the date argument contains NA (#39).
+- is_jholiday returns incorrect result if lubridate.week.start option is set to other than Sunday (#40).
+
 
 # zipangu 0.2.3
 
