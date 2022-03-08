@@ -5,13 +5,13 @@
 - `kana()`: New function for create kana vector (#43).
 - `harmonize_prefecture_name()`: New function for processing prefectural strings (#37).
     - Determine if the string is a prefecture string by `is_prefecture()`. 
-- `str_jnormalize`: New function for preprocessing Japanese characters following the rules of 'neologd' (@paithiov909, #36).
+- `str_jnormalize`: New function for pre-processing Japanese characters following the rules of 'neologd' (@paithiov909, #36).
 
 ## Fix
 
 - Fix the behaviors of `jholiday_spec()` when any NAs, NULL, and empty strings are supplied (@paithiov909, #38).
-- is_jholiday fails if the date argument contains NA (@hidekoji, #39).
-- is_jholiday returns incorrect result if lubridate.week.start option is set to other than Sunday (@hidekoji, #40).
+- `is_jholiday()` fails if the date argument contains NA (@hidekoji, #39).
+- `is_jholiday()` returns incorrect result if `lubridate.week.start` option is set to other than Sunday (@hidekoji, #40).
 
 ## Enhancement
 
