@@ -19,8 +19,10 @@ navbar:
     href: news/index.html
 
 reference:
-  - title: "Address"
+  - title: "Address and Administration"
     contents:
+    - harmonize_prefecture_name
+    - is_prefecture
     - separate_address
   - title: "Zip-code"
     contents:
@@ -44,6 +46,9 @@ reference:
     - kansuji2arabic_str
     - str_jconv
     - str_jnormalize
+  - title: "Kana"
+    contents:
+    - kana
   - title: "Utilities"
     contents:
     - find_date_by_wday
