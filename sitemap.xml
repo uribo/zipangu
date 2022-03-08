@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://uribo.github.io/zipangu/404.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/authors.html</loc>
+  </url>
+  <url>
     <loc>https://uribo.github.io/zipangu/index.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/news/index.html</loc>
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/convert_jdate.html</loc>
@@ -16,7 +31,16 @@
     <loc>https://uribo.github.io/zipangu/reference/find_date_by_wday.html</loc>
   </url>
   <url>
+    <loc>https://uribo.github.io/zipangu/reference/harmonize_prefecture_name.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://uribo.github.io/zipangu/reference/is_jholiday.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/is_prefecture.html</loc>
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/is_zipcode.html</loc>
@@ -26,6 +50,9 @@
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/jpnprefs.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/kana.html</loc>
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/kansuji.html</loc>
