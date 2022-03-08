@@ -2,6 +2,7 @@
 
 ## New Features
 
+- `kana()`: New function for create kana vector (#43).
 - `harmonize_prefecture_name()`: New function for processing prefectural strings (#37).
     - Determine if the string is a prefecture string by `is_prefecture()`. 
 - `str_jnormalize`: New function for preprocessing Japanese characters following the rules of 'neologd' (@paithiov909, #36).

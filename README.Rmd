@@ -193,3 +193,14 @@ ggsave("man/figures/readme_demo_label_kansuji_suffix.png",
 ```{r}
 jpnprefs
 ```
+
+### Kana (hiragana and katakana)
+
+```{r}
+kana(type = "hira")
+
+kana(type = "hira", core = FALSE, historical = TRUE)
+
+kana(type = "kata", dakuon = TRUE, handakuon = TRUE, kogaki = TRUE)
+```
+
