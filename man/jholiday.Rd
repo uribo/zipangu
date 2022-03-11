@@ -43,26 +43,29 @@ List of a specific year holidays\if{html}{\out{<div class="sourceCode r">}}\pref
 ## $`Foundation Day`
 ## [1] "2021-02-11"
 ## 
+## $`The Emperor's Birthday`
+## [1] "2021-02-23"
+## 
 ## $`Vernal Equinox Day`
 ## [1] "2021-03-20"
 ## 
 ## $`Showa Day`
 ## [1] "2021-04-29"
 ## 
-## $`Greenery Day`
-## [1] "2021-05-04"
-## 
-## $`The Emperor's Birthday`
-## [1] "2021-02-23"
-## 
 ## $`Constitution Memorial Day`
 ## [1] "2021-05-03"
+## 
+## $`Greenery Day`
+## [1] "2021-05-04"
 ## 
 ## $`Children's Day`
 ## [1] "2021-05-05"
 ## 
 ## $`Marine Day`
 ## [1] "2021-07-22"
+## 
+## $`Sports Day`
+## [1] "2021-07-23"
 ## 
 ## $`Mountain Day`
 ## [1] "2021-08-08"
@@ -72,9 +75,6 @@ List of a specific year holidays\if{html}{\out{<div class="sourceCode r">}}\pref
 ## 
 ## $`Autumnal Equinox Day`
 ## [1] "2021-09-23"
-## 
-## $`Sports Day`
-## [1] "2021-07-23"
 ## 
 ## $`Culture Day`
 ## [1] "2021-11-03"

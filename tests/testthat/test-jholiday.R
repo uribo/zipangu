@@ -48,6 +48,14 @@ test_that("Specific year's holiday", {
     unique(purrr::map_int(res, length)),
     2L
   )
+  expect_equal(
+    names(jholiday(2021, lang = "en")),
+    c("New Year's Day", "Coming of Age Day", "Foundation Day", "The Emperor's Birthday",
+      "Vernal Equinox Day", "Showa Day", "Constitution Memorial Day",
+      "Greenery Day", "Children's Day", "Marine Day", "Sports Day",
+      "Mountain Day", "Respect for the Aged Day", "Autumnal Equinox Day",
+      "Culture Day", "Labour Thanksgiving Day")
+  )
   expect_error(
     jholiday_spec(2019:2020, c("Coming of Age Day",
                                "Foundation Day",

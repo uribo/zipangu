@@ -177,6 +177,13 @@ jholiday <- function(year, lang = "en") {
       purrr::imap(function(x, y) {
         sort(x)
       })
+    res <-
+      res[res %>%
+          purrr::map(1) %>%
+          purrr::flatten_dbl() %>%
+          purrr::set_names(names(res)) %>%
+          sort() %>%
+          names()]
     res
   }
 }
