@@ -1,22 +1,24 @@
 # Platform
 
-|field    |value                        |
-|:--------|:----------------------------|
-|version  |R version 4.0.3 (2020-10-10) |
-|os       |macOS Catalina 10.15.7       |
-|system   |x86_64, darwin17.0           |
-|ui       |RStudio                      |
-|language |En                           |
-|collate  |ja_JP.UTF-8                  |
-|ctype    |ja_JP.UTF-8                  |
-|tz       |Asia/Tokyo                   |
-|date     |2021-02-07                   |
+|field    |value                                                                           |
+|:--------|:-------------------------------------------------------------------------------|
+|version  |R version 4.1.2 (2021-11-01)                                                    |
+|os       |macOS Monterey 12.2.1                                                           |
+|system   |aarch64, darwin20                                                               |
+|ui       |RStudio                                                                         |
+|language |(EN)                                                                            |
+|collate  |en_US.UTF-8                                                                     |
+|ctype    |en_US.UTF-8                                                                     |
+|tz       |Asia/Tokyo                                                                      |
+|date     |2022-03-11                                                                      |
+|rstudio  |2022.06.0-daily+187 Spotted Wakerobin (desktop)                                 |
+|pandoc   |2.17.1.1 @ /Applications/RStudio.app/Contents/MacOS/quarto/bin/ (via rmarkdown) |
 
 # Dependencies
 
-|package |old   |new        |Δ |
+|package |old   |new        |Δ  |
 |:-------|:-----|:----------|:--|
-|zipangu |0.2.2 |0.2.2.9000 |*  |
+|zipangu |0.2.3 |0.2.3.9000 |*  |
 
 # Revdeps
 
