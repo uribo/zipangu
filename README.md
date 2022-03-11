@@ -18,12 +18,13 @@ status](https://travis-ci.org/uribo/zipangu.svg?branch=master)](https://travis-c
 [![R build
 status](https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg)](https://github.com/uribo/zipangu)
 [![Codecov test
-coverage](https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg)](https://codecov.io/gh/uribo/zipangu?branch=master)
+coverage](https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg)](https://app.codecov.io/gh/uribo/zipangu?branch=master)
+[![R-CMD-check](https://github.com/uribo/zipangu/workflows/R-CMD-check/badge.svg)](https://github.com/uribo/zipangu/actions)
 <!-- badges: end -->
 
 The goal of `{zipangu}` is to replace the functionality provided by the
 `{Nippon}` archived from CRAN. Add some functions to make it easier to
-treat data that address, year, and Kanji.
+treat data that address, year, Kanji and Kana.
 
 ## Installation
 
@@ -200,8 +201,8 @@ jholiday(2021, lang = "jp")
 Use `is_jholiday()` function to evaluate whether today is a holiday.
 
 ``` r
-is_jholiday("2021-01-11")
-#> [1] TRUE
+is_jholiday("2021-01-10")
+#> [1] FALSE
 is_jholiday("2021-02-23")
 #> [1] TRUE
 ```
