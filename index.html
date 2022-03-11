@@ -86,8 +86,8 @@
 </h1></div>
 <!-- badges: start -->
 
-<p><a href="https://travis-ci.org/uribo/zipangu" class="external-link"><img src="https://travis-ci.org/uribo/zipangu.svg?branch=master" alt="Travis build status"></a> <a href="https://github.com/uribo/zipangu" class="external-link"><img src="https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg" alt="R build status"></a> <a href="https://codecov.io/gh/uribo/zipangu?branch=master" class="external-link"><img src="https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
-<p>The goal of <a href="https://uribo.github.io/zipangu/">zipangu</a> is to replace the functionality provided by the <code>{Nippon}</code> archived from CRAN. Add some functions to make it easier to treat data that address, year, and Kanji.</p>
+<p><a href="https://travis-ci.org/uribo/zipangu" class="external-link"><img src="https://travis-ci.org/uribo/zipangu.svg?branch=master" alt="Travis build status"></a> <a href="https://github.com/uribo/zipangu" class="external-link"><img src="https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg" alt="R build status"></a> <a href="https://app.codecov.io/gh/uribo/zipangu?branch=master" class="external-link"><img src="https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <a href="https://github.com/uribo/zipangu/actions" class="external-link"><img src="https://github.com/uribo/zipangu/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
+<p>The goal of <a href="https://uribo.github.io/zipangu/">zipangu</a> is to replace the functionality provided by the <code>{Nippon}</code> archived from CRAN. Add some functions to make it easier to treat data that address, year, Kanji and Kana.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -180,69 +180,69 @@
 </h4>
 <p>Given a year and holiday name as input, returns the date.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span><span class="op">(</span><span class="fl">2021</span>, <span class="st">"New Year's Day"</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "2021-01-01"</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span><span class="op">(</span><span class="fl">2022</span>, <span class="st">"New Year's Day"</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "2022-01-01"</span></code></pre></div>
 <p>Holiday names can be specified in English (“en”) and Japanese (“jp”) by default, en is used.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span><span class="op">(</span><span class="fl">2021</span>, <span class="st">"Coming of Age Day"</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "2021-01-11"</span>
-<span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span><span class="op">(</span><span class="fl">2021</span>, <span class="st">"\u6210\u4eba\u306e\u65e5"</span>, lang <span class="op">=</span> <span class="st">"jp"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "2021-01-11"</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span><span class="op">(</span><span class="fl">2022</span>, <span class="st">"Coming of Age Day"</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "2022-01-10"</span>
+<span class="fu"><a href="reference/jholiday.html">jholiday_spec</a></span><span class="op">(</span><span class="fl">2022</span>, <span class="st">"\u6210\u4eba\u306e\u65e5"</span>, lang <span class="op">=</span> <span class="st">"jp"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "2022-01-10"</span></code></pre></div>
 <p>Check the list of holidays for a year with the <code><a href="reference/jholiday.html">jholiday()</a></code>.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/jholiday.html">jholiday</a></span><span class="op">(</span><span class="fl">2021</span>, lang <span class="op">=</span> <span class="st">"jp"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="reference/jholiday.html">jholiday</a></span><span class="op">(</span><span class="fl">2022</span>, lang <span class="op">=</span> <span class="st">"jp"</span><span class="op">)</span>
 <span class="co">#&gt; $元日</span>
-<span class="co">#&gt; [1] "2021-01-01"</span>
+<span class="co">#&gt; [1] "2022-01-01"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $成人の日</span>
-<span class="co">#&gt; [1] "2021-01-11"</span>
+<span class="co">#&gt; [1] "2022-01-10"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $建国記念の日</span>
-<span class="co">#&gt; [1] "2021-02-11"</span>
+<span class="co">#&gt; [1] "2022-02-11"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $天皇誕生日</span>
-<span class="co">#&gt; [1] "2021-02-23"</span>
+<span class="co">#&gt; [1] "2022-02-23"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $春分の日</span>
-<span class="co">#&gt; [1] "2021-03-20"</span>
+<span class="co">#&gt; [1] "2022-03-21"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $昭和の日</span>
-<span class="co">#&gt; [1] "2021-04-29"</span>
+<span class="co">#&gt; [1] "2022-04-29"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $憲法記念日</span>
-<span class="co">#&gt; [1] "2021-05-03"</span>
+<span class="co">#&gt; [1] "2022-05-03"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $みどりの日</span>
-<span class="co">#&gt; [1] "2021-05-04"</span>
+<span class="co">#&gt; [1] "2022-05-04"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $こどもの日</span>
-<span class="co">#&gt; [1] "2021-05-05"</span>
+<span class="co">#&gt; [1] "2022-05-05"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $海の日</span>
-<span class="co">#&gt; [1] "2021-07-22"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; $スポーツの日</span>
-<span class="co">#&gt; [1] "2021-07-23"</span>
+<span class="co">#&gt; [1] "2022-07-18"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $山の日</span>
-<span class="co">#&gt; [1] "2021-08-08"</span>
+<span class="co">#&gt; [1] "2022-08-11"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $敬老の日</span>
-<span class="co">#&gt; [1] "2021-09-20"</span>
+<span class="co">#&gt; [1] "2022-09-19"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $秋分の日</span>
-<span class="co">#&gt; [1] "2021-09-23"</span>
+<span class="co">#&gt; [1] "2022-09-23"</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $スポーツの日</span>
+<span class="co">#&gt; [1] "2022-10-10"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $文化の日</span>
-<span class="co">#&gt; [1] "2021-11-03"</span>
+<span class="co">#&gt; [1] "2022-11-03"</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $勤労感謝の日</span>
-<span class="co">#&gt; [1] "2021-11-23"</span></code></pre></div>
+<span class="co">#&gt; [1] "2022-11-23"</span></code></pre></div>
 <p>Use <code><a href="reference/is_jholiday.html">is_jholiday()</a></code> function to evaluate whether today is a holiday.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span><span class="op">(</span><span class="st">"2021-01-11"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span><span class="op">(</span><span class="st">"2022-01-10"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span>
-<span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span><span class="op">(</span><span class="st">"2021-02-23"</span><span class="op">)</span>
+<span class="fu"><a href="reference/is_jholiday.html">is_jholiday</a></span><span class="op">(</span><span class="st">"2022-02-23"</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
 </div>
 </div>
