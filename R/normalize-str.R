@@ -23,9 +23,8 @@ str_jnormalize <- function(str) {
   res <- str_conv_normalize(str, to = "nfkc")
   res <- stringr::str_replace_all(
     res,
-    c("\u2019" = "\'",
-      "\u201d" = "\"")
-  ) %>%
+    c("\'", "\"") %>%
+    purrr::set_names(c(intToUtf8(8217), intToUtf8(8221)))) %>%
   stringr::str_replace_all(
     "[\\-\u02d7\u058a\u2010\u2011\u2012\u2013\u2043\u207b\u208b\u2212]+", "-"
   ) %>%
