@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">zipangu</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.3.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
       </span>
     </div>
 
@@ -54,9 +54,9 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="development version" id="zipangu-development-version">zipangu (development version)<a class="anchor" aria-label="anchor" href="#zipangu-development-version"></a></h2>
+<h2 class="page-header" data-toc-text="0.3.0" id="zipangu-030">zipangu 0.3.0<small>2022-03-11</small><a class="anchor" aria-label="anchor" href="#zipangu-030"></a></h2>
 <div class="section level3">
-<h3 id="new-features-development-version">New Features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="new-features-0-3-0">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-3-0"></a></h3>
 <ul><li>
 <code><a href="../reference/kana.html">kana()</a></code>: New function for create kana vector (<a href="https://github.com/uribo/zipangu/issues/43" class="external-link">#43</a>).</li>
 <li>
@@ -67,7 +67,7 @@
 <code>str_jnormalize</code>: New function for pre-processing Japanese characters following the rules of ‘neologd’ (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/36" class="external-link">#36</a>).</li>
 </ul></div>
 <div class="section level3">
-<h3 id="fix-development-version">Fix<a class="anchor" aria-label="anchor" href="#fix-development-version"></a></h3>
+<h3 id="fix-0-3-0">Fix<a class="anchor" aria-label="anchor" href="#fix-0-3-0"></a></h3>
 <ul><li>Fix the behaviors of <code><a href="../reference/jholiday.html">jholiday_spec()</a></code> when any NAs, NULL, and empty strings are supplied (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/38" class="external-link">#38</a>).</li>
 <li>
 <code><a href="../reference/is_jholiday.html">is_jholiday()</a></code> fails if the date argument contains NA (<a href="https://github.com/hidekoji" class="external-link">@hidekoji</a>, <a href="https://github.com/uribo/zipangu/issues/39" class="external-link">#39</a>).</li>
@@ -75,7 +75,7 @@
 <code><a href="../reference/is_jholiday.html">is_jholiday()</a></code> returns incorrect result if <code>lubridate.week.start</code> option is set to other than Sunday (<a href="https://github.com/hidekoji" class="external-link">@hidekoji</a>, <a href="https://github.com/uribo/zipangu/issues/40" class="external-link">#40</a>).</li>
 </ul></div>
 <div class="section level3">
-<h3 id="enhancement-development-version">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-development-version"></a></h3>
+<h3 id="enhancement-0-3-0">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-0-3-0"></a></h3>
 <ul><li>
 <code><a href="../reference/jholiday.html">jholiday_spec()</a></code> is now memoised internally. This change makes its second and later calls faster. Also, multiple values of <code>name</code> are now acceptable. (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/38" class="external-link">#38</a>).</li>
 </ul></div>
