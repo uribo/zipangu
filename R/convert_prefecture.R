@@ -1,3 +1,10 @@
+#' Convert prefecture names to kanji
+#'
+#' @param x prefecture name in roman
+#'
+#' @importFrom stringr str_to_sentence
+#' @importFrom stringr str_detect
+#'
 convert_prefecture_to_kanji <- function(x){
   x <- enc2utf8(as.character(x)) #Encoding to UTF-8
   if(any(is_prefecture(x)|x=="全国"))
@@ -16,6 +23,12 @@ convert_prefecture_to_kanji <- function(x){
 
 
 
+#' Convert prefecture names to roman
+#'
+#' @param x prefecture name in kanji
+#'
+#' @importFrom stringr str_detect
+#'
 convert_prefecture_to_roman <- function(x){
   x <- enc2utf8(as.character(x)) #Encoding to UTF-8
   if(any(!is_prefecture(x) & x!="全国"))
@@ -34,6 +47,17 @@ convert_prefecture_to_roman <- function(x){
 
 
 
+#' Convert prefecture names to roman
+#'
+#' @param x prefecture name in kanji
+#' @param to conversion destination
+#'
+#' @examples
+#' convert_prefecture(c("tokyo", "osaka", "ALL"), to="kanji")
+#' convert_prefecture(c("東京", "大阪府", "北海道", "全国"), to="roman")
+#'
+#' @export
+#'
 convert_prefecture <- function(x, to){
   if(to=="kanji"){
     convert_prefecture_to_kanji(x)

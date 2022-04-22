@@ -1,3 +1,16 @@
+#' Convert prefecture names from hiragana and katakana
+#'
+#' @param x prefecture name in hiragana or katakana
+#'
+#' @importFrom stringr str_c
+#' @importFrom stringr str_detect
+#'
+#' @examples
+#' convert_prefecture_from_hirakana(c("とうきょうと"))
+#' convert_prefecture_from_hirakana(c("トウキョウト", "キョウト"))
+#'
+#' @export
+#'
 convert_prefecture_from_hirakana <- function(x){
   x <- enc2utf8(as.character(x)) #Encoding to UTF-8
 
