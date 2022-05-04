@@ -3,6 +3,8 @@
 export("%>%")
 export(convert_jdate)
 export(convert_jyear)
+export(convert_prefecture)
+export(convert_prefecture_from_kana)
 export(dl_zipcode_file)
 export(find_date_by_wday)
 export(harmonize_prefecture_name)

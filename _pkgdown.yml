@@ -51,6 +51,8 @@ reference:
     - kana
   - title: "Utilities"
     contents:
+    - convert_prefecture
+    - convert_prefecture_from_kana
     - find_date_by_wday
     - label_kansuji
   - title: "Datasets"
