@@ -1,18 +1,18 @@
-#' Convert prefecture names from hiragana and katakana
+#' Convert prefecture names from kana
 #'
-#' @param x prefecture name in hiragana or katakana
+#' @param x prefecture name in kana
 #'
 #' @importFrom stringr str_c
 #' @importFrom stringr str_detect
 #'
 #' @examples
-#' convert_prefecture_from_hirakana(c("\u3068\u3046\u304d\u3087\u3046\u3068"))
-#' convert_prefecture_from_hirakana(c("\u30c8\u30a6\u30ad\u30e7\u30a6\u30c8", "\u30ad\u30e7\u30a6\u30c8"))
-#' convert_prefecture_from_hirakana(c("\u30c8\u30a6\u30ad\u30e7\u30a6", "\u304a\u304a\u3055\u304b"))
+#' convert_prefecture_from_kana(c("\u3068\u3046\u304d\u3087\u3046\u3068"))
+#' convert_prefecture_from_kana(c("\u30c8\u30a6\u30ad\u30e7\u30a6\u30c8", "\u30ad\u30e7\u30a6\u30c8"))
+#' convert_prefecture_from_kana(c("\u30c8\u30a6\u30ad\u30e7\u30a6", "\u304a\u304a\u3055\u304b"))
 #'
 #' @export
 #'
-convert_prefecture_from_hirakana <- function(x){
+convert_prefecture_from_kana <- function(x){
   x <- enc2utf8(as.character(x)) #Encoding to UTF-8
 
   x <- str_conv_hirakana(x, to="hiragana") #Convert to hiragana
