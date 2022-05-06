@@ -25,6 +25,18 @@
     <loc>https://uribo.github.io/zipangu/reference/convert_jyear.html</loc>
   </url>
   <url>
+    <loc>https://uribo.github.io/zipangu/reference/convert_prefecture.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/convert_prefecture_from_kana.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/convert_prefecture_to_kanji.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/convert_prefecture_to_roman.html</loc>
+  </url>
+  <url>
     <loc>https://uribo.github.io/zipangu/reference/dl_zipcode_file.html</loc>
   </url>
   <url>
@@ -62,6 +74,9 @@
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/zipangu/reference/prefecture_list.html</loc>
   </url>
   <url>
     <loc>https://uribo.github.io/zipangu/reference/read_zipcode.html</loc>
