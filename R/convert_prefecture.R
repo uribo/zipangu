@@ -1,6 +1,3 @@
-#' Convert prefecture names to kanji
-#'
-#' @param x prefecture name in roman
 convert_prefecture_to_kanji <- function(x) {
   x <- enc2utf8(as.character(x)) # Encoding to UTF-8
   if (any(is_prefecture(x) | x == "\u5168\u56fd"))
@@ -26,10 +23,6 @@ convert_prefecture_to_kanji <- function(x) {
   return(x)
 }
 
-
-#' Convert prefecture names to roman
-#'
-#' @param x prefecture name in kanji
 convert_prefecture_to_roman <- function(x) {
   x <- enc2utf8(as.character(x)) # Encoding to UTF-8
   if (any(!is_prefecture(x) & x != "\u5168\u56fd"))

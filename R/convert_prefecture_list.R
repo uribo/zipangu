@@ -1,5 +1,3 @@
-#' List of prefecture names
-#'
 prefecture_list <- list(
   c("\u5317\u6d77\u9053","\u9752\u68ee\u770c","\u5ca9\u624b\u770c","\u5bae\u57ce\u770c",
     "\u79cb\u7530\u770c","\u5c71\u5f62\u770c","\u798f\u5cf6\u770c","\u8328\u57ce\u770c",
