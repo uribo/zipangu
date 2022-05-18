@@ -27,14 +27,26 @@ Holiday information refers to data published as of December 21, 2020.
 Future holidays are subject to change.
 }
 \section{Examples}{
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2019, "Sports Day")
-}\if{html}{\out{</div>}}\preformatted{## [1] "2019-10-14"
-}\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2021, "Sports Day")
-}\if{html}{\out{</div>}}\preformatted{## [1] "2021-07-23"
-}
 
-List of a specific year holidays\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday(2021, "en")
-}\if{html}{\out{</div>}}\preformatted{## $`New Year's Day`
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2019, "Sports Day")
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2019-10-14"
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2021, "Sports Day")
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2021-07-23"
+}\if{html}{\out{</div>}}
+
+List of a specific year holidays
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday(2021, "en")
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## $`New Year's Day`
 ## [1] "2021-01-01"
 ## 
 ## $`Coming of Age Day`
@@ -81,7 +93,7 @@ List of a specific year holidays\if{html}{\out{<div class="sourceCode r">}}\pref
 ## 
 ## $`Labour Thanksgiving Day`
 ## [1] "2021-11-23"
-}
+}\if{html}{\out{</div>}}
 }
 
 \references{

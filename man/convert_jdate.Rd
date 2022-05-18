@@ -4,19 +4,30 @@
 \alias{convert_jdate}
 \title{Convert Japanese date format to date object}
 \usage{
-convert_jdate(date)
+convert_jdate(date, legacy = FALSE)
 }
 \arguments{
-\item{date}{a character object.}
+\item{date}{A character object.}
+
+\item{legacy}{A logical to switch converter. If \code{TRUE} supplied, use the legacy
+converter instead of 'ICU' implementation.}
 }
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 }
 \section{Examples}{
+
+
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("R3/2/27")
-}\if{html}{\out{</div>}}\preformatted{## [1] "2021-02-27"
-}\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
-}\if{html}{\out{</div>}}\preformatted{## [1] "2020-07-06"
-}
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2021-02-27"
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2020-07-06"
+}\if{html}{\out{</div>}}
 }
 

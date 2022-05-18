@@ -47,7 +47,7 @@ convert_prefecture_to_roman <- function(x) {
   return(x)
 }
 
-#' Convert prefecture names to roman
+#' Convert prefecture names to roman or kanji
 #'
 #' @param x prefecture name in kanji
 #' @param to conversion destination

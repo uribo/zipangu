@@ -61,6 +61,8 @@ Use \code{\link[=label_kansuji_suffix]{label_kansuji_suffix()}} converts the lab
 followed by the Kansuji Scale with the suffix.
 }
 \section{Examples}{
+
+
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{library("scales")
 demo_continuous(c(1, 1e9), label = label_kansuji())
 demo_continuous(c(1, 1e9), label = label_kansuji_suffix())

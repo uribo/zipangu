@@ -17,7 +17,7 @@ test_that("convert jyear works", {
   )
   expect_warning(
     expect_equal(
-      convert_jyear("\u6587\u4e453\u5e74"),
+      convert_jyear("\u6587\u4e453\u5e74", legacy = TRUE),
       NA_real_
     )
   )

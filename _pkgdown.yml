@@ -53,11 +53,8 @@ reference:
     contents:
     - convert_prefecture
     - convert_prefecture_from_kana
-    - convert_prefecture_to_kanji
-    - convert_prefecture_to_roman
     - find_date_by_wday
     - label_kansuji
-    - prefecture_list
   - title: "Datasets"
     contents:
     - jpnprefs
