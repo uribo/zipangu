@@ -93,7 +93,7 @@ convert_jdate_impl2 <- function(jdate) {
 format_jdate <- function(jdate) {
   stringi::stri_trans_tolower(jdate) %>%
     stringi::stri_replace_all_regex(
-      c("meiji", "taisyo|taisho|taisyou", "syouwa|showa", "heisei", "rewiwa"),
+      c("meiji", "taisyo|taisho|taisyou", "syouwa|showa", "heisei", "reiwa"),
       c("m", "t", "s", "h", "r"),
       vectorise_all = FALSE
     ) %>%
