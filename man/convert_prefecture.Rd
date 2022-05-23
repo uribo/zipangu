@@ -2,7 +2,7 @@
 % Please edit documentation in R/convert_prefecture.R
 \name{convert_prefecture}
 \alias{convert_prefecture}
-\title{Convert prefecture names to roman}
+\title{Convert prefecture names to roman or kanji}
 \usage{
 convert_prefecture(x, to)
 }
@@ -12,7 +12,7 @@ convert_prefecture(x, to)
 \item{to}{conversion destination}
 }
 \description{
-Convert prefecture names to roman
+Convert prefecture names to roman or kanji
 }
 \examples{
 convert_prefecture(c("tokyo-to", "osaka", "ALL"), to="kanji")
