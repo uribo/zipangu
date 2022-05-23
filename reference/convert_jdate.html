@@ -59,18 +59,26 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">convert_jdate</span><span class="op">(</span><span class="va">date</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">convert_jdate</span><span class="op">(</span><span class="va">date</span>, legacy <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>date</dt>
-<dd><p>a character object.</p></dd>
+<dd><p>A character object.</p></dd>
+<dt>legacy</dt>
+<dd><p>A logical to switch converter. If <code>TRUE</code> supplied, use the legacy
+converter instead of 'ICU' implementation.</p></dd>
 </dl></div>
     <div id="examples">
     <h2>Examples</h2>
-    <p></p><div class="sourceCode r"><pre><code><span class="fu"><a href="../reference/convert_jdate.html">convert_jdate</a></span><span class="op">(</span><span class="st">"R3/2/27"</span><span class="op">)</span></code></pre><p></p></div><div class="sourceCode"><pre><code><span class="co">## [1] "2021-02-27"</span></code></pre></div><p></p><div class="sourceCode r"><pre><code><span class="fu"><a href="../reference/convert_jdate.html">convert_jdate</a></span><span class="op">(</span><span class="st">"\u4ee4\u548c2\u5e747\u67086\u65e5"</span><span class="op">)</span></code></pre><p></p></div><div class="sourceCode"><pre><code><span class="co">## [1] "2020-07-06"</span></code></pre></div>
+    
 
+
+<p></p><div class="sourceCode r"><pre><code><span class="fu"><a href="../reference/convert_jdate.html">convert_jdate</a></span><span class="op">(</span><span class="st">"R3/2/27"</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span class="fu"><a href="../reference/convert_jdate.html">convert_jdate</a></span><span class="op">(</span><span class="st">"\u4ee4\u548c2\u5e747\u67086\u65e5"</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code></code></pre><p></p></div>
     </div>
 
   </div>
