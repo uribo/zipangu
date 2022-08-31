@@ -59,17 +59,20 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">str_jnormalize</span><span class="op">(</span><span class="va">str</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_jnormalize</span><span class="op">(</span><span class="va">str</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>str</dt>
 <dd><p>Input vector.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a character</p>
+    
+
+<p>a character</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -83,20 +86,20 @@ basing on rules that is recommended by the Neologism dictionary for MeCab.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">str_jnormalize</span><span class="op">(</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="st">"    \uff30"</span>,</span>
-<span class="r-in">    <span class="st">"\uff32\uff2d\uff2c\u300    \u526f    \u8aad    \u672c      "</span></span>
-<span class="r-in">  <span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">str_jnormalize</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"    \uff30"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"\uff32\uff2d\uff2c\u300    \u526f    \u8aad    \u672c      "</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PRML̀副読本"</span>
-<span class="r-in"><span class="fu">str_jnormalize</span><span class="op">(</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span>
-<span class="r-in">    <span class="st">"\u5357\u30a2\u30eb\u30d7\u30b9\u306e\u3000\u5929\u7136\u6c34"</span>,</span>
-<span class="r-in">    <span class="st">"-\u3000\uff33\uff50\uff41\uff52\uff4b\uff49\uff4e\uff47\u3000"</span>,</span>
-<span class="r-in">    <span class="st">"\uff2c\uff45\uff4d\uff4f\uff4e\u3000\u30ec\u30e2\u30f3\u4e00\u7d5e\u308a"</span></span>
-<span class="r-in"> <span class="op">)</span></span>
-<span class="r-in"><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_jnormalize</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"\u5357\u30a2\u30eb\u30d7\u30b9\u306e\u3000\u5929\u7136\u6c34"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"-\u3000\uff33\uff50\uff41\uff52\uff4b\uff49\uff4e\uff47\u3000"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"\uff2c\uff45\uff4d\uff4f\uff4e\u3000\u30ec\u30e2\u30f3\u4e00\u7d5e\u308a"</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "南アルプスの天然水-Sparking Lemonレモン一絞り"</span>
 </code></pre></div>
     </div>
@@ -112,7 +115,7 @@ basing on rules that is recommended by the Neologism dictionary for MeCab.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

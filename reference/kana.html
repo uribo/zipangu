@@ -65,55 +65,68 @@ Options exist for the inclusion of several elements.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">kana</span><span class="op">(</span><span class="va">type</span>, <span class="va">...</span><span class="op">)</span>
-
-<span class="fu">hiragana</span><span class="op">(</span>
-  core <span class="op">=</span> <span class="cn">TRUE</span>,
-  dakuon <span class="op">=</span> <span class="cn">FALSE</span>,
-  handakuon <span class="op">=</span> <span class="cn">FALSE</span>,
-  kogaki <span class="op">=</span> <span class="cn">FALSE</span>,
-  historical <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span>
-
-<span class="fu">katakana</span><span class="op">(</span>
-  core <span class="op">=</span> <span class="cn">TRUE</span>,
-  dakuon <span class="op">=</span> <span class="cn">FALSE</span>,
-  handakuon <span class="op">=</span> <span class="cn">FALSE</span>,
-  kogaki <span class="op">=</span> <span class="cn">FALSE</span>,
-  historical <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">kana</span><span class="op">(</span><span class="va">type</span>, <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">hiragana</span><span class="op">(</span></span>
+<span>  core <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dakuon <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  handakuon <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  kogaki <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  historical <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">katakana</span><span class="op">(</span></span>
+<span>  core <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  dakuon <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  handakuon <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  kogaki <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  historical <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>type</dt>
 <dd><p>"hiragana" ("hira") or "katakana" ("kata")</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Arguments passed on to <code>hiragana</code></p><dl><dt><code></code></dt>
 <dd></dd>
 
   
 </dl></dd>
+
+
 <dt>core</dt>
 <dd><p>is include core kana characters.</p></dd>
+
+
 <dt>dakuon</dt>
 <dd><p>e.g. ga, gi, gu, ge, go</p></dd>
+
+
 <dt>handakuon</dt>
 <dd><p>e.g. pa, pi, pu, pe, po</p></dd>
+
+
 <dt>kogaki</dt>
 <dd><p>small character</p></dd>
+
+
 <dt>historical</dt>
 <dd><p>old style</p></dd>
+
 </dl></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">kana</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"hira"</span>, core <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">kana</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"hira"</span>, core <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "あ" "い" "う" "え" "お" "か" "き" "く" "け" "こ" "さ" "し" "す" "せ" "そ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "た" "ち" "つ" "て" "と" "な" "に" "ぬ" "ね" "の" "は" "ひ" "ふ" "へ" "ほ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [31] "ま" "み" "む" "め" "も" "や" "ゆ" "よ" "ら" "り" "る" "れ" "ろ" "わ" "を"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [46] "ん"</span>
-<span class="r-in"><span class="fu">kana</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"hira"</span>, core <span class="op">=</span> <span class="cn">TRUE</span>, handakuon <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">kana</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"hira"</span>, core <span class="op">=</span> <span class="cn">TRUE</span>, handakuon <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "あ" "い" "う" "え" "お" "か" "き" "く" "け" "こ" "さ" "し" "す" "せ" "そ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [16] "た" "ち" "つ" "て" "と" "な" "に" "ぬ" "ね" "の" "は" "ぱ" "ひ" "ぴ" "ふ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [31] "ぷ" "へ" "ぺ" "ほ" "ぽ" "ま" "み" "む" "め" "も" "や" "ゆ" "よ" "ら" "り"</span>
@@ -132,7 +145,7 @@ Options exist for the inclusion of several elements.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -59,25 +59,30 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">str_jconv</span><span class="op">(</span><span class="va">str</span>, <span class="va">fun</span>, <span class="va">to</span><span class="op">)</span>
-
-<span class="fu">str_conv_hirakana</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hiragana"</span>, <span class="st">"katakana"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu">str_conv_zenhan</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"zenkaku"</span>, <span class="st">"hankaku"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu">str_conv_romanhira</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"roman"</span>, <span class="st">"hiragana"</span><span class="op">)</span><span class="op">)</span>
-
-<span class="fu">str_conv_normalize</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"nfkc"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">str_jconv</span><span class="op">(</span><span class="va">str</span>, <span class="va">fun</span>, <span class="va">to</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">str_conv_hirakana</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"hiragana"</span>, <span class="st">"katakana"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">str_conv_zenhan</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"zenkaku"</span>, <span class="st">"hankaku"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">str_conv_romanhira</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"roman"</span>, <span class="st">"hiragana"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">str_conv_normalize</span><span class="op">(</span><span class="va">str</span>, to <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"nfkc"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>str</dt>
 <dd><p>Input vector.</p></dd>
+
+
 <dt>fun</dt>
 <dd><p>convert function</p></dd>
+
+
 <dt>to</dt>
 <dd><p>Select the type of character to convert.</p></dd>
+
 </dl></div>
     <div id="details">
     <h2>Details</h2>
@@ -94,31 +99,31 @@ package's <a href="https://rdrr.io/pkg/stringi/man/stri_trans_general.html" clas
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u30a2\u30a4\u30a6\u30a8\u30aa"</span>, <span class="va">str_conv_hirakana</span>, to <span class="op">=</span> <span class="st">"hiragana"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u30a2\u30a4\u30a6\u30a8\u30aa"</span>, <span class="va">str_conv_hirakana</span>, to <span class="op">=</span> <span class="st">"hiragana"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "あいうえお"</span>
-<span class="r-in"><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u3042\u3044\u3046\u3048\u304a"</span>, <span class="va">str_conv_hirakana</span>, to <span class="op">=</span> <span class="st">"katakana"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u3042\u3044\u3046\u3048\u304a"</span>, <span class="va">str_conv_hirakana</span>, to <span class="op">=</span> <span class="st">"katakana"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "アイウエオ"</span>
-<span class="r-in"><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\uff41\uff10"</span>, <span class="va">str_conv_zenhan</span>, <span class="st">"hankaku"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\uff41\uff10"</span>, <span class="va">str_conv_zenhan</span>, <span class="st">"hankaku"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a0"</span>
-<span class="r-in"><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\uff76\uff9e\uff6f"</span>, <span class="va">str_conv_zenhan</span>, <span class="st">"zenkaku"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\uff76\uff9e\uff6f"</span>, <span class="va">str_conv_zenhan</span>, <span class="st">"zenkaku"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ガッ"</span>
-<span class="r-in"><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u30a2\u30a4\u30a6\u30a8\u30aa"</span>, <span class="va">str_conv_romanhira</span>, <span class="st">"roman"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u30a2\u30a4\u30a6\u30a8\u30aa"</span>, <span class="va">str_conv_romanhira</span>, <span class="st">"roman"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "aiueo"</span>
-<span class="r-in"><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u2460"</span>, <span class="va">str_conv_normalize</span>, <span class="st">"nfkc"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_jconv</span><span class="op">(</span><span class="st">"\u2460"</span>, <span class="va">str_conv_normalize</span>, <span class="st">"nfkc"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1"</span>
-<span class="r-in"><span class="fu">str_conv_hirakana</span><span class="op">(</span><span class="st">"\u30a2\u30a4\u30a6\u30a8\u30aa"</span>, to <span class="op">=</span> <span class="st">"hiragana"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_hirakana</span><span class="op">(</span><span class="st">"\u30a2\u30a4\u30a6\u30a8\u30aa"</span>, to <span class="op">=</span> <span class="st">"hiragana"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "あいうえお"</span>
-<span class="r-in"><span class="fu">str_conv_hirakana</span><span class="op">(</span><span class="st">"\u3042\u3044\u3046\u3048\u304a"</span>, to <span class="op">=</span> <span class="st">"katakana"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_hirakana</span><span class="op">(</span><span class="st">"\u3042\u3044\u3046\u3048\u304a"</span>, to <span class="op">=</span> <span class="st">"katakana"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "アイウエオ"</span>
-<span class="r-in"><span class="fu">str_conv_zenhan</span><span class="op">(</span><span class="st">"\uff41\uff10"</span>, <span class="st">"hankaku"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_zenhan</span><span class="op">(</span><span class="st">"\uff41\uff10"</span>, <span class="st">"hankaku"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "a0"</span>
-<span class="r-in"><span class="fu">str_conv_zenhan</span><span class="op">(</span><span class="st">"\uff76\uff9e\uff6f"</span>, <span class="st">"zenkaku"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_zenhan</span><span class="op">(</span><span class="st">"\uff76\uff9e\uff6f"</span>, <span class="st">"zenkaku"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ガッ"</span>
-<span class="r-in"><span class="fu">str_conv_romanhira</span><span class="op">(</span><span class="st">"aiueo"</span>, <span class="st">"hiragana"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_romanhira</span><span class="op">(</span><span class="st">"aiueo"</span>, <span class="st">"hiragana"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "あいうえお"</span>
-<span class="r-in"><span class="fu">str_conv_romanhira</span><span class="op">(</span><span class="st">"\u3042\u3044\u3046\u3048\u304a"</span>, <span class="st">"roman"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_romanhira</span><span class="op">(</span><span class="st">"\u3042\u3044\u3046\u3048\u304a"</span>, <span class="st">"roman"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "aiueo"</span>
-<span class="r-in"><span class="fu">str_conv_normalize</span><span class="op">(</span><span class="st">"\u2460"</span>, <span class="st">"nfkc"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">str_conv_normalize</span><span class="op">(</span><span class="st">"\u2460"</span>, <span class="st">"nfkc"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "1"</span>
 </code></pre></div>
     </div>
@@ -134,7 +139,7 @@ package's <a href="https://rdrr.io/pkg/stringi/man/stri_trans_general.html" clas
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -59,24 +59,27 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">dl_zipcode_file</span><span class="op">(</span><span class="va">path</span>, exdir <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">dl_zipcode_file</span><span class="op">(</span><span class="va">path</span>, exdir <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>path</dt>
 <dd><p>local file path or zip file URL</p></dd>
+
+
 <dt>exdir</dt>
 <dd><p>The directory to extract zip file. If <code>NULL</code>, use temporary folder.</p></dd>
+
 </dl></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="fu">dl_zipcode_file</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/02aomori.zip"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">dl_zipcode_file</span><span class="op">(</span><span class="st">"https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/02aomori.zip"</span>,</span>
-<span class="r-in">                exdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu">dl_zipcode_file</span><span class="op">(</span>path <span class="op">=</span> <span class="st">"https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/02aomori.zip"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">dl_zipcode_file</span><span class="op">(</span><span class="st">"https://www.post.japanpost.jp/zipcode/dl/oogaki/zip/02aomori.zip"</span>,</span></span>
+<span class="r-in"><span>                exdir <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -91,7 +94,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

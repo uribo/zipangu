@@ -71,53 +71,70 @@ followed by the Kansuji Scale with the suffix.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">label_kansuji</span><span class="op">(</span>
-  unit <span class="op">=</span> <span class="cn">NULL</span>,
-  sep <span class="op">=</span> <span class="st">""</span>,
-  prefix <span class="op">=</span> <span class="st">""</span>,
-  big.mark <span class="op">=</span> <span class="st">""</span>,
-  number <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"arabic"</span>, <span class="st">"kansuji"</span><span class="op">)</span>,
-  <span class="va">...</span>
-<span class="op">)</span>
-
-<span class="fu">label_kansuji_suffix</span><span class="op">(</span>
-  accuracy <span class="op">=</span> <span class="fl">1</span>,
-  unit <span class="op">=</span> <span class="cn">NULL</span>,
-  sep <span class="op">=</span> <span class="cn">NULL</span>,
-  prefix <span class="op">=</span> <span class="st">""</span>,
-  big.mark <span class="op">=</span> <span class="st">""</span>,
-  significant.digits <span class="op">=</span> <span class="cn">FALSE</span>,
-  <span class="va">...</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">label_kansuji</span><span class="op">(</span></span>
+<span>  unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sep <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  prefix <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  big.mark <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  number <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"arabic"</span>, <span class="st">"kansuji"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">label_kansuji_suffix</span><span class="op">(</span></span>
+<span>  accuracy <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  unit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sep <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  prefix <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  big.mark <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  significant.digits <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>unit</dt>
 <dd><p>Optional units specifier.</p></dd>
+
+
 <dt>sep</dt>
 <dd><p>Separator between number and Kansuji unit.</p></dd>
+
+
 <dt>prefix</dt>
 <dd><p>Symbols to display before value.</p></dd>
+
+
 <dt>big.mark</dt>
 <dd><p>Character used between every 3 digits to separate thousands.</p></dd>
+
+
 <dt>number</dt>
 <dd><p>If Number is arabic, it will return a mixture of Arabic and the
 Kansuji Myriad Scale; if Kansuji, it will return only Kansuji numerals.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Other arguments passed on to <code><a href="https://rdrr.io/r/base/formatc.html" class="external-link">base::prettyNum()</a></code> or <code><a href="https://scales.r-lib.org/reference/label_number.html" class="external-link">scales::label_number()</a></code>.</p></dd>
+
+
 <dt>accuracy</dt>
 <dd><p>A number to round to. Use (e.g.) 0.01 to show 2 decimal
 places of precision.</p></dd>
+
+
 <dt>significant.digits</dt>
 <dd><p>Determines whether or not the value of accurary is
 valid as a significant figure with a decimal point. The default is FALSE, in
 which case if accurary is 2 and the value is 1.10, 1.1 will be displayed,
 but if TRUE and installed 'scales` package, 1.10 will be displayed.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>All <code>label_()</code> functions return a "labelling" function, i.e. a function
+    
+
+<p>All <code>label_()</code> functions return a "labelling" function, i.e. a function
 that takes a vector x and returns a character vector of length(x) giving a
 label for each input value.</p>
     </div>
@@ -126,9 +143,9 @@ label for each input value.</p>
     
 
 
-<p></p><div class="sourceCode r"><pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://scales.r-lib.org" class="external-link">"scales"</a></span><span class="op">)</span>
-<span class="fu"><a href="https://scales.r-lib.org/reference/demo_continuous.html" class="external-link">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="../reference/label_kansuji.html">label_kansuji</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://scales.r-lib.org/reference/demo_continuous.html" class="external-link">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="../reference/label_kansuji.html">label_kansuji_suffix</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre><p></p></div>
+<p></p><div class="sourceCode r"><pre><code><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://scales.r-lib.org" class="external-link">"scales"</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://scales.r-lib.org/reference/demo_continuous.html" class="external-link">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="../reference/label_kansuji.html">label_kansuji</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://scales.r-lib.org/reference/demo_continuous.html" class="external-link">demo_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1e9</span><span class="op">)</span>, label <span class="op">=</span> <span class="fu"><a href="../reference/label_kansuji.html">label_kansuji_suffix</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
 
   </div>
@@ -143,7 +160,7 @@ label for each input value.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

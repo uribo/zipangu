@@ -59,25 +59,28 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">convert_prefecture</span><span class="op">(</span><span class="va">x</span>, <span class="va">to</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert_prefecture</span><span class="op">(</span><span class="va">x</span>, <span class="va">to</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>prefecture name in kanji</p></dd>
+
+
 <dt>to</dt>
 <dd><p>conversion destination</p></dd>
+
 </dl></div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">convert_prefecture</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"tokyo-to"</span>, <span class="st">"osaka"</span>, <span class="st">"ALL"</span><span class="op">)</span>, to<span class="op">=</span><span class="st">"kanji"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">convert_prefecture</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"tokyo-to"</span>, <span class="st">"osaka"</span>, <span class="st">"ALL"</span><span class="op">)</span>, to<span class="op">=</span><span class="st">"kanji"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "東京都" "大阪"   "全国"  </span>
-<span class="r-in"><span class="fu">convert_prefecture</span><span class="op">(</span></span>
-<span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\u6771\u4eac"</span>, <span class="st">"\u5927\u962a\u5e9c"</span>,</span>
-<span class="r-in">  <span class="st">"\u5317\u6d77\u9053"</span>, <span class="st">"\u5168\u56fd"</span><span class="op">)</span>,</span>
-<span class="r-in">  to <span class="op">=</span> <span class="st">"roman"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">convert_prefecture</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"\u6771\u4eac"</span>, <span class="st">"\u5927\u962a\u5e9c"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"\u5317\u6d77\u9053"</span>, <span class="st">"\u5168\u56fd"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  to <span class="op">=</span> <span class="st">"roman"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Tokyo"    "Osaka-fu" "Hokkaido" "All"     </span>
 </code></pre></div>
     </div>
@@ -93,7 +96,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

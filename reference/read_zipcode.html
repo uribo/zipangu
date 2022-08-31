@@ -59,19 +59,26 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_zipcode</span><span class="op">(</span><span class="va">path</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"oogaki"</span>, <span class="st">"kogaki"</span>, <span class="st">"roman"</span>, <span class="st">"jigyosyo"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_zipcode</span><span class="op">(</span><span class="va">path</span>, type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"oogaki"</span>, <span class="st">"kogaki"</span>, <span class="st">"roman"</span>, <span class="st">"jigyosyo"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>path</dt>
 <dd><p>local file path or zip file URL</p></dd>
+
+
 <dt>type</dt>
 <dd><p>Input file type, one of "oogaki", "kogaki", "roman", "jigyosyo"</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></p>
+    
+
+<p><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></p>
+
+
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -87,43 +94,46 @@ These file types must be specified by the argument.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># Input sources</span></span>
-<span class="r-in"><span class="fu">read_zipcode</span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/13TOKYO_oogaki.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span>
-<span class="r-in">             type <span class="op">=</span> <span class="st">"oogaki"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Input sources</span></span></span>
+<span class="r-in"><span><span class="fu">read_zipcode</span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/13TOKYO_oogaki.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             type <span class="op">=</span> <span class="st">"oogaki"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 9 more variables: prefecture &lt;chr&gt;, city &lt;chr&gt;, street &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_street_duplicate &lt;dbl&gt;, is_banchi &lt;dbl&gt;, is_cyoumoku &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;</span></span>
-<span class="r-in"><span class="fu">read_zipcode</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/13TOKYO_kogaki.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span>
-<span class="r-in">             <span class="st">"oogaki"</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   jis_code old_zi…¹ zip_c…² prefe…³ city_…⁴ stree…⁵ prefe…⁶ city  street is_st…⁷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 13101    100      1000001 トウキ… チヨダ… チヨダ  東京都  千代… 千代田       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: is_banchi &lt;dbl&gt;, is_cyoumoku &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;, and</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​old_zip_code, ²​zip_code, ³​prefecture_kana,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​city_kana, ⁵​street_kana, ⁶​prefecture, ⁷​is_street_duplicate</span></span>
+<span class="r-in"><span><span class="fu">read_zipcode</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/13TOKYO_kogaki.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             <span class="st">"oogaki"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 15</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 9 more variables: prefecture &lt;chr&gt;, city &lt;chr&gt;, street &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_street_duplicate &lt;dbl&gt;, is_banchi &lt;dbl&gt;, is_cyoumoku &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;</span></span>
-<span class="r-in"><span class="fu">read_zipcode</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/KEN_ALL_ROME.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span>
-<span class="r-in">             <span class="st">"roman"</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   jis_code old_zi…¹ zip_c…² prefe…³ city_…⁴ stree…⁵ prefe…⁶ city  street is_st…⁷</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 13101    100      1000001 トウキ… チヨダ… チヨダ  東京都  千代… 千代田       0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: is_banchi &lt;dbl&gt;, is_cyoumoku &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   is_zipcode_duplicate &lt;dbl&gt;, status &lt;dbl&gt;, modify_type &lt;dbl&gt;, and</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   abbreviated variable names ¹​old_zip_code, ²​zip_code, ³​prefecture_kana,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁴​city_kana, ⁵​street_kana, ⁶​prefecture, ⁷​is_street_duplicate</span></span>
+<span class="r-in"><span><span class="fu">read_zipcode</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/KEN_ALL_ROME.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             <span class="st">"roman"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 7</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   zip_code prefecture city     street prefecture_roman city_roman street_roman</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1000001  東京都     千代田区 千代田 Tokyo To         Chiyoda Ku Chiyoda     </span>
-<span class="r-in"><span class="fu">read_zipcode</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/JIGYOSYO.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span>
-<span class="r-in">             <span class="st">"jigyosyo"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">read_zipcode</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"zipcode_dummy/JIGYOSYO.CSV"</span>, package <span class="op">=</span> <span class="st">"zipangu"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>             <span class="st">"jigyosyo"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1 × 13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   jis_code name_kana   name  prefecture city  street street_sub jigyosyo_identi…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 13101    ニツポンユ… 日本… 東京都     千代… 大手町 2-3-1      1008792         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 5 more variables: old_zip_code &lt;chr&gt;, grouped &lt;chr&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   individual_id &lt;int&gt;, multiple_type &lt;int&gt;, update_type &lt;int&gt;</span></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co"># Or directly from a URL</span></span>
-<span class="r-in"><span class="fu">read_zipcode</span><span class="op">(</span><span class="st">"https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   jis_code name_kana name  prefec…¹ city  street stree…² jigyo…³ old_z…⁴ grouped</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 13101    ニツポン… 日本… 東京都   千代… 大手町 2-3-1   1008792 100     銀座   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 3 more variables: individual_id &lt;int&gt;, multiple_type &lt;int&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   update_type &lt;int&gt;, and abbreviated variable names ¹​prefecture, ²​street_sub,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ³​jigyosyo_identifier, ⁴​old_zip_code</span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Or directly from a URL</span></span></span>
+<span class="r-in"><span><span class="fu">read_zipcode</span><span class="op">(</span><span class="st">"https://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -138,7 +148,7 @@ These file types must be specified by the argument.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
