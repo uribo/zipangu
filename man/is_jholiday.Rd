@@ -24,21 +24,11 @@ Future holidays are subject to change.
 
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{is_jholiday("2021-01-01")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] TRUE
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{is_jholiday("2018-12-23")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] TRUE
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{is_jholiday("2019-12-23")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] FALSE
+#> [1] TRUE
+is_jholiday("2018-12-23")
+#> [1] TRUE
+is_jholiday("2019-12-23")
+#> [1] FALSE
 }\if{html}{\out{</div>}}
 }
 

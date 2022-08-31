@@ -30,69 +30,61 @@ Future holidays are subject to change.
 
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2019, "Sports Day")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2019-10-14"
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday_spec(2021, "Sports Day")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2021-07-23"
+#> [1] "2019-10-14"
+jholiday_spec(2021, "Sports Day")
+#> [1] "2021-07-23"
 }\if{html}{\out{</div>}}
 
 List of a specific year holidays
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{jholiday(2021, "en")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## $`New Year's Day`
-## [1] "2021-01-01"
-## 
-## $`Coming of Age Day`
-## [1] "2021-01-11"
-## 
-## $`Foundation Day`
-## [1] "2021-02-11"
-## 
-## $`The Emperor's Birthday`
-## [1] "2021-02-23"
-## 
-## $`Vernal Equinox Day`
-## [1] "2021-03-20"
-## 
-## $`Showa Day`
-## [1] "2021-04-29"
-## 
-## $`Constitution Memorial Day`
-## [1] "2021-05-03"
-## 
-## $`Greenery Day`
-## [1] "2021-05-04"
-## 
-## $`Children's Day`
-## [1] "2021-05-05"
-## 
-## $`Marine Day`
-## [1] "2021-07-22"
-## 
-## $`Sports Day`
-## [1] "2021-07-23"
-## 
-## $`Mountain Day`
-## [1] "2021-08-08"
-## 
-## $`Respect for the Aged Day`
-## [1] "2021-09-20"
-## 
-## $`Autumnal Equinox Day`
-## [1] "2021-09-23"
-## 
-## $`Culture Day`
-## [1] "2021-11-03"
-## 
-## $`Labour Thanksgiving Day`
-## [1] "2021-11-23"
+#> $`New Year's Day`
+#> [1] "2021-01-01"
+#> 
+#> $`Coming of Age Day`
+#> [1] "2021-01-11"
+#> 
+#> $`Foundation Day`
+#> [1] "2021-02-11"
+#> 
+#> $`The Emperor's Birthday`
+#> [1] "2021-02-23"
+#> 
+#> $`Vernal Equinox Day`
+#> [1] "2021-03-20"
+#> 
+#> $`Showa Day`
+#> [1] "2021-04-29"
+#> 
+#> $`Constitution Memorial Day`
+#> [1] "2021-05-03"
+#> 
+#> $`Greenery Day`
+#> [1] "2021-05-04"
+#> 
+#> $`Children's Day`
+#> [1] "2021-05-05"
+#> 
+#> $`Marine Day`
+#> [1] "2021-07-22"
+#> 
+#> $`Sports Day`
+#> [1] "2021-07-23"
+#> 
+#> $`Mountain Day`
+#> [1] "2021-08-08"
+#> 
+#> $`Respect for the Aged Day`
+#> [1] "2021-09-20"
+#> 
+#> $`Autumnal Equinox Day`
+#> [1] "2021-09-23"
+#> 
+#> $`Culture Day`
+#> [1] "2021-11-03"
+#> 
+#> $`Labour Thanksgiving Day`
+#> [1] "2021-11-23"
 }\if{html}{\out{</div>}}
 }
 

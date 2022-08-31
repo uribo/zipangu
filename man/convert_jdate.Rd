@@ -19,15 +19,9 @@ converter instead of 'ICU' implementation.}
 
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("R3/2/27")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2021-02-27"
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] "2020-07-06"
+#> [1] "2021-02-27"
+convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
+#> [1] "2020-07-06"
 }\if{html}{\out{</div>}}
 }
 
