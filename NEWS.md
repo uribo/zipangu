@@ -1,13 +1,13 @@
-# zipangu (development version)
+# zipangu 0.3.1
 
 ## New Features
 
-- `convert_prefecture()`: New functions for converting prefecture names between Roman and Kanji (#48).
-- `convert_prefecture_from_kana()`: New functions for converting prefecture names from kana to Kanji (#48).
+- `convert_prefecture()`: New functions for converting prefecture names between Roman and Kanji (@Doubt-0KB, #48).
+- `convert_prefecture_from_kana()`: New functions for converting prefecture names from kana to Kanji (@Doubt-0KB, #48).
 
 ## Enhancement
 
-- Refactored `convert_jyear()` and `convert_jdate()` (@paithiov909, #50).
+- Re-factoring `convert_jyear()` and `convert_jdate()` (@paithiov909, #50).
 
 # zipangu 0.3.0
 
