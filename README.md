@@ -80,12 +80,13 @@ data.frame(address = c("東京都千代田区大手町一丁目", "岡山県岡�
 ``` r
 read_zipcode(system.file("zipcode_dummy/13TOKYO_oogaki.CSV", package = "zipangu"), "oogaki")
 #> # A tibble: 1 × 15
-#>   jis_code old_zip_code zip_code prefecture_kana city_kana street_kana
-#>   <chr>    <chr>        <chr>    <chr>           <chr>     <chr>      
-#> 1 13101    100          1000001  トウキヨウト    チヨダク  チヨダ     
-#> # … with 9 more variables: prefecture <chr>, city <chr>, street <chr>,
-#> #   is_street_duplicate <dbl>, is_banchi <dbl>, is_cyoumoku <dbl>,
-#> #   is_zipcode_duplicate <dbl>, status <dbl>, modify_type <dbl>
+#>   jis_code old_zi…¹ zip_c…² prefe…³ city_…⁴ stree…⁵ prefe…⁶ city  street is_st…⁷
+#>   <chr>    <chr>    <chr>   <chr>   <chr>   <chr>   <chr>   <chr> <chr>    <dbl>
+#> 1 13101    100      1000001 トウキ… チヨダ… チヨダ  東京都  千代… 千代田       0
+#> # … with 5 more variables: is_banchi <dbl>, is_cyoumoku <dbl>,
+#> #   is_zipcode_duplicate <dbl>, status <dbl>, modify_type <dbl>, and
+#> #   abbreviated variable names ¹​old_zip_code, ²​zip_code, ³​prefecture_kana,
+#> #   ⁴​city_kana, ⁵​street_kana, ⁶​prefecture, ⁷​is_street_duplicate
 ```
 
 You can also load a file directly by specifying a URL.
