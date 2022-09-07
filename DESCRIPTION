@@ -1,6 +1,6 @@
 Package: zipangu
 Title: Japanese Utility Functions and Data
-Version: 0.3.1
+Version: 0.3.1.9000
 Authors@R: 
     c(person(given = "Shinya",
              family = "Uryu",
