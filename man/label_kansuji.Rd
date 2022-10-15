@@ -36,7 +36,8 @@ label_kansuji_suffix(
 \item{number}{If Number is arabic, it will return a mixture of Arabic and the
 Kansuji Myriad Scale; if Kansuji, it will return only Kansuji numerals.}
 
-\item{...}{Other arguments passed on to \code{\link[base:formatc]{base::prettyNum()}} or \code{\link[scales:label_number]{scales::label_number()}}.}
+\item{...}{Other arguments passed on to \code{\link[base:formatc]{base::prettyNum()}}, \code{\link[scales:label_number]{scales::label_number()}} or
+\code{\link[arabic2kansuji:arabic2kansuji]{arabic2kansuji::arabic2kansuji_all()}}.}
 
 \item{accuracy}{A number to round to. Use (e.g.) 0.01 to show 2 decimal
 places of precision.}
