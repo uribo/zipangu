@@ -15,7 +15,8 @@
 #' @param big.mark Character used between every 3 digits to separate thousands.
 #' @param number If Number is arabic, it will return a mixture of Arabic and the
 #'  Kansuji Myriad Scale; if Kansuji, it will return only Kansuji numerals.
-#' @param ... Other arguments passed on to [base::prettyNum()] or [scales::label_number()].
+#' @param ... Other arguments passed on to [base::prettyNum()], [scales::label_number()] or
+#'  [arabic2kansuji::arabic2kansuji_all()].
 #' @rdname label_kansuji
 #'
 #' @return All `label_()` functions return a "labelling" function, i.e. a function
@@ -51,7 +52,7 @@ label_kansuji <- function(unit = NULL, sep = "", prefix = "", big.mark = "", num
     }
   }else if(number == "kansuji"){
     function(x){
-      x <- prettyNum(x, scientific = FALSE) %>% arabic2kansuji::arabic2kansuji_all()
+      x <- prettyNum(x, scientific = FALSE) %>% arabic2kansuji::arabic2kansuji_all(...)
       paste0(prefix, x, unit, sep = sep)
     }
   }
