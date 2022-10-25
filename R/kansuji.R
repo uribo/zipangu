@@ -206,20 +206,20 @@ kansuji2arabic_str_single <- function(str, consecutive = c("convert", "non"), wi
 
   j <- 1
   for(i in 1:length(doc_cha)){
-    if(!stringr::str_detect(doc_cha[i], pattern = "") && i == 1){
+    if(doc_cha[i] == "" && i == 1){
       doc_cha[i] <- str_num[j]
       j <- j + 1
     }
     else if(consecutive == "non"){
       if((stringr::str_detect(doc_cha[i - 1], pattern = "[^0123456789]")
           && stringr::str_detect(doc_cha[i - 1], pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d]"))
-         && !stringr::str_detect(doc_cha[i], pattern = "")){
+         && doc_cha[i] == ""){
         doc_cha[i] <- str_num[j]
         j <- j + 1
       }
     }
     else if(stringr::str_detect(doc_cha[i - 1], pattern = "[^0123456789]")
-            && !stringr::str_detect(doc_cha[i], pattern = "")){
+            && doc_cha[i] == ""){
       doc_cha[i] <- str_num[j]
       j <- j + 1
     }
