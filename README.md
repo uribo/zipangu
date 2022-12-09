@@ -6,17 +6,12 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/zipangu)](https://cran.r-project.org/package=zipangu)
+stable](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![CRAN_Status_Badge](https://badges.cranchecks.info/worst/zipangu.svg)](https://cran.r-project.org/package=zipangu)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/zipangu?color=FF5254)](https://cran.r-project.org/package=zipangu)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.2.0-blue.svg)](https://cran.r-project.org/)
-
-[![Travis build
-status](https://travis-ci.org/uribo/zipangu.svg?branch=master)](https://travis-ci.org/uribo/zipangu)
-[![R build
-status](https://github.com/uribo/zipangu/workflows/Pkgdown/badge.svg)](https://github.com/uribo/zipangu)
 [![Codecov test
 coverage](https://codecov.io/gh/uribo/zipangu/branch/master/graph/badge.svg)](https://app.codecov.io/gh/uribo/zipangu?branch=master)
 [![R-CMD-check](https://github.com/uribo/zipangu/workflows/R-CMD-check/badge.svg)](https://github.com/uribo/zipangu/actions)
