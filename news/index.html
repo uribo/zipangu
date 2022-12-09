@@ -53,7 +53,9 @@
       <small>Source: <a href="https://github.com/uribo/zipangu/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="section level2"><h2 class="page-header" data-toc-text="development version" id="zipangu-development-version">zipangu (development version)<a class="anchor" aria-label="anchor" href="#zipangu-development-version"></a></h2></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="development version" id="zipangu-development-version">zipangu (development version)<a class="anchor" aria-label="anchor" href="#zipangu-development-version"></a></h2>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.1" id="zipangu-031">zipangu 0.3.1<small>2022-09-01</small><a class="anchor" aria-label="anchor" href="#zipangu-031"></a></h2>
 <div class="section level3">
@@ -65,7 +67,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="enhancement-0-3-1">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-0-3-1"></a></h3>
-<ul><li>Re-factoring <code><a href="../reference/convert_jyear.html">convert_jyear()</a></code> and <code><a href="../reference/convert_jdate.html">convert_jdate()</a></code> (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/50" class="external-link">#50</a>).</li></ul></div>
+<ul><li>Re-factoring <code><a href="../reference/convert_jyear.html">convert_jyear()</a></code> and <code><a href="../reference/convert_jdate.html">convert_jdate()</a></code> (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/50" class="external-link">#50</a>).</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="zipangu-030">zipangu 0.3.0<small>2022-03-11</small><a class="anchor" aria-label="anchor" href="#zipangu-030"></a></h2>
@@ -74,7 +77,9 @@
 <ul><li>
 <code><a href="../reference/kana.html">kana()</a></code>: New function for create kana vector (<a href="https://github.com/uribo/zipangu/issues/43" class="external-link">#43</a>).</li>
 <li>
-<code><a href="../reference/harmonize_prefecture_name.html">harmonize_prefecture_name()</a></code>: New function for processing prefectural strings (<a href="https://github.com/uribo/zipangu/issues/37" class="external-link">#37</a>).<ul><li>Determine if the string is a prefecture string by <code><a href="../reference/is_prefecture.html">is_prefecture()</a></code>.</li></ul></li>
+<code><a href="../reference/harmonize_prefecture_name.html">harmonize_prefecture_name()</a></code>: New function for processing prefectural strings (<a href="https://github.com/uribo/zipangu/issues/37" class="external-link">#37</a>).
+<ul><li>Determine if the string is a prefecture string by <code><a href="../reference/is_prefecture.html">is_prefecture()</a></code>.</li>
+</ul></li>
 <li>
 <code>str_jnormalize</code>: New function for pre-processing Japanese characters following the rules of ‘neologd’ (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/36" class="external-link">#36</a>).</li>
 </ul></div>
@@ -89,25 +94,30 @@
 <div class="section level3">
 <h3 id="enhancement-0-3-0">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-0-3-0"></a></h3>
 <ul><li>
-<code><a href="../reference/jholiday.html">jholiday_spec()</a></code> is now memoised internally. This change makes its second and later calls faster. Also, multiple values of <code>name</code> are now acceptable. (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/38" class="external-link">#38</a>).</li></ul></div>
+<code><a href="../reference/jholiday.html">jholiday_spec()</a></code> is now memoised internally. This change makes its second and later calls faster. Also, multiple values of <code>name</code> are now acceptable. (<a href="https://github.com/paithiov909" class="external-link">@paithiov909</a>, <a href="https://github.com/uribo/zipangu/issues/38" class="external-link">#38</a>).</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.3" id="zipangu-023">zipangu 0.2.3<small>2021-02-07</small><a class="anchor" aria-label="anchor" href="#zipangu-023"></a></h2>
 <div class="section level3">
 <h3 id="fix-0-2-3">Fix<a class="anchor" aria-label="anchor" href="#fix-0-2-3"></a></h3>
-<ul><li>Determination of substitute holidays due to forgetting to update raw data (<a href="https://github.com/uribo/zipangu/issues/31" class="external-link">#31</a>).</li></ul></div>
+<ul><li>Determination of substitute holidays due to forgetting to update raw data (<a href="https://github.com/uribo/zipangu/issues/31" class="external-link">#31</a>).</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.2" id="zipangu-022">zipangu 0.2.2<small>2021-02-01</small><a class="anchor" aria-label="anchor" href="#zipangu-022"></a></h2>
 <div class="section level3">
 <h3 id="new-features-0-2-2">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-2-2"></a></h3>
-<ul><li>Added functions to convert Kansuji to Arabic numbers (<a href="https://github.com/indenkun" class="external-link">@indenkun</a> <a href="https://github.com/uribo/zipangu/issues/23" class="external-link">#23</a>).<ul><li>
+<ul><li>Added functions to convert Kansuji to Arabic numbers (<a href="https://github.com/indenkun" class="external-link">@indenkun</a> <a href="https://github.com/uribo/zipangu/issues/23" class="external-link">#23</a>).
+<ul><li>
 <code><a href="../reference/kansuji.html">kansuji2arabic_num()</a></code> converts Kansuji that containing kansuji for positions (e.g. <code>Hyaku</code>, <code>Sen</code>, etc) to Arabic numerals with the numbers represented by Kansuji (Fix <a href="https://github.com/uribo/zipangu/issues/8" class="external-link">#8</a>).</li>
 <li>
 <code><a href="../reference/kansuji.html">kansuji2arabic_str()</a></code> converts Kansuji in the string to Arabic numerals with the numbers they represent.</li>
 </ul></li>
-<li>Added functions to graph labels to handle Kansuji (<a href="https://github.com/indenkun" class="external-link">@indenkun</a> <a href="https://github.com/uribo/zipangu/issues/4" class="external-link">#4</a>).<ul><li>
-<code><a href="../reference/label_kansuji.html">label_kansuji()</a></code> and <code><a href="../reference/label_kansuji.html">label_kansuji_suffix()</a></code> converts the label value to either Kansuji value or mixture of Arabic numerals and the Kansuji Scales.</li></ul></li>
+<li>Added functions to graph labels to handle Kansuji (<a href="https://github.com/indenkun" class="external-link">@indenkun</a> <a href="https://github.com/uribo/zipangu/issues/4" class="external-link">#4</a>).
+<ul><li>
+<code><a href="../reference/label_kansuji.html">label_kansuji()</a></code> and <code><a href="../reference/label_kansuji.html">label_kansuji_suffix()</a></code> converts the label value to either Kansuji value or mixture of Arabic numerals and the Kansuji Scales.</li>
+</ul></li>
 </ul></div>
 <div class="section level3">
 <h3 id="enhancement-0-2-2">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-0-2-2"></a></h3>
@@ -121,7 +131,8 @@
 <div class="section level3">
 <h3 id="new-features-0-2-1">New Features<a class="anchor" aria-label="anchor" href="#new-features-0-2-1"></a></h3>
 <ul><li>
-<code><a href="../reference/convert_jdate.html">convert_jdate()</a></code> can converts the Japanese date format to as a date object.</li></ul></div>
+<code><a href="../reference/convert_jdate.html">convert_jdate()</a></code> can converts the Japanese date format to as a date object.</li>
+</ul></div>
 <div class="section level3">
 <h3 id="enhancement-0-2-1">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-0-2-1"></a></h3>
 <ul><li>
@@ -132,7 +143,8 @@
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.0" id="zipangu-020">zipangu 0.2.0<small>2020-01-10</small><a class="anchor" aria-label="anchor" href="#zipangu-020"></a></h2>
-<ul><li>Added several functions to handle postal code data.<ul><li>
+<ul><li>Added several functions to handle postal code data.
+<ul><li>
 <code><a href="../reference/read_zipcode.html">read_zipcode()</a></code> to read Japan post’s zip-code file and <code><a href="../reference/dl_zipcode_file.html">dl_zipcode_file()</a></code> for raw file download.</li>
 <li>
 <code><a href="../reference/is_zipcode.html">is_zipcode()</a></code> test zip-code. Only supports 7-digit numbers or characters.</li>
@@ -141,7 +153,8 @@
 </ul></li>
 <li>
 <code><a href="../reference/str_jconv.html">str_jconv()</a></code> and <code>str_conv_*()</code> converts the kind of string used as Japanese people.</li>
-<li>Added some functions related to Japanese holidays.<ul><li>
+<li>Added some functions related to Japanese holidays.
+<ul><li>
 <code><a href="../reference/jholiday.html">jholiday_spec()</a></code> to find date from corresponding year and holiday name and <code><a href="../reference/jholiday.html">jholiday()</a></code> is used to look up a list of holidays for the year.</li>
 <li>
 <code><a href="../reference/is_jholiday.html">is_jholiday()</a></code> whether the day is a holiday.</li>
@@ -150,7 +163,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="zipangu-010">zipangu 0.1.0<small>2019-12-01</small><a class="anchor" aria-label="anchor" href="#zipangu-010"></a></h2>
-<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li></ul></div>
+<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+</ul></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
