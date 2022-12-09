@@ -1,4 +1,4 @@
-# zipangu (development version)
+# zipangu 0.3.2
 
 # zipangu 0.3.1
 
