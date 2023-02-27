@@ -1,5 +1,9 @@
 # zipangu (development version)
 
+## Fix
+
+- Class mismatch in specification of argument legacy in `convert_jdate()` (#55).
+
 # zipangu 0.3.2
 
 # zipangu 0.3.1

@@ -75,10 +75,9 @@ split_ymd_elements <- function(x) {
             stringi::stri_trans_general(id = "nfkc") %>%
             stringr::str_split("(\u5e74|\u6708|\u65e5)|(\\.)|(\\-)|(\\/)",
                                simplify = TRUE) %>%
-            purrr::keep(~ nchar(.) > 0) %>%
+            stringr::str_subset(".$") |>
             purrr::modify_at(1,
-                             ~ convert_jyear_impl1(.x)) %>%
-            purrr::map(as.integer) %>%
+                             ~ as.character(convert_jyear_impl1(.x))) %>%
             purrr::set_names(c("year", "month", "day"))
         }
       }

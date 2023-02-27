@@ -46,6 +46,16 @@ test_that("convert japanese date format", {
     convert_jdate(c("\u5e73\u621030\u5e741\u67081\u65e5", "\u5e73\u621030\u5e742\u67081\u65e5", NA)),
     as.Date(c("2018-01-01", "2018-02-01", NA))
   )
+  expect_equal(
+    convert_jdate("\u4ee4\u548c4\u5e742\u670824\u65e5",
+                  legacy = TRUE),
+    as.Date("2022-02-24")
+  )
+  expect_equal(
+    convert_jdate("2023\u5e742\u670824\u65e5",
+                  legacy = TRUE),
+    as.Date("2023-02-24")
+  )
 })
 
 test_that("is_jyear() works", {
