@@ -45,7 +45,7 @@ places of precision.}
 \item{significant.digits}{Determines whether or not the value of accurary is
 valid as a significant figure with a decimal point. The default is FALSE, in
 which case if accurary is 2 and the value is 1.10, 1.1 will be displayed,
-but if TRUE and installed '{scales}` package, 1.10 will be displayed.}
+but if TRUE and installed \code{{scales}} package, 1.10 will be displayed.}
 }
 \value{
 All \code{label_()} functions return a "labelling" function, i.e. a function

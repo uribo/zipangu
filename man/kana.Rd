@@ -27,11 +27,7 @@ katakana(
 \arguments{
 \item{type}{"hiragana" ("hira") or "katakana" ("kata")}
 
-\item{...}{
-  Arguments passed on to \code{\link[=hiragana]{hiragana}}
-  \describe{
-    \item{\code{}}{}
-  }}
+\item{...}{Arguments passed on to \link{hiragana}}
 
 \item{core}{is include core kana characters.}
 
