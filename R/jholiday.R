@@ -10,7 +10,7 @@
 #' If this argument is not the same length of year, the first element will be recycled.
 #' @param lang switch for turning values to "en" or "jp".
 #' @references Public Holiday Law [https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html),
-#' [https://elaws.e-gov.go.jp/document?lawid=323AC1000000178](https://elaws.e-gov.go.jp/document?lawid=323AC1000000178)
+#' [https://laws.e-gov.go.jp/document?lawid=323AC1000000178](https://laws.e-gov.go.jp/document?lawid=323AC1000000178)
 #' @rdname jholiday
 #' @section Examples:
 #' ```{r, child = "man/rmd/setup.Rmd"}

@@ -90,5 +90,5 @@ List of a specific year holidays
 
 \references{
 Public Holiday Law \url{https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html},
-\url{https://elaws.e-gov.go.jp/document?lawid=323AC1000000178}
+\url{https://laws.e-gov.go.jp/document?lawid=323AC1000000178}
 }
