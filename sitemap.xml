@@ -1,87 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://uribo.github.io/zipangu/404.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/index.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/convert_jdate.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/convert_jyear.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/convert_prefecture.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/convert_prefecture_from_kana.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/dl_zipcode_file.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/find_date_by_wday.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/harmonize_prefecture_name.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/is_jholiday.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/is_prefecture.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/is_zipcode.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/jholiday.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/jpnprefs.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/kana.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/kansuji.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/label_kansuji.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/pipe.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/read_zipcode.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/separate_address.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/str_jconv.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/str_jnormalize.html</loc>
-  </url>
-  <url>
-    <loc>https://uribo.github.io/zipangu/reference/zipcode_spacer.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://uribo.github.io/zipangu/404.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/LICENSE-text.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/LICENSE.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/authors.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/index.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/news/index.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/convert_jdate.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/convert_jyear.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/convert_prefecture.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/convert_prefecture_from_kana.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/dl_zipcode_file.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/find_date_by_wday.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/harmonize_prefecture_name.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/index.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/is_jholiday.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/is_prefecture.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/is_zipcode.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/jholiday.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/jpnprefs.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/kana.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/kansuji.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/label_kansuji.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/pipe.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/read_zipcode.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/separate_address.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/str_jconv.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/str_jnormalize.html</loc></url>
+<url><loc>https://uribo.github.io/zipangu/reference/zipcode_spacer.html</loc></url>
 </urlset>
+
