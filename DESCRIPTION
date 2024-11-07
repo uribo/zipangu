@@ -45,7 +45,6 @@ Imports:
     arabic2kansuji (>= 0.1.0),
     stats
 Suggests: 
-    covr (>= 3.4.0),
     testthat (>= 2.1.0),
     scales (>= 1.1.0)
 Encoding: UTF-8

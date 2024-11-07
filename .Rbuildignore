@@ -3,10 +3,8 @@
 ^LICENSE\.md$
 ^data-raw$
 ^README\.Rmd$
-^\.travis\.yml$
 ^\.github$
 ^codecov\.yml$
-^\.covrignore$
 ^cran-comments\.md$
 ^\.env$
 ^Dockerfile$
