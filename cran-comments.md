@@ -1,5 +1,5 @@
 ## Test environments
-* local OS X install, R 4.2.1
+* local OS X install, R 4.4.2
 * win-builder (devel and release)
 * R-hub builder
 
@@ -7,7 +7,6 @@
 
 0 errors | 0 warnings | 1 note
 
-* re-generate the Rd files using the current CRAN version of roxygen2.
 * The note refers to miss-spelled words. One of this word is Kanji and Kana which used in the Japanese writing system.
 
 ```
