@@ -4,7 +4,7 @@
 #' Generates a vector consisting of the elements of kana.
 #' Options exist for the inclusion of several elements.
 #' @param type "hiragana" ("hira") or "katakana" ("kata")
-#' @inheritDotParams hiragana
+#' @param ... Arguments passed on to [hiragana]
 #' @rdname kana
 #' @examples
 #' kana(type = "hira", core = TRUE)
@@ -82,7 +82,6 @@ hiragana <- function(core = TRUE, dakuon = FALSE, handakuon = FALSE, kogaki = FA
                  intToUtf8)
 }
 
-#' @inheritParams hiragana
 #' @export
 #' @rdname kana
 katakana <- function(core = TRUE, dakuon = FALSE, handakuon = FALSE, kogaki = FALSE, historical = FALSE) {
