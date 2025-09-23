@@ -68,12 +68,16 @@ separate_address <- function(str) {
                 paste0(city_name_regex, "(.+)"),
                 replacement = "\\1"))
       }
-      res <-
-        res %>%
-        purrr::list_merge(
-          street = split_pref[2] %>%
-            stringr::str_remove(res %>%
-                                  purrr::pluck("city")))
+      if (!is.na(res$city)) {
+        res <-
+          res %>%
+          purrr::list_merge(
+            street = split_pref[2] %>%
+              stringr::str_remove(res %>%
+                                    purrr::pluck("city")))
+      } else {
+        res$street <- NA_character_
+      }
       res %>%
         purrr::map(
           ~ dplyr::if_else(.x == "", NA_character_, .x)
