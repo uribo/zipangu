@@ -68,6 +68,9 @@
 <div class="section level3">
 <h3 id="enhancement-development-version">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-development-version"></a></h3>
 <ul><li>Declare <code>R (&gt;= 4.1.0)</code> in <code>Depends</code>, reflecting use of the native pipe <code>|&gt;</code> and the lambda shorthand <code>\(x)</code>.</li>
+<li>Internal code now consistently uses the native pipe <code>|&gt;</code> (replacing magrittr <code>%&gt;%</code>). The re-export of <code>%&gt;%</code> is kept for backward compatibility.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/recode.html" class="external-link">dplyr::recode()</a></code> (superseded) is replaced with <code><a href="https://dplyr.tidyverse.org/reference/recode-and-replace-values.html" class="external-link">dplyr::replace_values()</a></code>. The minimum required version of <code>dplyr</code> is bumped to <code>&gt;= 1.2.0</code>.</li>
 </ul></div>
 </div>
     <div class="section level2">
