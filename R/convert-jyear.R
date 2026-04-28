@@ -2,8 +2,16 @@
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 #' @param jyear Japanese imperial year (jyear). Kanji or Roman character
-#' @param legacy A logical to switch converter. If `TRUE` supplied, use the legacy
-#' converter instead of 'ICU' implementation.
+#' @param legacy A logical to switch converter. If `TRUE` (the default), use the
+#' legacy converter based on `lubridate`. If `FALSE`, use the 'ICU' implementation
+#' via `stringi::stri_datetime_parse()` with the `ja-JP-u-ca-japanese` locale.
+#' The default can also be controlled globally by
+#' `options(zipangu.convert_jyear.legacy = FALSE)`.
+#' @section ICU implementation note:
+#' The non-legacy implementation depends on the system 'ICU' library through
+#' `stringi`. On some platforms (notably macOS with system 'ICU'), parsing with
+#' the `ja-JP-u-ca-japanese` locale can abort the R process. The legacy path is
+#' therefore used by default. See <https://github.com/uribo/zipangu/issues/60>.
 #' @section Examples:
 #' ```{r, child = "man/rmd/setup.Rmd"}
 #' ```
@@ -16,7 +24,8 @@
 #' convert_jyear(kansuji2arabic_all("\u5e73\u6210\u4e09\u5e74"))
 #' ```
 #' @export
-convert_jyear <- function(jyear, legacy = FALSE) {
+convert_jyear <- function(jyear,
+                          legacy = getOption("zipangu.convert_jyear.legacy", TRUE)) {
   if (legacy) {
     convert_jyear_impl1(jyear)
   } else {
@@ -28,8 +37,12 @@ convert_jyear <- function(jyear, legacy = FALSE) {
 #' @description
 #' \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 #' @param date A character object.
-#' @param legacy A logical to switch converter. If `TRUE` supplied, use the legacy
-#' converter instead of 'ICU' implementation.
+#' @param legacy A logical to switch converter. If `TRUE` (the default), use the
+#' legacy converter based on `lubridate`. If `FALSE`, use the 'ICU' implementation
+#' via `stringi::stri_datetime_parse()` with the `ja-JP-u-ca-japanese` locale.
+#' The default can also be controlled globally by
+#' `options(zipangu.convert_jdate.legacy = FALSE)`.
+#' @inheritSection convert_jyear ICU implementation note
 #' @section Examples:
 #' ```{r, child = "man/rmd/setup.Rmd"}
 #' ```
@@ -39,7 +52,8 @@ convert_jyear <- function(jyear, legacy = FALSE) {
 #' convert_jdate("\u4ee4\u548c2\u5e747\u67086\u65e5")
 #' ```
 #' @export
-convert_jdate <- function(date, legacy = FALSE) {
+convert_jdate <- function(date,
+                          legacy = getOption("zipangu.convert_jdate.legacy", TRUE)) {
   if (legacy) {
     convert_jdate_impl1(date)
   } else {

@@ -4,13 +4,16 @@
 \alias{convert_jdate}
 \title{Convert Japanese date format to date object}
 \usage{
-convert_jdate(date, legacy = FALSE)
+convert_jdate(date, legacy = getOption("zipangu.convert_jdate.legacy", TRUE))
 }
 \arguments{
 \item{date}{A character object.}
 
-\item{legacy}{A logical to switch converter. If \code{TRUE} supplied, use the legacy
-converter instead of 'ICU' implementation.}
+\item{legacy}{A logical to switch converter. If \code{TRUE} (the default), use the
+legacy converter based on \code{lubridate}. If \code{FALSE}, use the 'ICU' implementation
+via \code{stringi::stri_datetime_parse()} with the \code{ja-JP-u-ca-japanese} locale.
+The default can also be controlled globally by
+\code{options(zipangu.convert_jdate.legacy = FALSE)}.}
 }
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
@@ -23,5 +26,13 @@ converter instead of 'ICU' implementation.}
 convert_jdate("\\u4ee4\\u548c2\\u5e747\\u67086\\u65e5")
 #> [1] "2020-07-06"
 }\if{html}{\out{</div>}}
+}
+
+\section{ICU implementation note}{
+
+The non-legacy implementation depends on the system 'ICU' library through
+\code{stringi}. On some platforms (notably macOS with system 'ICU'), parsing with
+the \code{ja-JP-u-ca-japanese} locale can abort the R process. The legacy path is
+therefore used by default. See \url{https://github.com/uribo/zipangu/issues/60}.
 }
 

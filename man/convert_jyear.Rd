@@ -4,17 +4,28 @@
 \alias{convert_jyear}
 \title{Convert Japanese imperial year to Anno Domini}
 \usage{
-convert_jyear(jyear, legacy = FALSE)
+convert_jyear(jyear, legacy = getOption("zipangu.convert_jyear.legacy", TRUE))
 }
 \arguments{
 \item{jyear}{Japanese imperial year (jyear). Kanji or Roman character}
 
-\item{legacy}{A logical to switch converter. If \code{TRUE} supplied, use the legacy
-converter instead of 'ICU' implementation.}
+\item{legacy}{A logical to switch converter. If \code{TRUE} (the default), use the
+legacy converter based on \code{lubridate}. If \code{FALSE}, use the 'ICU' implementation
+via \code{stringi::stri_datetime_parse()} with the \code{ja-JP-u-ca-japanese} locale.
+The default can also be controlled globally by
+\code{options(zipangu.convert_jyear.legacy = FALSE)}.}
 }
 \description{
 \Sexpr[results=rd, stage=render]{lifecycle::badge("maturing")}
 }
+\section{ICU implementation note}{
+
+The non-legacy implementation depends on the system 'ICU' library through
+\code{stringi}. On some platforms (notably macOS with system 'ICU'), parsing with
+the \code{ja-JP-u-ca-japanese} locale can abort the R process. The legacy path is
+therefore used by default. See \url{https://github.com/uribo/zipangu/issues/60}.
+}
+
 \section{Examples}{
 
 

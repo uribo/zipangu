@@ -1,5 +1,9 @@
 # zipangu (development version)
 
+## Breaking changes
+
+- `convert_jyear()` and `convert_jdate()`: the default of `legacy` is changed from `FALSE` to `TRUE` (#60). The non-legacy ('ICU'-based) path can abort the R process on platforms where `stringi` is linked against system 'ICU' (e.g. macOS), and the failure cannot be caught from R. The legacy path based on `lubridate` is now the default, and the previous behaviour is opt-in via `legacy = FALSE` or `options(zipangu.convert_jyear.legacy = FALSE)` / `options(zipangu.convert_jdate.legacy = FALSE)`.
+
 # zipangu 0.3.3
 
 ## Fix
