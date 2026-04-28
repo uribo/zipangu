@@ -29,8 +29,8 @@ License: MIT + file LICENSE
 URL: https://uribo.github.io/zipangu/,
     https://github.com/uribo/zipangu
 BugReports: https://github.com/uribo/zipangu/issues
-Depends: 
-    R (>= 3.2)
+Depends:
+    R (>= 4.1.0)
 Imports: 
     dplyr (>= 0.8.3),
     lifecycle (>= 0.1.0),
@@ -51,4 +51,4 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

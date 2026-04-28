@@ -4,6 +4,14 @@
 
 - `convert_jyear()` and `convert_jdate()`: the default of `legacy` is changed from `FALSE` to `TRUE` (#60). The non-legacy ('ICU'-based) path can abort the R process on platforms where `stringi` is linked against system 'ICU' (e.g. macOS), and the failure cannot be caught from R. The legacy path based on `lubridate` is now the default, and the previous behaviour is opt-in via `legacy = FALSE` or `options(zipangu.convert_jyear.legacy = FALSE)` / `options(zipangu.convert_jdate.legacy = FALSE)`.
 
+## Fix
+
+- `separate_address()`: handle `NA` patterns in `stringr::str_remove()` for compatibility with stringr 1.6.0 (@hadley, #59).
+
+## Enhancement
+
+- Declare `R (>= 4.1.0)` in `Depends`, reflecting use of the native pipe `|>` and the lambda shorthand `\(x)`.
+
 # zipangu 0.3.3
 
 ## Fix
