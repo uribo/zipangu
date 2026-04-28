@@ -188,7 +188,7 @@ dl_zipcode_file <- function(path, exdir = NULL) {
     unzip_path <-
       stringr::str_to_upper(stringr::str_replace(basename(path),
                                                  "zip",
-                                                 "CSV")) %>%
+                                                 "CSV")) |>
       stringr::str_remove("\\?.+")
     dl_file_path <-
       list.files(exdir,

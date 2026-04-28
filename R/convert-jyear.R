@@ -62,7 +62,7 @@ convert_jdate <- function(date,
 }
 
 convert_jyear_impl2 <- function(jyear) {
-  jyear <- stringi::stri_trim(jyear) %>%
+  jyear <- stringi::stri_trim(jyear) |>
     stringi::stri_trans_nfkc()
 
   dplyr::if_else(
@@ -71,7 +71,7 @@ convert_jyear_impl2 <- function(jyear) {
       stringi::stri_datetime_parse(
         jyear,
         format = "yy\u5e74"
-      ) %>%
+      ) |>
         lubridate::year()
     },
     {
@@ -79,38 +79,38 @@ convert_jyear_impl2 <- function(jyear) {
         format_jdate(jyear),
         format = "Gy\u5e74",
         locale = "ja-JP-u-ca-japanese"
-      ) %>%
+      ) |>
         lubridate::year()
     }
   )
 }
 
 convert_jdate_impl2 <- function(jdate) {
-  jdate <- stringi::stri_trim(jdate) %>%
-    stringi::stri_trans_nfkc() %>%
+  jdate <- stringi::stri_trim(jdate) |>
+    stringi::stri_trans_nfkc() |>
     format_jdate()
 
   sp <- stringi::stri_split_regex(
     jdate,
     "(\u5e74|\u6708|\u65e5)|(\\.)|(\\-)|(\\/)",
-  ) %>%
+  ) |>
     purrr::map_chr(~ paste0(.[1], "\u5e74", .[2], "\u6708", .[3], "\u65e5"))
 
   stringi::stri_datetime_parse(
     sp,
     format = "Gy\u5e74M\u6708d\u65e5",
     locale = "ja-JP-u-ca-japanese"
-  ) %>%
+  ) |>
     lubridate::as_date()
 }
 
 format_jdate <- function(jdate) {
-  stringi::stri_trans_tolower(jdate) %>%
+  stringi::stri_trans_tolower(jdate) |>
     stringi::stri_replace_all_regex(
       c("meiji", "taisyo|taisho|taisyou", "syouwa|showa", "heisei", "reiwa"),
       c("m", "t", "s", "h", "r"),
       vectorise_all = FALSE
-    ) %>%
+    ) |>
     stringi::stri_replace_all_regex(
       c("m|\u660e(?!\u6cbb)", "t|\u5927(?!\u6b63)", "s|\u662d(?!\u548c)", "h|\u5e73(?!\u6210)", "r|\u4ee4(?!\u548c)"),
       c("\u660e\u6cbb", "\u5927\u6b63", "\u662d\u548c", "\u5e73\u6210", "\u4ee4\u548c"),

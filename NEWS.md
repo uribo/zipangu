@@ -11,6 +11,8 @@
 ## Enhancement
 
 - Declare `R (>= 4.1.0)` in `Depends`, reflecting use of the native pipe `|>` and the lambda shorthand `\(x)`.
+- Internal code now consistently uses the native pipe `|>` (replacing magrittr `%>%`). The re-export of `%>%` is kept for backward compatibility.
+- `dplyr::recode()` (superseded) is replaced with `dplyr::replace_values()`. The minimum required version of `dplyr` is bumped to `>= 1.2.0`.
 
 # zipangu 0.3.3
 

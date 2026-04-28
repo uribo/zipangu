@@ -23,17 +23,17 @@ str_jnormalize <- function(str) {
   res <- str_conv_normalize(str, to = "nfkc")
   res <- stringr::str_replace_all(
     res,
-    c("\'", "\"") %>%
-    purrr::set_names(c(intToUtf8(8217), intToUtf8(8221)))) %>%
+    c("\'", "\"") |>
+    purrr::set_names(c(intToUtf8(8217), intToUtf8(8221)))) |>
   stringr::str_replace_all(
     "[\\-\u02d7\u058a\u2010\u2011\u2012\u2013\u2043\u207b\u208b\u2212]+", "-"
-  ) %>%
+  ) |>
   stringr::str_replace_all(
     "[\ufe63\uff0d\uff70\u2014\u2015\u2500\u2501\u30fc]+", enc2utf8("\u30fc")
-  ) %>%
+  ) |>
   stringr::str_replace_all(
     "([:blank:]){2,}", " "
-  ) %>%
+  ) |>
   stringr::str_replace_all(
     stringr::str_c(
       "([\uff10-\uff19\u3041-\u3093\u30a1-\u30f6\u30fc\u4e00-\u9fa0[:punct:]]+)",
@@ -41,7 +41,7 @@ str_jnormalize <- function(str) {
       "([\u0021-\u007e[:punct:]]+)"
     ),
     "\\1\\2"
-  ) %>%
+  ) |>
   stringr::str_replace_all(
     stringr::str_c(
       "([\u0021-\u007e\uff10-\uff19\u3041-\u3093\u30a1-\u30f6\u30fc\u4e00-\u9fa0[:punct:]]*)",

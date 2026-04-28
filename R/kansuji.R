@@ -35,7 +35,7 @@ kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
     c(0,
       seq.int(0, 10),
       10^c(seq.int(2, 4), 8, 12, 16)
-    ) %>%
+    ) |>
     purrr::set_names(
       stringr::str_split(
         paste0(
@@ -44,16 +44,18 @@ kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
           "\u767e\u5343\u4e07",
           "\u5104\u5146\u4eac"),
         pattern = stringr::boundary("character"),
-        simplify = TRUE)) %>%
+        simplify = TRUE)) |>
     purrr::keep(
-      ~ .x < .under) %>%
+      ~ .x < .under) |>
     purrr::map(
       ~ as.character(.x)
     )
   res <-
-    dplyr::recode(str, !!!kanjiarabic_key)
+    dplyr::replace_values(str,
+                          from = names(kanjiarabic_key),
+                          to = unlist(kanjiarabic_key, use.names = FALSE))
   if (convert == FALSE)
-    res <- res %>% as.numeric()
+    res <- res |> as.numeric()
   res
 }
 
@@ -63,9 +65,9 @@ kansuji2arabic <- function(str, convert = TRUE, .under = Inf) {
 kansuji2arabic_all <- function(str, ...) {
   purrr::map_chr(str, function(str, ...){
     stringr::str_split(str,
-                       pattern = stringr::boundary("character")) %>%
-      purrr::map(kansuji2arabic, ...) %>%
-      purrr::reduce(c) %>%
+                       pattern = stringr::boundary("character")) |>
+      purrr::map(kansuji2arabic, ...) |>
+      purrr::reduce(c) |>
       paste(collapse = "")
   }, ...)
 }
@@ -79,7 +81,7 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
   }
 
   n <- stringr::str_split(str,
-                          pattern = stringr::boundary("character"))%>%
+                          pattern = stringr::boundary("character"))|>
     purrr::reduce(c)
 
   if(any(stringr::str_detect(n, pattern = "[^\u96f6\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343\u4e07\u5104\u5146\u4eac]"))){
@@ -87,7 +89,7 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
     return(NA)
   }
 
-  n <- n %>% purrr::map(kansuji2arabic) %>% as.numeric()
+  n <- n |> purrr::map(kansuji2arabic) |> as.numeric()
 
   if(!any(n >= 10) && length(n) > 1){
     if(consecutive == "convert") return(kansuji2arabic_all(str, ...))
@@ -172,7 +174,7 @@ kansuji2arabic_num_single <- function(str, consecutive = c("convert", "non"), ..
 kansuji2arabic_num <- function(str, consecutive = c("convert", "non"), ...){
   consecutive <- match.arg(consecutive)
 
-  purrr::map(str, kansuji2arabic_num_single, consecutive, ...) %>% unlist()
+  purrr::map(str, kansuji2arabic_num_single, consecutive, ...) |> unlist()
 }
 
 kansuji2arabic_str_single <- function(str, consecutive = c("convert", "non"), widths = c("all", "halfwidth"), ...){
@@ -241,5 +243,5 @@ kansuji2arabic_str <- function(str, consecutive = c("convert", "non"), widths = 
   consecutive <- match.arg(consecutive)
   widths <- match.arg(widths)
 
-  purrr::map(str, kansuji2arabic_str_single, consecutive, widths, ...) %>% unlist()
+  purrr::map(str, kansuji2arabic_str_single, consecutive, widths, ...) |> unlist()
 }

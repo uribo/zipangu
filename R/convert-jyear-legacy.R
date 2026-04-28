@@ -28,15 +28,15 @@ convert_jyear_impl1 <- function(jyear) {
         jyear_wareki,
         pattern = "[0-9]{1,2}"))
   wareki_roman <-
-    stringr::str_sub(jyear_wareki, 1, 1) %>%
+    stringr::str_sub(jyear_wareki, 1, 1) |>
     purrr::map_chr(convert_jyear_roman)
   res[idx_wareki] <-
     wareki_yr +
-    wareki_roman %>%
+    wareki_roman |>
     purrr::map_dbl(function(.x) {
-      jyear_sets %>%
-        purrr::map("start_year") %>%
-        purrr::map(~ .x - 1) %>%
+      jyear_sets |>
+        purrr::map("start_year") |>
+        purrr::map(~ .x - 1) |>
         purrr::pluck(stringr::str_which(.x, names(jyear_sets)))
     })
 
@@ -44,11 +44,11 @@ convert_jyear_impl1 <- function(jyear) {
 }
 
 convert_jdate_impl1 <- function(date) {
-  date %>%
+  date |>
     purrr::map(
       ~ rlang::exec(lubridate::make_date,
                     !!!split_ymd_elements(.x))
-    ) %>%
+    ) |>
     purrr::reduce(c)
 }
 
@@ -65,39 +65,39 @@ jyear_initial_tolower <- function(jyear) {
 }
 
 split_ymd_elements <- function(x) {
-  x %>%
+  x |>
     purrr::map(
       function(.x) {
         if (is.na(.x)) {
           NA_real_
         } else {
-          .x %>%
-            stringi::stri_trans_general(id = "nfkc") %>%
+          .x |>
+            stringi::stri_trans_general(id = "nfkc") |>
             stringr::str_split("(\u5e74|\u6708|\u65e5)|(\\.)|(\\-)|(\\/)",
-                               simplify = TRUE) %>%
+                               simplify = TRUE) |>
             stringr::str_subset(".$") |>
             purrr::modify_at(1,
-                             ~ as.character(convert_jyear_impl1(.x))) %>%
+                             ~ as.character(convert_jyear_impl1(.x))) |>
             purrr::set_names(c("year", "month", "day"))
         }
       }
-      ) %>%
+      ) |>
     purrr::flatten()
 }
 
 is_jyear <- function(jyear) {
   pattern <- paste0(
     "^(",
-    paste(jyear_sets %>%
-            purrr::map(~ .x[c("kanji", "roman")]) %>%
-            purrr::flatten() %>%
+    paste(jyear_sets |>
+            purrr::map(~ .x[c("kanji", "roman")]) |>
+            purrr::flatten() |>
             purrr::as_vector(),
           collapse = "|"),
     ")")
   res <-
     stringr::str_detect(jyear_initial_tolower(jyear),
                         pattern)
-  res %>%
+  res |>
     purrr::map2_lgl(
       .y = jyear,
       function(.x, .y) {
@@ -106,8 +106,8 @@ is_jyear <- function(jyear) {
         } else if (.x == FALSE) {
           pattern <- paste0(
             "^(",
-            paste(jyear_sets %>%
-                    purrr::map(~ .x[c("kanji_capital", "roman_capital")]) %>%
+            paste(jyear_sets |>
+                    purrr::map(~ .x[c("kanji_capital", "roman_capital")]) |>
                     purrr::flatten(),
                   collapse = "|"),
             ")([0-9]|[\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341])")
@@ -123,19 +123,19 @@ is_jyear <- function(jyear) {
 convert_jyear_roman <- function(x) {
   check_roman <-
     stringr::str_which(x,
-                       jyear_sets %>%
-                         purrr::map(`[`, c("roman_capital")) %>%
+                       jyear_sets |>
+                         purrr::map(`[`, c("roman_capital")) |>
                          unlist())
   if (length(check_roman) > 0) {
     names(jyear_sets)[check_roman]
   } else {
     l_kanji <-
-      jyear_sets %>%
+      jyear_sets |>
       purrr::map_chr("kanji_capital")
     l_roman <-
-      names(l_kanji) %>%
+      names(l_kanji) |>
       purrr::set_names(l_kanji)
-    dplyr::recode(x, !!!l_roman)
+    dplyr::replace_values(x, from = names(l_roman), to = unname(l_roman))
   }
 }
 
@@ -150,15 +150,15 @@ jyear_sets <-
          c("taisyo", "taisho", "taisyou"),
          c("syouwa", "showa"),
          "heisei",
-         "reiwa")) %>%
-  rep(each = 2) %>%
+         "reiwa")) |>
+  rep(each = 2) |>
   purrr::map_at(2,
-                ~ stringr::str_sub(.x, 1, 1)) %>%
+                ~ stringr::str_sub(.x, 1, 1)) |>
   purrr::map_at(4,
-                ~ purrr::map(.x, stringr::str_sub, 1, 1) %>%
-                  unlist() %>%
-                  unique()) %>%
-  purrr::set_names(c("kanji", "kanji_capital", "roman", "roman_capital")) %>%
-  purrr::list_merge(start_year = c(1868, 1912, 1926, 1989, 2019)) %>%
-  purrr::transpose(.names = c("meiji", "taisyo", "syouwa", "heisei", "reiwa")) %>%
+                ~ purrr::map(.x, stringr::str_sub, 1, 1) |>
+                  unlist() |>
+                  unique()) |>
+  purrr::set_names(c("kanji", "kanji_capital", "roman", "roman_capital")) |>
+  purrr::list_merge(start_year = c(1868, 1912, 1926, 1989, 2019)) |>
+  purrr::transpose(.names = c("meiji", "taisyo", "syouwa", "heisei", "reiwa")) |>
   purrr::simplify()

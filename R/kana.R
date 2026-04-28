@@ -86,7 +86,7 @@ hiragana <- function(core = TRUE, dakuon = FALSE, handakuon = FALSE, kogaki = FA
 #' @rdname kana
 katakana <- function(core = TRUE, dakuon = FALSE, handakuon = FALSE, kogaki = FALSE, historical = FALSE) {
   x <-
-    hiragana(core = core, dakuon = dakuon, handakuon = handakuon, kogaki = kogaki, historical = historical) %>%
+    hiragana(core = core, dakuon = dakuon, handakuon = handakuon, kogaki = kogaki, historical = historical) |>
     stringi::stri_trans_general(id = "kana")
   if (kogaki == TRUE) {
     x <-

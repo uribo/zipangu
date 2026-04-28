@@ -54,8 +54,8 @@ jholiday_spec <- function(year, name, lang = "en") {
           )
         }
         rlang::env_get(.pkgenv, fn_name, inherit = TRUE)(nm)
-      }) %>%
-        unlist() %>%
+      }) |>
+        unlist() |>
         lubridate::as_date()
     res
   }
@@ -166,23 +166,23 @@ jholiday <- function(year, lang = "en") {
   jholiday_names <- jholiday_list[[lang]]
   if (are_all_current_law_yr(year)) {
     res <-
-      jholiday_names %>%
-      purrr::map(~ jholiday_spec(year, name = .x, lang = lang)) %>%
+      jholiday_names |>
+      purrr::map(~ jholiday_spec(year, name = .x, lang = lang)) |>
       purrr::set_names(jholiday_names)
     res <-
       res[!duplicated(res)]
     res <-
-      res %>%
-      purrr::discard(~ all(is.na(.))) %>%
+      res |>
+      purrr::discard(~ all(is.na(.))) |>
       purrr::imap(function(x, y) {
         sort(x)
       })
     res <-
-      res[res %>%
-          purrr::map(1) %>%
-          purrr::flatten_dbl() %>%
-          purrr::set_names(names(res)) %>%
-          sort() %>%
+      res[res |>
+          purrr::map(1) |>
+          purrr::flatten_dbl() |>
+          purrr::set_names(names(res)) |>
+          sort() |>
           names()]
     res
   }

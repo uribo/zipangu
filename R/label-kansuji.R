@@ -38,7 +38,7 @@ label_kansuji <- function(unit = NULL, sep = "", prefix = "", big.mark = "", num
   if(number == "arabic"){
     function(x){
       purrr::map_chr(x, function(x){
-        x <- prettyNum(x, scientific = FALSE) %>% arabic2kansuji::arabic2kansuji_all()
+        x <- prettyNum(x, scientific = FALSE) |> arabic2kansuji::arabic2kansuji_all()
         x.kansuji <- stringr::str_split(x, pattern = "[^\u3007\u4e00\u4e8c\u4e09\u56db\u4e94\u516d\u4e03\u516b\u4e5d\u5341\u767e\u5343]")[[1]]
         x.kansuji[x.kansuji == ""] <- NA
         x.kansuji <- stats::na.omit(x.kansuji)
@@ -52,7 +52,7 @@ label_kansuji <- function(unit = NULL, sep = "", prefix = "", big.mark = "", num
     }
   }else if(number == "kansuji"){
     function(x){
-      x <- prettyNum(x, scientific = FALSE) %>% arabic2kansuji::arabic2kansuji_all(...)
+      x <- prettyNum(x, scientific = FALSE) |> arabic2kansuji::arabic2kansuji_all(...)
       paste0(prefix, x, unit, sep = sep)
     }
   }
