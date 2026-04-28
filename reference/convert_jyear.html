@@ -59,7 +59,7 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert_jyear</span><span class="op">(</span><span class="va">jyear</span>, legacy <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert_jyear</span><span class="op">(</span><span class="va">jyear</span>, legacy <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"zipangu.convert_jyear.legacy"</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -71,10 +71,22 @@
 
 
 <dt id="arg-legacy">legacy<a class="anchor" aria-label="anchor" href="#arg-legacy"></a></dt>
-<dd><p>A logical to switch converter. If <code>TRUE</code> supplied, use the legacy
-converter instead of 'ICU' implementation.</p></dd>
+<dd><p>A logical to switch converter. If <code>TRUE</code> (the default), use the
+legacy converter based on <code>lubridate</code>. If <code>FALSE</code>, use the 'ICU' implementation
+via <code><a href="https://rdrr.io/pkg/stringi/man/stri_datetime_format.html" class="external-link">stringi::stri_datetime_parse()</a></code> with the <code>ja-JP-u-ca-japanese</code> locale.
+The default can also be controlled globally by
+<code>options(zipangu.convert_jyear.legacy = FALSE)</code>.</p></dd>
 
 </dl></div>
+    <div id="icu-implementation-note">
+    <h2>ICU implementation note</h2>
+
+
+<p>The non-legacy implementation depends on the system 'ICU' library through
+<code>stringi</code>. On some platforms (notably macOS with system 'ICU'), parsing with
+the <code>ja-JP-u-ca-japanese</code> locale can abort the R process. The legacy path is
+therefore used by default. See <a href="https://github.com/uribo/zipangu/issues/60" class="external-link">https://github.com/uribo/zipangu/issues/60</a>.</p>
+    </div>
     <div id="examples">
     <h2>Examples</h2>
 

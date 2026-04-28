@@ -55,6 +55,20 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="development version" id="zipangu-development-version">zipangu (development version)<a class="anchor" aria-label="anchor" href="#zipangu-development-version"></a></h2>
+<div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/convert_jyear.html">convert_jyear()</a></code> and <code><a href="../reference/convert_jdate.html">convert_jdate()</a></code>: the default of <code>legacy</code> is changed from <code>FALSE</code> to <code>TRUE</code> (<a href="https://github.com/uribo/zipangu/issues/60" class="external-link">#60</a>). The non-legacy (‘ICU’-based) path can abort the R process on platforms where <code>stringi</code> is linked against system ‘ICU’ (e.g. macOS), and the failure cannot be caught from R. The legacy path based on <code>lubridate</code> is now the default, and the previous behaviour is opt-in via <code>legacy = FALSE</code> or <code>options(zipangu.convert_jyear.legacy = FALSE)</code> / <code>options(zipangu.convert_jdate.legacy = FALSE)</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="fix-development-version">Fix<a class="anchor" aria-label="anchor" href="#fix-development-version"></a></h3>
+<ul><li>
+<code><a href="../reference/separate_address.html">separate_address()</a></code>: handle <code>NA</code> patterns in <code><a href="https://stringr.tidyverse.org/reference/str_remove.html" class="external-link">stringr::str_remove()</a></code> for compatibility with stringr 1.6.0 (<a href="https://github.com/hadley" class="external-link">@hadley</a>, <a href="https://github.com/uribo/zipangu/issues/59" class="external-link">#59</a>).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="enhancement-development-version">Enhancement<a class="anchor" aria-label="anchor" href="#enhancement-development-version"></a></h3>
+<ul><li>Declare <code>R (&gt;= 4.1.0)</code> in <code>Depends</code>, reflecting use of the native pipe <code>|&gt;</code> and the lambda shorthand <code>\(x)</code>.</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.3" id="zipangu-033">zipangu 0.3.3<small>2024-11-07</small><a class="anchor" aria-label="anchor" href="#zipangu-033"></a></h2>
